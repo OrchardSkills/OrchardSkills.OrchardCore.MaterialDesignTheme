@@ -1,0 +1,27 @@
+{% zone "Header" %}
+    <!-- Page Header -->
+    <!-- Set your background image for this header on the line below. -->
+    {% assign imagePath = Model.ContentItem.Content.Blog.Image.Paths.first %}
+    {% if imagePath == nil %}
+        <header class="masthead" style="background-image: url('{{ "~/MaterialDesignTheme/img/home-bg.jpg" | href }}')">
+    {% else %}
+        <header class="masthead" style="background-image: url('{{ imagePath | asset_url }}')">
+    {% endif %}
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-10 mx-auto">
+                    <div class="site-heading">
+                        <h1 style="z-index: 9999; position: relative; color: white !important">{{ Model.ContentItem.DisplayText }}</h1>
+                        <span style="z-index: 9999; position: relative; color: white !important" class="subheading">{{ Model.Content.HtmlBodyPart | shape_render }}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+{% endzone %}
+
+{% shape_remove_item Model.Content "HtmlBodyPart" %}
+{% shape_remove_item Model.Content "Blog-Image" %}
+
+{{ Model.Content | shape_render }}

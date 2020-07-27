@@ -1,0 +1,228 @@
+﻿<!DOCTYPE html>
+<html lang="@Orchard.CultureName()">
+
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-155389255-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'UA-155389255-1');
+    </script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>@RenderTitleSegments(Site.SiteName, "before")</title>
+    <link type="image/x-icon" rel="shortcut icon" href="~/MaterialDesignTheme/favicon.ico" />
+    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet'
+          type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
+          rel='stylesheet' type='text/css'>
+
+    <link rel="canonical" href="https://orchardskills.com/" />
+    <!-- Search Engine -->
+    <meta name="description" content="Orchard Core, ASP.NET Core, Content Management System, Orchard Skills specializes in handcrafted Web Solutions utilizing the Orchard Core CMS modular framework.">
+    <meta name="image" content="/MaterialDesignTheme/img/orchard-skills-1200x628.png">
+    <!-- Schema.org for Google -->
+    <meta itemprop="name" content="@RenderTitleSegments(Site.SiteName, "before")">
+    <meta itemprop="description" content="Orchard Core, ASP.NET Core, Content Management System, Orchard Skills specializes in handcrafted Web Solutions utilizing the Orchard Core CMS modular framework.">
+    <meta itemprop="image" content="/MaterialDesignTheme/img/orchard-skills-1200x628.png">
+    <!-- Open Graph general -->
+    <meta property="og:image" content="/MaterialDesignTheme/img/orchard-skills-1200x628.png">
+    <meta property="og:image:secure_url" content="/MaterialDesignTheme/img/orchard-skills-1200x628.png" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="628" />
+    <meta property="og:image:alt" content="Orchard Skills logo" />
+    <meta property="og:url" content="https://OrchardSkills.com/">
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Orchard Skills" />
+    <meta property="og:locale" content="en" />
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:description" content="Orchard Core, ASP.NET Core, Content Management System, Orchard Skills specializes in handcrafted Web Solutions utilizing the Orchard Core CMS modular framework." />
+    <meta name="twitter:title" content="Orchard Skills" />
+    <meta name="twitter:site" content="@@orchardskills" />
+    <meta name="twitter:image" content="/MaterialDesignTheme/img/orchard-skills-1200x628.png" />
+    <meta name="twitter:creator" content="@@orchardskills" />
+    <!-- Facebook -->
+    <meta name="fb:admins" content="106748460853728">
+    <!-- Apple -->
+    <meta name="theme-color" content="#1976d2">
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-touch-fullscreen" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="Orchard Skills">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <link rel="apple-touch-icon" sizes="57x57" href="/MaterialDesignTheme/icons/icon-57x57.png" />
+    <link rel="apple-touch-icon" sizes="72x72" href="/MaterialDesignTheme/icons/icon-72x72.png" />
+    <link rel="apple-touch-icon" sizes="114x114" href="/MaterialDesignTheme/dist/icons/icon-114x114.png" />
+    <link rel="apple-touch-icon" sizes="120x120" href="/MaterialDesignTheme/icons/icon-120x120.png" />
+    <link rel="apple-touch-icon" sizes="144x144" href="/MaterialDesignTheme/icons/icon-144x144.png" />
+
+    <!-- Material Design Theme CSS -->
+    <style asp-name="MaterialDesignTheme-css" , version:"1"></style>
+
+    <!-- Custom styles -->
+    <style asp-src="~/MaterialDesignTheme/css/styles.css" debug-src="~/MaterialDesignTheme/css/styles.css"></style>
+
+    <!-- Custom fonts for this template -->
+    <style asp-name="MaterialDesignTheme-vendor-font-awesome" version="5"></style>
+
+    <!-- Material Design Theme JavaScript -->
+    <script asp-name="MaterialDesignTheme-js" at="Foot" version="1"></script>
+
+    @* Animation on scroll *@
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    @*
+        <script asp-src="~/OrchardCore.Menu/Scripts/activate-links.min.js"
+            debug-src="~/OrchardCore.Menu/Scripts/activate-links.js" at="Foot"></script> *@
+
+    <resources type="Meta" />
+    <resources type="HeadLink" />
+    <resources type="Stylesheet" />
+    <resources type="HeadScript" />
+</head>
+
+<body dir="@Orchard.CultureDir()">
+    <nav class="navbar navbar-expand-lg navbar-color" id="mainNav" style="position: sticky;
+right: 0;
+left: 0;
+z-index: 1030;">
+        <div class="container">
+            <div class="logo">
+                <a class="navbar-brand" href="~/#"><img width="40px" height="40px"
+                        src="/MaterialDesignTheme/icons/icon-57x57.png" alt="Logo">@Site.SiteName</a>
+                <!-- Toggle button -->
+                <label id="switch" class="switch navbar-item">
+                    <input type="checkbox" onchange="toggleTheme()" id="slider">
+                    <span class="slider round"></span>
+                </label>
+            </div>
+
+            <button class="navbar-toggler nav-tgl" type="button" data-toggle="collapse"
+                data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+                <div class="text-center ml-auto">
+
+
+                    <a style="color: #fff !important;" type="button"
+                        href="https://www.facebook.com/Orchard-Skills-106748460853728/" 
+                        target="_blank" 
+                        rel="noreferrer" 
+                        class="btn btn-primary btn-floating mx-1">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+
+                    <a style="color: #fff !important;" type="button" href="https://twitter.com/OrchardSkills/" 
+                        target="_blank" 
+                        rel="noreferrer" 
+                        class="btn btn-primary btn-floating mx-1">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+
+                    <a style="color: #fff !important;" type="button" href="https://github.com/OrchardSkills/" 
+                        target="_blank" 
+                        rel="noreferrer" 
+                        class="btn btn-primary btn-floating mx-1"> 
+                        <i class="fab fa-github"></i>
+                    </a>
+
+                    <a style="color: #fff !important;" type="button"
+                        href="https://www.youtube.com/channel/UCTwti4IV-uER89I39lTln0Q/" 
+                        target="_blank" 
+                        rel="noreferrer" 
+                        class="btn btn-primary btn-floating mx-1">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+
+                </div>
+                <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
+                    <menu alias="alias:main-menu" cache-id="main-menu" cache-fixed-duration="00:05:00"
+                        cache-tag="alias:main-menu" />
+                    <partial name="LoginMenu" />
+                </ul>
+            </div>
+
+        </div>
+
+    </nav>
+    @await RenderSectionAsync("Header", required: false)
+    <main role="main" class="">
+        @await RenderSectionAsync("Messages", required: false)
+        @await RenderBodyAsync()
+    </main>
+    <hr>
+    @await RenderSectionAsync("Footer", required: false)
+    <resources type="FootScript" />
+    <script src="~/MaterialDesignTheme/js/rellax.js"></script>
+    <script>
+        // Accepts any class name
+        var rellax = new Rellax('.rellax', {
+            speed: -2,
+            center: false,
+            wrapper: null,
+            round: true,
+            vertical: true,
+            horizontal: false
+        });
+    </script>
+
+    <script>
+        AOS.init();
+    </script>
+    <script>
+        const btn = document.querySelector('.nav-tgl');
+        btn.addEventListener('click', evt => {
+            btn.classList.toggle('active');
+        })
+    </script>
+    <script>
+        var prevScrollpos = window.pageYOffset;
+        window.onscroll = function () {
+            var currentScrollPos = window.pageYOffset;
+            const nav = document.querySelector('#mainNav');
+            if (prevScrollpos > currentScrollPos) {
+                nav.style.top = "0";
+            } else {
+                nav.style.top = "-70px";
+            }
+            prevScrollpos = currentScrollPos;
+        }
+    </script>
+    <script>
+
+        // function to set a given theme/color-scheme
+        function setTheme(themeName) {
+            localStorage.setItem('theme', themeName);
+            document.documentElement.className = themeName;
+        }
+        // function to toggle between light and dark theme
+        function toggleTheme() {
+            if (localStorage.getItem('theme') === 'theme-dark') {
+                setTheme('theme-light');
+            } else {
+                setTheme('theme-dark');
+            }
+        }
+        // Immediately invoked function to set the theme on initial load
+        (function () {
+            if (localStorage.getItem('theme') === 'theme-dark') {
+                setTheme('theme-dark');
+                document.getElementById('slider').checked = false;
+            } else {
+                setTheme('theme-light');
+                document.getElementById('slider').checked = true;
+            }
+        })();
+    </script>
+    @*
+    <script src="~/MaterialDesignTheme/js/mdb.min.js"></script> *@
+</body>
+
+</html>

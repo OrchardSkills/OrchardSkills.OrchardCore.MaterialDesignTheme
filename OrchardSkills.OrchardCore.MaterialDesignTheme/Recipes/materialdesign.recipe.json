@@ -1,0 +1,2107 @@
+{
+  "name": "Landing Page Theme",
+  "displayName": "Material Design Theme",
+  "description": "Material Design Theme with CMS features.",
+  "author": "Orchard Skills, Inc.",
+  "website": "https://OrchardSkills.com",
+  "version": "1.0.0-rc2",
+  "issetuprecipe": true,
+  "categories": [ "default" ],
+  "tags": [ "Landing Page" ],
+
+  // The variables are evaluated the first time they are accessed, and reused across steps
+  "variables": {
+    "blogContentItemId": "[js:uuid()]",
+    "menuContentItemId": "[js:uuid()]",
+    "tagsContentItemId": "[js:uuid()]",
+    "tagContentItemId": "[js:uuid()]",
+    "visualstudioTagContentItemId": "[js:uuid()]",
+    "vscodeTagContentItemId": "[js:uuid()]",
+    "getstartedTagContentItemId": "[js:uuid()]",
+    "linuxTagContentItemId": "[js:uuid()]",
+    "categoriesContentItemId": "[js:uuid()]",
+    "categoryCMSContentItemId": "[js:uuid()]"
+    // "now": "[js: new Date().toISOString()]"
+  },
+
+  "steps": [
+    {
+      "name": "feature",
+      "disable": [],
+      "enable": [
+        // SaaS
+        "OrchardCore.HomeRoute",
+        "OrchardCore.Admin",
+        "OrchardCore.Diagnostics",
+        "OrchardCore.DynamicCache",
+        "OrchardCore.Features",
+        "OrchardCore.Navigation",
+        "OrchardCore.Recipes",
+        "OrchardCore.Resources",
+        "OrchardCore.Roles",
+        "OrchardCore.Settings",
+        "OrchardCore.Themes",
+        "OrchardCore.Users",
+        "OrchardCore.Users.ChangeEmail",
+        "OrchardCore.Users.Registration",
+        "OrchardCore.Users.ResetPassword",
+
+        // Content Management
+        "OrchardCore.Alias",
+        "OrchardCore.AdminMenu",
+        "OrchardCore.Autoroute",
+        "OrchardCore.ContentFields",
+        "OrchardCore.ContentPreview",
+        "OrchardCore.Contents",
+        "OrchardCore.Contents.FileContentDefinition",
+        "OrchardCore.ContentTypes",
+        "OrchardCore.CustomSettings",
+        "OrchardCore.Deployment",
+        "OrchardCore.Deployment.Remote",
+        "OrchardCore.Feeds",
+        "OrchardCore.Flows",
+        "OrchardCore.Forms",
+        "OrchardCore.HomeRoute",
+        "OrchardCore.Html",
+        "OrchardCore.Indexing",
+        "OrchardCore.Layers",
+        "OrchardCore.Lucene",
+        "OrchardCore.Lists",
+        "OrchardCore.Liquid",
+        "OrchardCore.Markdown",
+        "OrchardCore.Media",
+        "OrchardCore.Navigation",
+        "OrchardCore.Menu",
+        "OrchardCore.Queries",
+        "OrchardCore.Scripting",
+        "OrchardCore.Taxonomies",
+        "OrchardCore.Title",
+        "OrchardCore.Templates",
+        "OrchardCore.Widgets",
+        "OrchardCore.Workflows",
+        "OrchardCore.Workflows.Http",
+
+        // Themes
+        "MaterialDesignTheme",
+        "TheAdmin",
+        "SafeMode"
+      ]
+    },
+    {
+      "name": "themes",
+      "admin": "TheAdmin",
+      "site": "MaterialDesignTheme"
+    },
+    {
+      "name": "settings",
+      "HomeRoute": {
+        "Action": "Display",
+        "Controller": "Item",
+        "Area": "OrchardCore.Contents",
+        "ContentItemId": "[js: variables('blogContentItemId')]"
+      },
+      "LayerSettings": {
+        "Zones": [ "Content", "Footer" ]
+      }
+    },
+    {
+      "name": "ContentDefinition",
+      "ContentTypes": [
+        {
+          "Name": "Article",
+          "DisplayName": "Article",
+          "Hidden": false,
+          "Settings": {
+            "ContentTypeSettings": {
+              "Creatable": true,
+              "Draftable": true,
+              "Versionable": true,
+              "Listable": true
+            }
+          },
+          "ContentTypePartDefinitionRecords": [
+            {
+              "PartName": "Article",
+              "Name": "Article",
+              "Settings": {
+                "ContentTypePartSettings": {
+                  "Position": "3"
+                }
+              }
+            },
+            {
+              "PartName": "AutoroutePart",
+              "Name": "AutoroutePart",
+              "Settings": {
+                "AutoroutePartSettings": {
+                  "AllowCustomPath": true,
+                  "Pattern": "{{ Model.ContentItem | display_text | slugify }}",
+                  "ShowHomepageOption": true
+                },
+                "ContentTypePartSettings": {
+                  "Position": "1"
+                }
+              }
+            },
+            {
+              "PartName": "HtmlBodyPart",
+              "Name": "HtmlBodyPart",
+              "Settings": {
+                "ContentTypePartSettings": {
+                  "Editor": "Wysiwyg",
+                  "Position": "2"
+                }
+              }
+            },
+            {
+              "PartName": "TitlePart",
+              "Name": "TitlePart",
+              "Settings": {
+                "ContentTypePartSettings": {
+                  "Position": "0"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "Name": "LiquidPage",
+          "DisplayName": "Liquid Page",
+          "Hidden": false,
+          "Settings": {
+            "ContentTypeSettings": {
+              "Creatable": true,
+              "Draftable": true,
+              "Versionable": true,
+              "Listable": true
+            }
+          },
+          "ContentTypePartDefinitionRecords": [
+            {
+              "PartName": "LiquidPage",
+              "Name": "LiquidPage",
+              "Settings": {
+                "ContentTypePartSettings": {
+                  "Position": "2"
+                }
+              }
+            },
+            {
+              "PartName": "AutoroutePart",
+              "Name": "AutoroutePart",
+              "Settings": {
+                "AutoroutePartSettings": {
+                  "AllowCustomPath": true,
+                  "Pattern": "{{ Model.ContentItem | display_text | slugify }}",
+                  "ShowHomepageOption": true
+                },
+                "ContentTypePartSettings": {
+                  "Position": "1"
+                }
+              }
+            },
+            {
+              "PartName": "LiquidPart",
+              "Name": "LiquidPart",
+              "Settings": {
+                "ContentTypePartSettings": {
+                  "Position": "3"
+                }
+              }
+            },
+            {
+              "PartName": "TitlePart",
+              "Name": "TitlePart",
+              "Settings": {
+                "ContentTypePartSettings": {
+                  "Position": "0"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "Name": "BlogPost",
+          "DisplayName": "Blog Post",
+          "Hidden": false,
+          "Settings": {
+            "ContentTypeSettings": {
+              "Draftable": true,
+              "Versionable": true
+            }
+          },
+          "ContentTypePartDefinitionRecords": [
+            {
+              "PartName": "TitlePart",
+              "Name": "TitlePart",
+              "Settings": {
+                "ContentTypePartSettings": {
+                  "Position": "0"
+                }
+              }
+            },
+            {
+              "PartName": "AutoroutePart",
+              "Name": "AutoroutePart",
+              "Settings": {
+                "ContentTypePartSettings": {
+                  "Position": "1"
+                },
+                "AutoroutePartSettings": {
+                  "AllowCustomPath": true,
+                  "Pattern": "{{ Model.ContentItem | container | display_text | slugify }}/{{ Model.ContentItem | display_text | slugify }}",
+                  "ShowHomepageOption": false
+                }
+              }
+            },
+            {
+              "PartName": "BlogPost",
+              "Name": "BlogPost",
+              "Settings": {
+                "ContentTypePartSettings": {
+                  "Position": "3"
+                }
+              }
+            },
+            {
+              "PartName": "MarkdownBodyPart",
+              "Name": "MarkdownBodyPart",
+              "Settings": {
+                "ContentTypePartSettings": {
+                  "Editor": "Wysiwyg",
+                  "Position": "2"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "Name": "Blog",
+          "DisplayName": "Blog",
+          "Hidden": false,
+          "Settings": {
+            "ContentTypeSettings": {
+              "Creatable": true,
+              "Draftable": true,
+              "Versionable": true,
+              "Listable": true,
+              "Securable": true
+            }
+          },
+          "ContentTypePartDefinitionRecords": [
+            {
+              "PartName": "TitlePart",
+              "Name": "TitlePart",
+              "Settings": {
+                "ContentTypePartSettings": {
+                  "Position": "0"
+                }
+              }
+            },
+            {
+              "PartName": "AutoroutePart",
+              "Name": "AutoroutePart",
+              "Settings": {
+                "ContentTypePartSettings": {
+                  "Position": "1"
+                },
+                "ContentIndexSettings": {
+                  "Included": false,
+                  "Stored": false,
+                  "Analyzed": false,
+                  "Sanitized": false,
+                  "Tokenized": false,
+                  "Template": null
+                },
+                "AutoroutePartSettings": {
+                  "AllowCustomPath": true,
+                  "Pattern": "{{ Model.ContentItem | display_text | slugify }}",
+                  "ShowHomepageOption": true
+                }
+              }
+            },
+            {
+              "PartName": "Blog",
+              "Name": "Blog",
+              "Settings": {
+                "ContentTypePartSettings": {
+                  "Position": "3"
+                }
+              }
+            },
+            {
+              "PartName": "HtmlBodyPart",
+              "Name": "HtmlBodyPart",
+              "Settings": {
+                "ContentTypePartSettings": {
+                  "Position": "2"
+                }
+              }
+            },
+            {
+              "PartName": "ListPart",
+              "Name": "ListPart",
+              "Settings": {
+                "ContentTypePartSettings": {
+                  "Position": "4"
+                },
+                "ListPartSettings": {
+                  "PageSize": 10,
+                  "ContainedContentTypes": [
+                    "BlogPost"
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "Name": "Container",
+          "DisplayName": "Container",
+          "Settings": {
+            "ContentTypeSettings": {
+              "Draftable": true,
+              "Versionable": true,
+              "Securable": true,
+              "Stereotype": "Widget"
+            }
+          },
+          "ContentTypePartDefinitionRecords": [
+            {
+              "PartName": "Container",
+              "Name": "Container",
+              "Settings": {
+                "ContentTypePartSettings": {
+                  "Position": "0"
+                }
+              }
+            },
+            {
+              "PartName": "FlowPart",
+              "Name": "FlowPart",
+              "Settings": {
+                "ContentTypePartSettings": {
+                  "Position": "1"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "Name": "Blockquote",
+          "DisplayName": "Blockquote",
+          "Settings": {
+            "ContentTypeSettings": {
+              "Draftable": true,
+              "Versionable": true,
+              "Securable": true,
+              "Stereotype": "Widget"
+            }
+          },
+          "ContentTypePartDefinitionRecords": [
+            {
+              "PartName": "Blockquote",
+              "Name": "Blockquote",
+              "Settings": {
+                "ContentTypePartSettings": {
+                  "Position": "0"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "Name": "ImageWidget",
+          "DisplayName": "Image",
+          "Settings": {
+            "ContentTypeSettings": {
+              "Draftable": true,
+              "Versionable": true,
+              "Securable": true,
+              "Stereotype": "Widget"
+            }
+          },
+          "ContentTypePartDefinitionRecords": [
+            {
+              "PartName": "Image",
+              "Name": "Image",
+              "Settings": {
+                "ContentTypePartSettings": {
+                  "Position": "0"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "Name": "LiquidWidget",
+          "DisplayName": "Liquid",
+          "Settings": {
+            "ContentTypeSettings": {
+              "Draftable": true,
+              "Versionable": true,
+              "Securable": true,
+              "Listable": true,
+              "Stereotype": "Widget"
+            }
+          },
+          "ContentTypePartDefinitionRecords": [
+            {
+              "PartName": "LiquidPart",
+              "Name": "LiquidPart",
+              "Settings": {
+                "ContentTypePartSettings": {
+                  "Position": "0"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "Name": "Image",
+          "DisplayName": "Image",
+          "Settings": {
+            "ContentTypeSettings": {
+              "Versionable": true
+            }
+          },
+          "ContentTypePartDefinitionRecords": [
+            {
+              "PartName": "Image",
+              "Name": "Image",
+              "Settings": {
+                "ContentTypePartSettings": {
+                  "Position": "0"
+                }
+              }
+            },
+            {
+              "PartName": "TitlePart",
+              "Name": "TitlePart",
+              "Settings": {
+                "ContentTypePartSettings": {
+                  "Position": "0"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "Name": "Paragraph",
+          "DisplayName": "Paragraph",
+          "Settings": {
+            "ContentTypeSettings": {
+              "Draftable": true,
+              "Versionable": true,
+              "Securable": true,
+              "Stereotype": "Widget"
+            }
+          },
+          "ContentTypePartDefinitionRecords": [
+            {
+              "PartName": "Paragraph",
+              "Name": "Paragraph",
+              "Settings": {
+                "ContentTypePartSettings": {
+                  "Position": "0"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "Name": "RawHtml",
+          "DisplayName": "Raw Html",
+          "Settings": {
+            "ContentTypeSettings": {
+              "Draftable": true,
+              "Versionable": true,
+              "Securable": true,
+              "Stereotype": "Widget"
+            }
+          },
+          "ContentTypePartDefinitionRecords": [
+            {
+              "PartName": "RawHtml",
+              "Name": "RawHtml",
+              "Settings": {
+                "ContentTypePartSettings": {
+                  "Position": "0"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "Name": "Page",
+          "DisplayName": "Page",
+          "Settings": {
+            "ContentTypeSettings": {
+              "Creatable": true,
+              "Draftable": true,
+              "Versionable": true,
+              "Listable": true,
+              "Securable": true
+            }
+          },
+          "ContentTypePartDefinitionRecords": [
+            {
+              "PartName": "Page",
+              "Name": "Page",
+              "Settings": {
+                "ContentTypePartSettings": {
+                  "Position": "3"
+                }
+              }
+            },
+            {
+              "PartName": "AutoroutePart",
+              "Name": "AutoroutePart",
+              "Settings": {
+                "ContentTypePartSettings": {
+                  "Position": "1"
+                },
+                "AutoroutePartSettings": {
+                  "AllowCustomPath": true,
+                  "Pattern": "{{ Model.ContentItem | display_text | slugify }}",
+                  "ShowHomepageOption": true
+                }
+              }
+            },
+            {
+              "PartName": "FlowPart",
+              "Name": "FlowPart",
+              "Settings": {
+                "ContentTypePartSettings": {
+                  "Position": "2"
+                }
+              }
+            },
+            {
+              "PartName": "TitlePart",
+              "Name": "TitlePart",
+              "Settings": {
+                "ContentTypePartSettings": {
+                  "Position": "0"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "Name": "Tag",
+          "DisplayName": "Tag",
+          "Settings": {
+            "ContentTypeSettings": {},
+            "FullTextAspectSettings": {}
+          },
+          "ContentTypePartDefinitionRecords": [
+            {
+              "PartName": "Tag",
+              "Name": "Tag",
+              "Settings": {
+                "ContentTypePartSettings": {
+                  "Position": "1"
+                }
+              }
+            },
+            {
+              "PartName": "TitlePart",
+              "Name": "TitlePart",
+              "Settings": {
+                "ContentTypePartSettings": {
+                  "Position": "0"
+                }
+              }
+            },
+            {
+              "PartName": "AutoroutePart",
+              "Name": "AutoroutePart",
+              "Settings": {
+                "ContentTypePartSettings": {
+                  "Position": "2"
+                },
+                "AutoroutePartSettings": {
+                  "AllowCustomPath": true,
+                  "Pattern": "{{ Model.ContentItem | display_text | slugify }}",
+                  "ManageContainedItemRoutes": true
+                }
+              }
+            }
+          ]
+        },
+        {
+          "Name": "Category",
+          "DisplayName": "Category",
+          "Settings": {
+            "ContentTypeSettings": {},
+            "FullTextAspectSettings": {}
+          },
+          "ContentTypePartDefinitionRecords": [
+            {
+              "PartName": "Category",
+              "Name": "Category",
+              "Settings": {
+                "ContentTypePartSettings": {
+                  "Position": "1"
+                }
+              }
+            },
+            {
+              "PartName": "TitlePart",
+              "Name": "TitlePart",
+              "Settings": {
+                "ContentTypePartSettings": {
+                  "Position": "0"
+                }
+              }
+            },
+            {
+              "PartName": "AutoroutePart",
+              "Name": "AutoroutePart",
+              "Settings": {
+                "ContentTypePartSettings": {
+                  "Position": "2"
+                },
+                "AutoroutePartSettings": {
+                  "AllowCustomPath": true,
+                  "Pattern": "{{ Model.ContentItem | display_text | slugify }}",
+                  "ManageContainedItemRoutes": true
+                }
+              }
+            }
+          ]
+        },
+        {
+          "Name": "LandingPage",
+          "DisplayName": "Landing Page",
+          "Settings": {
+            "ContentTypeSettings": {
+              "Creatable": true,
+              "Draftable": true,
+              "Versionable": true,
+              "Listable": true,
+              "Securable": true
+            }
+          },
+          "ContentTypePartDefinitionRecords": [
+            {
+              "PartName": "LandingPage",
+              "Name": "LandingPage",
+              "Settings": {
+                "ContentTypePartSettings": {
+                  "Position": "8"
+                }
+              }
+            },
+            {
+              "PartName": "AutoroutePart",
+              "Name": "AutoroutePart",
+              "Settings": {
+                "AutoroutePartSettings": {
+                  "AllowCustomPath": true,
+                  "Pattern": "{{ Model.ContentItem | display_text | slugify }}",
+                  "ShowHomepageOption": true
+                },
+                "ContentTypePartSettings": {
+                  "Position": "1"
+                }
+              }
+            },
+            {
+              "PartName": "TitlePart",
+              "Name": "TitlePart",
+              "Settings": {
+                "ContentTypePartSettings": {
+                  "Position": "0"
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "ContentParts": [
+        {
+          "Name": "Blog",
+          "Settings": {},
+          "ContentPartFieldDefinitionRecords": [
+            {
+              "FieldName": "MediaField",
+              "Name": "Image",
+              "Settings": {
+                "ContentPartFieldSettings": {
+                  "DisplayName": "Banner Image",
+                  "Position": "0"
+                },
+                "ContentIndexSettings": {
+                  "Included": false,
+                  "Stored": false,
+                  "Analyzed": false,
+                  "Sanitized": false,
+                  "Tokenized": false,
+                  "Template": null
+                },
+                "MediaFieldSettings": {
+                  "Multiple": false
+                }
+              }
+            }
+          ]
+        },
+        {
+          "Name": "BlogPost",
+          "Settings": {},
+          "ContentPartFieldDefinitionRecords": [
+            {
+              "FieldName": "TextField",
+              "Name": "Subtitle",
+              "Settings": {
+                "ContentPartFieldSettings": {
+                  "DisplayName": "Subtitle",
+                  "Position": "0"
+                }
+              }
+            },
+            {
+              "FieldName": "MediaField",
+              "Name": "Image",
+              "Settings": {
+                "ContentPartFieldSettings": {
+                  "DisplayName": "Banner Image",
+                  "Position": "1"
+                },
+                "ContentIndexSettings": {
+                  "Included": false,
+                  "Stored": false,
+                  "Analyzed": false,
+                  "Sanitized": false,
+                  "Tokenized": false,
+                  "Template": null
+                },
+                "MediaFieldSettings": {
+                  "Multiple": false
+                }
+              }
+            },
+            {
+              "FieldName": "TaxonomyField",
+              "Name": "Tags",
+              "Settings": {
+                "ContentPartFieldSettings": {
+                  "DisplayName": "Tags",
+                  "Editor": "Tags",
+                  "DisplayMode": "Tags",
+                  "Position": "2"
+                },
+                "ContentIndexSettings": {},
+                "TaxonomyFieldSettings": {
+                  "TaxonomyContentItemId": "[js: variables('tagsContentItemId')]"
+                },
+                "TaxonomyFieldTagsEditorSettings": {}
+              }
+            },
+            {
+              "FieldName": "TaxonomyField",
+              "Name": "Category",
+              "Settings": {
+                "ContentPartFieldSettings": {
+                  "DisplayName": "Category",
+                  "Position": "3"
+                },
+                "ContentIndexSettings": {},
+                "TaxonomyFieldSettings": {
+                  "TaxonomyContentItemId": "[js: variables('categoriesContentItemId')]",
+                  "Unique": true,
+                  "LeavesOnly": true
+                }
+              }
+            }
+          ]
+        },
+        {
+          "Name": "Article",
+          "Settings": {},
+          "ContentPartFieldDefinitionRecords": [
+            {
+              "FieldName": "TextField",
+              "Name": "Subtitle",
+              "Settings": {
+                "ContentPartFieldSettings": {
+                  "DisplayName": "Subtitle",
+                  "Position": "0"
+                }
+              }
+            },
+            {
+              "FieldName": "MediaField",
+              "Name": "Image",
+              "Settings": {
+                "ContentPartFieldSettings": {
+                  "DisplayName": "Banner Image",
+                  "Position": "0"
+                },
+                "MediaFieldSettings": {
+                  "Multiple": false
+                }
+              }
+            }
+          ]
+        },
+        {
+          "Name": "Blockquote",
+          "Settings": {},
+          "ContentPartFieldDefinitionRecords": [
+            {
+              "FieldName": "TextField",
+              "Name": "Quote",
+              "Settings": {
+                "ContentPartFieldSettings": {
+                  "DisplayName": "Quote",
+                  "Editor": "TextArea",
+                  "Position": "0"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "Name": "Image",
+          "Settings": {
+            "Attachable": true
+          },
+          "ContentPartFieldDefinitionRecords": [
+            {
+              "FieldName": "MediaField",
+              "Name": "Media",
+              "Settings": {
+                "ContentPartFieldSettings": {
+                  "DisplayName": "Image",
+                  "Position": "0"
+                },
+                "MediaFieldSettings": {
+                  "Multiple": false,
+                  "Required": true
+                }
+              }
+            },
+            {
+              "FieldName": "TextField",
+              "Name": "Caption",
+              "Settings": {
+                "ContentPartFieldSettings": {
+                  "DisplayName": "Caption",
+                  "Position": "1"
+                },
+                "TextFieldSettings": {
+                  "Hint": "A description of the image used as title or alternate text"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "Name": "Paragraph",
+          "Settings": {},
+          "ContentPartFieldDefinitionRecords": [
+            {
+              "FieldName": "HtmlField",
+              "Name": "Content",
+              "Settings": {
+                "ContentPartFieldSettings": {
+                  "DisplayName": "Content",
+                  "Position": "0",
+                  "Editor": "Wysiwyg"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "Name": "RawHtml",
+          "Settings": {},
+          "ContentPartFieldDefinitionRecords": [
+            {
+              "FieldName": "HtmlField",
+              "Name": "Content",
+              "Settings": {
+                "ContentPartFieldSettings": {
+                  "DisplayName": "Content",
+                  "Position": "0",
+                  "Editor": "Multiline"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "Name": "Category",
+          "Settings": {},
+          "ContentPartFieldDefinitionRecords": [
+            {
+              "FieldName": "TextField",
+              "Name": "Icon",
+              "Settings": {
+                "ContentPartFieldSettings": {
+                  "DisplayName": "Icon",
+                  "Editor": "IconPicker",
+                  "Position": "0"
+                },
+                "TextFieldSettings": {
+                  "Required": true
+                },
+                "ContentIndexSettings": {}
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      // Create the indices before the content items so they are indexed automatically.
+      "name": "lucene-index",
+      "Indices": [
+        {
+          "Search": {
+            "AnalyzerName": "standardanalyzer",
+            "IndexLatest": false,
+            "IndexedContentTypes": [
+              "Article",
+              "Blockquote",
+              "Blog",
+              "BlogPost",
+              "Button",
+              "Container",
+              "Form",
+              "ImageWidget",
+              "Image",
+              "Input",
+              "Label",
+              "LinkMenuItem",
+              "LiquidWidget",
+              "LiquidPage",
+              "Menu",
+              "Page",
+              "Paragraph",
+              "RawHtml",
+              "Select",
+              "TextArea",
+              "Validation",
+              "ValidationSummary"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      // Create the search settings.
+      "name": "Settings",
+      "LuceneSettings": {
+        "SearchIndex": "Search",
+        "DefaultSearchFields": [
+          "Content.ContentItem.FullText"
+        ]
+      }
+    },
+    {
+      // Create the search index permissions.
+      "name": "Roles",
+      "Roles": [
+        {
+          "Name": "Anonymous",
+          "Description": "Anonymous role",
+          "Permissions": [
+            "ViewContent",
+            "QueryLuceneSearchIndex"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "content",
+      "Data": [
+        {
+          "ContentType": "Menu",
+          "ContentItemId": "[js: variables('menuContentItemId')]",
+          "DisplayText": "Main Menu",
+          "Latest": true,
+          "Published": true,
+          "MenuPart": {},
+          "TitlePart": {
+            "Title": "Main Menu"
+          },
+          "MenuItemsListPart": {
+            "MenuItems": [
+              {
+                "ContentType": "LinkMenuItem",
+                "ContentItemId": "[js: uuid()]",
+                "LinkMenuItemPart": {
+                  "Name": "Home",
+                  "Url": "~/"
+                }
+              },
+              {
+                "ContentType": "LinkMenuItem",
+                "ContentItemId": "[js: uuid()]",
+                "LinkMenuItemPart": {
+                  "Name": "Blog",
+                  "Url": "~/blog"
+                }
+              },
+              {
+                "ContentType": "LinkMenuItem",
+                "ContentItemId": "[js: uuid()]",
+                "LinkMenuItemPart": {
+                  "Name": "About",
+                  "Url": "~/about"
+                }
+              },
+              {
+                "ContentType": "LinkMenuItem",
+                "ContentItemId": "[js: uuid()]",
+                "LinkMenuItemPart": {
+                  "Name": "Contact",
+                  "Url": "~/contact"
+                }
+              },
+              {
+                "ContentType": "LinkMenuItem",
+                "ContentItemId": "[js: uuid()]",
+                "LinkMenuItemPart": {
+                  "Name": "Search",
+                  "Url": "~/search"
+                }
+              }
+
+            ]
+          },
+          "AliasPart": {
+            "Alias": "main-menu"
+          }
+        },
+        {
+          "ContentItemId": "[js: variables('tagsContentItemId')]",
+          "ContentType": "Taxonomy",
+          "DisplayText": "Tags",
+          "Latest": true,
+          "Published": true,
+          "TitlePart": {
+            "Title": "Tags"
+          },
+          "AliasPart": {
+            "Alias": "tags"
+          },
+          "TaxonomyPart": {
+            "Terms": [
+              {
+                "ContentItemId": "[js: variables('visualstudioTagContentItemId')]",
+                "ContentType": "Tag",
+                "DisplayText": "VisualStudio",
+                "TitlePart": {
+                  "Title": "VisualStudio"
+                },
+                "AutoroutePart": {
+                  "Path": "visualstudio"
+                },
+                "TermPart": {
+                  "TaxonomyContentItemId": "[js: variables('tagsContentItemId')]"
+                }
+              },
+              {
+                "ContentItemId": "[js: variables('vscodeTagContentItemId')]",
+                "ContentType": "Tag",
+                "DisplayText": "VSCode",
+                "TitlePart": {
+                  "Title": "VSCode"
+                },
+                "AutoroutePart": {
+                  "Path": "vscode"
+                },
+                "TermPart": {
+                  "TaxonomyContentItemId": "[js: variables('tagsContentItemId')]"
+                }
+              },
+
+              {
+                "ContentItemId": "[js: variables('getstartedTagContentItemId')]",
+                "ContentType": "Tag",
+                "DisplayText": "GetStarted",
+                "TitlePart": {
+                  "Title": "GetStarted"
+                },
+                "AutoroutePart": {
+                  "Path": "getstarted"
+                },
+                "TermPart": {
+                  "TaxonomyContentItemId": "[js: variables('tagsContentItemId')]"
+                }
+              },
+              {
+                "ContentItemId": "[js: variables('linuxTagContentItemId')]",
+                "ContentType": "Tag",
+                "DisplayText": "Linux",
+                "TitlePart": {
+                  "Title": "Linux"
+                },
+                "AutoroutePart": {
+                  "Path": "linux"
+                },
+                "TermPart": {
+                  "TaxonomyContentItemId": "[js: variables('tagsContentItemId')]"
+                }
+              }
+            ],
+            "TermContentType": "Tag"
+          },
+          "AutoroutePart": {
+            "Path": "tags",
+            "RouteContainedItems": true
+          }
+        },
+        {
+          "ContentItemId": "[js: variables('categoriesContentItemId')]",
+          "ContentType": "Taxonomy",
+          "DisplayText": "Categories",
+          "Latest": true,
+          "Published": true,
+          "TitlePart": {
+            "Title": "Categories"
+          },
+          "AliasPart": {
+            "Alias": "categories"
+          },
+          "TaxonomyPart": {
+            "Terms": [
+              {
+                "ContentItemId": "[js: variables('categoryCMSContentItemId')]",
+                "ContentType": "Category",
+                "DisplayText": "CMS",
+                "Category": {
+                  "Icon": {
+                    "Text": "fas fa-globe-americas"
+                  }
+                },
+                "TitlePart": {
+                  "Title": "CMS"
+                },
+                "AutoroutePart": {
+                  "Path": "cms"
+                },
+                "TermPart": {
+                  "TaxonomyContentItemId": "[js: variables('categoriesContentItemId')]"
+                }
+              }
+            ],
+            "TermContentType": "Category"
+          },
+          "AutoroutePart": {
+            "Path": "categories",
+            "RouteContainedItems": true
+          }
+        },
+        {
+          "ContentType": "Blog",
+          "ContentItemId": "[js: variables('blogContentItemId')]",
+          "DisplayText": "Blog",
+          "Latest": true,
+          "Published": true,
+          "Owner": "[js: parameters('AdminUsername')]",
+          "Author": "[js: parameters('AdminUsername')]",
+          "TitlePart": {
+            "Title": "Blog"
+          },
+          "HtmlBodyPart": {
+            "Html": "This is the description of your blog"
+          },
+          "AutoroutePart": {
+            "Path": "blog"
+          },
+          "ListPart": {},
+          "Blog": {
+            "Image": {
+              "Paths": [
+                "home-bg.jpg"
+              ]
+            }
+          }
+        },
+        {
+          "ContentType": "BlogPost",
+          "ContentItemId": "[js: uuid()]",
+          "DisplayText": "Getting Started with Orchard Core",
+          "Latest": true,
+          "Published": true,
+          "Owner": "[js: parameters('AdminUsername')]",
+          "Author": "[js: parameters('AdminUsername')]",
+          "TitlePart": {
+            "Title": "Getting Started with Orchard Core"
+          },
+          "ContainedPart": {
+            "ListContentItemId": "[js: variables('blogContentItemId')]",
+            "Order": 0
+          },
+          "MarkdownBodyPart": {
+            "Markdown": "# Getting Started with Orchard Core\r\nAn Example of Creating a Orchard Core Content Management System Application using NuGet packages with Visual Studio\r\n\r\n![OrchardCMSBackground](https://user-images.githubusercontent.com/58791170/71449895-7260d800-2714-11ea-830b-9b9955775462.png)\r\n\r\n## YouTube Video\r\n\r\n[![OrchardSkillsYouTubeThumbNailStart](https://user-images.githubusercontent.com/58791170/75266296-5f6b9200-57af-11ea-9fdf-985257233d5c.png)](https://youtu.be/3pPyNKJo1iU)\r\n\r\n## PDF Version of the Documentation\r\n[Getting-Started-with-Orchard-Core.pdf](https://github.com/orchardcmsnet/MyOrchardCoreCMS/files/4000778/Getting-Started-with-Orchard-Core.pdf)\r\n\r\n# Introduction\r\n\r\nIn this article, you're going to see how easy it is to get Orchard Core running in your very own ASP.NET Core Web Application using Visual Studio. You’ll be using the power of the Orchard Core NuGet packages to simplify the process.\r\n\r\n## Create a new ASP.NET Core Web Application\r\n\r\nFirst, launch Visual Studio, and create a new ASP.NET Core Web Application:\r\n\r\n![Getting-Started-with-Orchard-Core-001](https://user-images.githubusercontent.com/58791170/71449873-6f65e780-2714-11ea-83b1-73087907f6da.png)\r\n\r\nSelect the box button at the lower left of the screen, “Create a new project”.\r\n\r\n![Getting-Started-with-Orchard-Core-002](https://user-images.githubusercontent.com/58791170/71449874-6f65e780-2714-11ea-8108-6f17fe848de3.png)\r\n\r\nSelect the ASP.NET Core Web Application that is highlighted in blue and press the “Next” button.\r\n\r\n![Getting-Started-with-Orchard-Core-003](https://user-images.githubusercontent.com/58791170/71449875-6f65e780-2714-11ea-977d-f3ce83579682.png)\r\n\r\nEnter a project name, location, and a solution name. It’s customary to add a “.Web” to specify the project is a web application. The Solution can be whatever you decide. Anther customary practice is to put all the source code in a root “src” folder. Again, it’s up to you to decide how you want to structure your code.\r\n\r\n![Getting-Started-with-Orchard-Core-004](https://user-images.githubusercontent.com/58791170/71449876-6f65e780-2714-11ea-8316-7cef1fbcfb39.png)\r\n\r\nAt the time of writing this article, Orchard Core is based on ASP.NET Core version 3.0. Make sure you select “ASP.NET Core 3.0” in the top right combo. Select the “Empty” template and then press the “Create” button.\r\n\r\n## Create“NuGet.config”\r\n\r\nIn order to utilized the latest code, use the  dev packages, by adding the Orchard Core Preview Feed. Create the fie “NuGet.config” in the root folder and add the following configuration.\r\n\r\n![Getting-Started-with-Orchard-Core-005](https://user-images.githubusercontent.com/58791170/71449877-6f65e780-2714-11ea-81ec-56e6186fe4ad.png)\r\n\r\nNuget.config:\r\n\r\n```\r\n<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<configuration>\r\n    <packageSources>\r\n        <add key=\"Orchard Core Preview Feed\" value=\"https://www.myget.org/F/orchardcore-preview/api/v3/index.json\" />\r\n    </packageSources>\r\n</configuration>\r\n```\r\n## Modify Startup Code and Add the Orchard Core Preview Feed to your NuGet Package Manager Package Sources\r\n\r\n![Getting-Started-with-Orchard-Core-006](https://user-images.githubusercontent.com/58791170/71449878-6ffe7e00-2714-11ea-9831-6a724af87bef.png)\r\n\r\nUpdate code block to add Orchard Core CMS.\r\n\r\n```\r\nusing Microsoft.AspNetCore.Builder;\r\nusing Microsoft.AspNetCore.Hosting;\r\nusing Microsoft.Extensions.DependencyInjection;\r\nusing Microsoft.Extensions.Hosting;\r\n\r\nnamespace MyOrchardCoreCMS.Web\r\n{\r\n    public class Startup\r\n    {\r\n        // This method gets called by the runtime. Use this method to add services to the container.\r\n        // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940\r\n        public void ConfigureServices(IServiceCollection services)\r\n        {\r\n            services.AddOrchardCms();\r\n        }\r\n\r\n        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.\r\n        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)\r\n        {\r\n            if (env.IsDevelopment())\r\n            {\r\n                app.UseDeveloperExceptionPage();\r\n            }\r\n\r\n            app.UseOrchardCore();\r\n        }\r\n    }\r\n}\r\n\r\n```\r\n\r\n![Getting-Started-with-Orchard-Core-007](https://user-images.githubusercontent.com/58791170/71449879-6ffe7e00-2714-11ea-8648-c4f97696a72c.png)\r\n\r\nRight Click on \"Dependemncies\" and select \"Manage NuGets Packages\".\r\n\r\n![Getting-Started-with-Orchard-Core-008](https://user-images.githubusercontent.com/58791170/71449880-6ffe7e00-2714-11ea-8637-aa14800fd733.png)\r\n\r\nClick on the gear icon in the Nuget Package Manager.\r\n\r\n![Getting-Started-with-Orchard-Core-010](https://user-images.githubusercontent.com/58791170/71449882-70971480-2714-11ea-87fe-8c2eaf8127f6.png)\r\n\r\nVerify the Orchard Core Preview Feed package source is the first entry and that the URL is correct.\r\nName: Orchard Core Preview Feed\r\nSource: https://www.myget.org/F/orchardcore-preview/api/v3/index.json\r\nPress \"OK\" to continue.\r\n\r\n![Getting-Started-with-Orchard-Core-009](https://user-images.githubusercontent.com/58791170/71449881-70971480-2714-11ea-95be-5c2f2c184946.png)\r\n\r\n## Install OrchardCore.Application.CMS.Targets\r\n\r\nSelect the “Browse” tab in the NuGet Package Manager Window. Enter “OrchardCore.Application.CMS.Targets” in the Search edit box. Make sure the check box “Include prereleases is checked.\r\n\r\nSelect the package “OrchardCore.Application.CMS.Targets”\r\n\r\n![Getting-Started-with-Orchard-Core-011](https://user-images.githubusercontent.com/58791170/71449883-70971480-2714-11ea-9843-ec805a760478.png)\r\n\r\nPress the “install” button.\r\n\r\nWait until all the packages are installed.\r\n\r\n![Getting-Started-with-Orchard-Core-012](https://user-images.githubusercontent.com/58791170/71449884-712fab00-2714-11ea-91b5-db4669a03da1.png)\r\n\r\nAllow Visual Studio to make changes by selecting the “OK” button.\r\n\r\n![Getting-Started-with-Orchard-Core-013](https://user-images.githubusercontent.com/58791170/71449885-712fab00-2714-11ea-8342-d5e812b94791.png)\r\n\r\nSelect the “I Accept” button to accept the license agreement.\r\n\r\n![Getting-Started-with-Orchard-Core-014](https://user-images.githubusercontent.com/58791170/71449886-712fab00-2714-11ea-94b8-14cbeef22390.png)\r\n\r\n## Run the Application\r\n\r\nSelect “MyOrchardCoreCMS.Web” and click on the green play button to run the application.\r\n\r\n![Getting-Started-with-Orchard-Core-015](https://user-images.githubusercontent.com/58791170/71449887-712fab00-2714-11ea-9940-0aac74b86f7d.png)\r\n\r\nSelect “Yes” button to trust the self-signed certificate.\r\n\r\n![Getting-Started-with-Orchard-Core-016](https://user-images.githubusercontent.com/58791170/71449888-712fab00-2714-11ea-84ec-19278c37eae3.png)\r\n\r\nSelect “Yes” button to install certificate.\r\n\r\n![Getting-Started-with-Orchard-Core-017](https://user-images.githubusercontent.com/58791170/71449889-71c84180-2714-11ea-9dfd-cb8d51e8c7fc.png)\r\n\r\nA logging window will appear displaying debug information.\r\n\r\n![Getting-Started-with-Orchard-Core-018](https://user-images.githubusercontent.com/58791170/71449890-71c84180-2714-11ea-9ac7-d1d59c779ae9.png)\r\n\r\nCongratulations! Your Orchard Core Web Application will now be running in the default web browser.\r\n\r\nA Setup page will be displayed. Enter the “name of your site”, “Blog” for Recipe, your “default time zone”, “Sqlite” for the database, a “user name” and password. Press the “Finish Setup” button to complete the process.\r\n\r\n![Getting-Started-with-Orchard-Core-019](https://user-images.githubusercontent.com/58791170/71449891-71c84180-2714-11ea-962c-fa8bb36ec610.png)\r\n\r\nNavigate to the admin dashboard page by specifying “/admin” at the end of the URL. i.e. https://localhost:5001/admin. Login with your credentials.\r\n\r\n![Getting-Started-with-Orchard-Core-020](https://user-images.githubusercontent.com/58791170/71449893-7260d800-2714-11ea-95ec-d8fb97e1e112.png)\r\n\r\nEnter in your credentials and press the \"Log in\" button.\r\n\r\n![Getting-Started-with-Orchard-Core-021](https://user-images.githubusercontent.com/58791170/71449894-7260d800-2714-11ea-8384-b706570ba8dc.png)\r\n\r\nYou are now ready to configure and create content for your Orchard Core Web Application.\r\n\r\n## Conclusion\r\n\r\nWith just a new few lines of code and some configuration, it is easy to create a Content Management System with ASP.NET Core and Orchard Core CMS.\r\n\r\n## GitHub\r\n\r\nThe complete source code is located [here](https://github.com/orchardcmsnet/MyOrchardCoreCMS).\r\n"
+          },
+          "AutoroutePart": {
+            "Path": "blog/getting-started-with-orchard-core"
+          },
+          "BlogPost": {
+            "Subtitle": {
+              "Text": "An Example of Creating a Orchard Core Content Management System Application using NuGet packages with Visual Studio"
+            },
+            "Image": {
+              "Paths": [
+                "getting-started.png"
+              ]
+            },
+            "Tags": {
+              "TermContentItemIds": [
+                "[js: variables('visualstudioTagContentItemId')]",
+                "[js: variables('getstartedTagContentItemId')]"
+              ],
+              "TaxonomyContentItemId": "[js: variables('tagsContentItemId')]",
+              "TagNames": [
+                "VisualStudio",
+                "GetStarted"
+              ]
+            },
+            "Category": {
+              "TermContentItemIds": [
+                "[js: variables('categoryCMSContentItemId')]"
+              ],
+              "TaxonomyContentItemId": "[js: variables('categoriesContentItemId')]"
+            }
+          }
+        },
+        {
+          "ContentType": "BlogPost",
+          "ContentItemId": "[js: uuid()]",
+          "DisplayText": "Orchard Core on Linux Using VSCode",
+          "Latest": true,
+          "Published": true,
+          "Owner": "[js: parameters('AdminUsername')]",
+          "Author": "[js: parameters('AdminUsername')]",
+          "TitlePart": {
+            "Title": "Orchard Core on Linux Using VSCode"
+          },
+          "AutoroutePart": {
+            "Path": "blog/orchard-core-on-linux-using-vscode",
+            "SetHomepage": false,
+            "Disabled": false,
+            "RouteContainedItems": false,
+            "Absolute": false
+          },
+          "BlogPost": {
+            "Subtitle": {
+              "Text": "Orchard Core on Linux Using VSCode"
+            },
+            "Image": {
+              "Paths": [
+                "linux-vscode.png"
+              ]
+            },
+            "Tags": {
+              "TagNames": [
+                "VSCode",
+                "GetStarted",
+                "Linux"
+              ],
+              "TaxonomyContentItemId": "[js: variables('tagsContentItemId')]",
+              "TermContentItemIds": [
+                "[js: variables('vscodeTagContentItemId')]",
+                "[js: variables('getstartedTagContentItemId')]",
+                "[js: variables('linuxTagContentItemId')]"
+              ]
+            },
+            "Category": {
+              "TaxonomyContentItemId": "[js: variables('categoriesContentItemId')]",
+              "TermContentItemIds": [
+                "[js: variables('categoryCMSContentItemId')]"
+              ]
+            }
+          },
+          "MarkdownBodyPart": {
+            "Markdown": "# Orchard Core on Linux Using VSCode\r\n\r\nDeveloping Orchard Core CMS Applications on Linux using VS Code \r\n\r\n## YouTube Video\r\n\r\n[![OrchardSkillsYouTubeThumbNailLinux](https://user-images.githubusercontent.com/58791170/75269015-80cf7c80-57b5-11ea-9546-a92acc201fea.png)](https://youtu.be/EySZCCwSZ9s)\r\n\r\n\r\n## PDF Version of the Documentation\r\n\r\n[Developing-Orchard-Core-CMS-Applications-on-Linux-Using-VSCode.pdf](https://github.com/orchardcmsnet/MyOrchardCoreCMSonLinuxUsingVSCode/files/4003148/Developing-Orchard-Core-CMS-Applications-on-Linux-Using-VSCode.pdf)\r\n\r\n# Orchard Core on Linux Using VS Code\r\n\r\n![Microsoft-loves-Linux](https://user-images.githubusercontent.com/58791170/71485130-ccbd6f80-27cc-11ea-8cd5-a5e3490576e6.jpg)\r\n\r\n## Introduction\r\n\r\nAnother option when developing Orchard Core application is to use Linux and VS Code. VS Code is a lightweight IDE (Integrated Development Environment). It’s also a cross platform IDE running on Linux, macOS, and Windows. It has all the popular features of an IDE like intellisence, debugging, built-in Git and most importantly extensions.\r\n\r\n## Install VS Code\r\n\r\n![Developing-Orchard-Core-CMS-Applications-Using-Linux-and-VSCode-005](https://user-images.githubusercontent.com/58791170/71485113-caf3ac00-27cc-11ea-9655-b684db12ef18.png)\r\n\r\nBrowse to the URL: \r\nhttps://code.visualstudio.com/download\r\nClick on “.deb Debian Ubuntu” button to download the package.\r\nSwitch to the Downloads directory.\r\n\r\n```\r\ncd ~/Downloads\r\n```\r\n\r\n![Developing-Orchard-Core-CMS-Applications-Using-Linux-and-VSCode-006](https://user-images.githubusercontent.com/58791170/71485114-caf3ac00-27cc-11ea-9d17-959595b4856f.png)\r\n\r\nRun the command:\r\n\r\n```\r\nsudo dpkg -i code_1.41.1-1576681836_amd64.deb\r\n\r\n```\r\n\r\n## Browse to Debian 10 Package Manager - Install .NET Core\r\n\r\n![Developing-Orchard-Core-CMS-Applications-Using-Linux-and-VSCode-007](https://user-images.githubusercontent.com/58791170/71485115-caf3ac00-27cc-11ea-97dc-d4e9842231f9.png)\r\n\r\nBrowse to the web page Debian 10 Package Manager - Install .NET Core at:\r\n\r\n[Debian 10 Package Manager - Install .NET Core](https://docs.microsoft.com/en-us/dotnet/core/install/linux-package-manager-debian10)\r\n\r\n## Register Microsoft key and feed\r\n\r\n![Developing-Orchard-Core-CMS-Applications-Using-Linux-and-VSCode-001](https://user-images.githubusercontent.com/58791170/71485109-ca5b1580-27cc-11ea-8144-52fabe9c8c76.png)\r\n\r\nRun the commands:\r\n\r\n```\r\nwget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.asc.gpg\r\nsudo mv microsoft.asc.gpg /etc/apt/trusted.gpg.d/\r\nwget -q https://packages.microsoft.com/config/debian/10/prod.list\r\nsudo mv prod.list /etc/apt/sources.list.d/microsoft-prod.list\r\nsudo chown root:root /etc/apt/trusted.gpg.d/microsoft.asc.gpg\r\nsudo chown root:root /etc/apt/sources.list.d/microsoft-prod.list\r\n```\r\n\r\n## Install the .NET Core SDK\r\n\r\n![Developing-Orchard-Core-CMS-Applications-Using-Linux-and-VSCode-002](https://user-images.githubusercontent.com/58791170/71485110-ca5b1580-27cc-11ea-8122-e29add3ca293.png)\r\n\r\n![Developing-Orchard-Core-CMS-Applications-Using-Linux-and-VSCode-003](https://user-images.githubusercontent.com/58791170/71485111-ca5b1580-27cc-11ea-85f8-56301143fc22.png)\r\n\r\nNote: After installing the .NET SDK, it seems it’s not necessary to install the runtimes.\r\n\r\nRun the commands:\r\n\r\n```\r\nsudo apt-get update\r\nsudo apt-get install apt-transport-https\r\nsudo apt-get update\r\nsudo apt-get install dotnet-sdk-3.0\r\n```\r\n\r\n## Install the ASP.NET Core runtime\r\n\r\n![Developing-Orchard-Core-CMS-Applications-Using-Linux-and-VSCode-004](https://user-images.githubusercontent.com/58791170/71485112-ca5b1580-27cc-11ea-921b-56e2d008e575.png)\r\n\r\nRun the commands\r\n\r\n```\r\nsudo apt-get update\r\nsudo apt-get install apt-transport-https\r\nsudo apt-get update\r\nsudo apt-get install aspnetcore-runtime-3.0\r\n```\r\n\r\n## Install the .NET Core runtime\r\n\r\nRun the commands\r\n\r\n```\r\nsudo apt-get update\r\nsudo apt-get install apt-transport-https\r\nsudo apt-get update\r\nsudo apt-get install dotnet-runtime-3.0\r\n```\r\n\r\n## Code Generation Templates\r\n\r\nOrchard Core Templates uses dotnet new template configurations for creating new websites, themes and modules from the command shell.\r\nMore information about dotnet new can be found at:\r\n\r\n[dotnet new template configurations](https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-new)\r\n\r\n## Install Orchard Core Code Generation Templates\r\n\r\n![Developing-Orchard-Core-CMS-Applications-Using-Linux-and-VSCode-008](https://user-images.githubusercontent.com/58791170/71485116-cb8c4280-27cc-11ea-9e5b-84b644e65df5.png)\r\n\r\nRun the command:\r\n\r\n```\r\ndotnet new -i OrchardCore.ProjectTemplates::1.0.0-rc1-*\r\n```\r\n\r\n## Set NuGet Source to Latest Dev Branch of Orchard Core\r\n\r\n![Developing-Orchard-Core-CMS-Applications-Using-Linux-and-VSCode-009](https://user-images.githubusercontent.com/58791170/71485117-cb8c4280-27cc-11ea-9967-147c24bf55b4.png)\r\n\r\nThis will use the most stable release of Orchard Core. In order to use the latest dev branch of Orchard Core, the following command can be used:\r\n\r\n```\r\ndotnet new -i OrchardCore.ProjectTemplates::1.0.0-rc1-* --nuget-source https://www.myget.org/F/orchardcore-preview/api/v3/index.json\r\n```\r\n\r\nOnce the .NET Core SDK has been installed, the templates can be used for creating Orchard Core web applications\r\n\r\n## Create a new Orchard Core CMS Web App\r\n\r\n![Developing-Orchard-Core-CMS-Applications-Using-Linux-and-VSCode-010](https://user-images.githubusercontent.com/58791170/71485118-cb8c4280-27cc-11ea-818b-070687cad261.png)\r\n\r\nSwitch to your projects folder. Mine is located at ~/Documents/GitHub\r\n\r\n```\r\ncd ~/Documents/GitHub\r\n```\r\n\r\nRun the commands:\r\n\r\n```\r\nmkdir MyOrchardCoreCMS\r\ncd MyOrchardCoreCMS/\r\ndotnet new occms -lo none\r\ncode .\r\n```\r\n\r\n## Create a NuGet.config File\r\n\r\n![Developing-Orchard-Core-CMS-Applications-Using-Linux-and-VSCode-011](https://user-images.githubusercontent.com/58791170/71485119-cb8c4280-27cc-11ea-8fea-df71c0a7b080.png)\r\n\r\nClick the plus file icon on MYORCHARDCORECMS folder to create a new file.\r\n\r\n![Developing-Orchard-Core-CMS-Applications-Using-Linux-and-VSCode-012](https://user-images.githubusercontent.com/58791170/71485120-cb8c4280-27cc-11ea-9884-3033d52b955f.png)\r\n\r\nPaste in the contents for the NuGet.config file.\r\nNuGet.config:\r\n\r\n```\r\n<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<configuration>\r\n    <packageSources>\r\n        <add key=\"Orchard Core Preview Feed\" value=\"https://www.myget.org/F/orchardcore-preview/api/v3/index.json\" />\r\n    </packageSources>\r\n</configuration>\r\n```\r\n\r\n## Create Build Configuration and Run the Orchard Core CMS Web App\r\n\r\nClick on the Debug icon.\r\n\r\n![Developing-Orchard-Core-CMS-Applications-Using-Linux-and-VSCode-013](https://user-images.githubusercontent.com/58791170/71485121-cb8c4280-27cc-11ea-9cb0-335032fde749.png)\r\n\r\nClick the \"create a launch.json file\".\r\n\r\n![Developing-Orchard-Core-CMS-Applications-Using-Linux-and-VSCode-014](https://user-images.githubusercontent.com/58791170/71485122-cb8c4280-27cc-11ea-983e-1340866b7d4b.png)\r\n\r\nSelect .Net Core\r\n\r\n![Developing-Orchard-Core-CMS-Applications-Using-Linux-and-VSCode-015](https://user-images.githubusercontent.com/58791170/71485124-cc24d900-27cc-11ea-8951-d69c3ac2a62a.png)\r\n\r\nClick on the green triangle to start running the application.\r\n\r\n![Developing-Orchard-Core-CMS-Applications-Using-Linux-and-VSCode-016](https://user-images.githubusercontent.com/58791170/71485125-cc24d900-27cc-11ea-81b6-3e46e4817f26.png)\r\n\r\nApplication is running.\r\n\r\n## Launch Web Browser\r\n\r\n![Developing-Orchard-Core-CMS-Applications-Using-Linux-and-VSCode-017](https://user-images.githubusercontent.com/58791170/71485126-cc24d900-27cc-11ea-86d2-bf3e5fc54198.png)\r\n\r\nLaunch the web browser and set the URL to:\r\n\r\n[http://localhost:5000/](http://localhost:5000/)\r\n\r\nCongratulations Our Orchard Core Application is running on Linux.  Enter the site name, Blog for the Recipe, your Default Time Zone, Sqlite for the database and then your administrator credentials.\r\n\r\n![Developing-Orchard-Core-CMS-Applications-Using-Linux-and-VSCode-018](https://user-images.githubusercontent.com/58791170/71485127-cc24d900-27cc-11ea-8844-c14ddb00cca7.png)\r\n\r\nNow browse to the dashboard at:\r\n\r\n[http://localhost:5000/admin](http://localhost:5000/admin)\r\n\r\n![Developing-Orchard-Core-CMS-Applications-Using-Linux-and-VSCode-019](https://user-images.githubusercontent.com/58791170/71485128-ccbd6f80-27cc-11ea-8f28-2647723f5301.png)\r\n\r\nLogin with your admin credentials.\r\n\r\n![Developing-Orchard-Core-CMS-Applications-Using-Linux-and-VSCode-020](https://user-images.githubusercontent.com/58791170/71485129-ccbd6f80-27cc-11ea-972c-7a59201dd157.png)\r\n\r\n## Conclusion\r\n\r\nWith ASP.NET and Orchard Core CMS you can setup the development environment and create an application in minutes on Linux, macOS, or Windows machine using VS Code. Best of all it’s all free.\r\n\r\n## GitHub\r\n\r\nThe complete source code is located [here](https://github.com/orchardcmsnet/MyOrchardCoreCMSonLinuxUsingVSCode).\r\n"
+          },
+          "ContainedPart": {
+            "ListContentItemId": "[js: variables('blogContentItemId')]",
+            "Order": 0
+          }
+        },
+        {
+          "ContentItemId": "[js: uuid()]",
+          "ContentType": "Article",
+          "DisplayText": "About",
+          "Latest": true,
+          "Published": true,
+          "Owner": "[js: parameters('AdminUsername')]",
+          "Author": "[js: parameters('AdminUsername')]",
+          "AutoroutePart": {
+            "Path": "about",
+            "SetHomepage": false
+          },
+          "HtmlBodyPart": {
+            "Html": "<h1>About Us</h1><p>Tell your story</p><h1>Know Your Audience</h1><p>Who are you writing for? Decide on who you want to write to. Decide what you want to write about.</p><h1>What Value Are You Bringing to Your Readers?</h1><p>Why should they care? People want value, and they want it now – give it to them already! If you waffle around here, you will lose readers. You need to tell them exactly what they are going to get from your site and how it will help them.</p><h1>Build Your Credibility</h1><p>Why should they listen to you? After all, you’re just another voice on the interwebs and the interwebs are full of shady characters trying to make moves on your wallet. You need to tell your readers about your expertise. Make them trust you, help them out, and then they will love you.</p><p>Consider adding:</p><ul><li>A snippet about your site’s history<br></li><li>If you’ve been featured on any authority sites as a guest blogger<br></li></ul><h1>Your Biography</h1><p>Now you get to talk about you. You get to tell your story. But only the hyper-relevant and interesting parts.  Write about yourself like the superhero you secretly are or want to be.  But don’t overshare on the details, make sure you leave a little mystique.</p><p>Think about your story:<br></p><ul><li>What made you decide to start a blog or business?<br></li><li>What’s your big why?<br></li><li>What keeps you going?</li></ul><h1>Call to Action</h1><p>You should have at least one list opt-in form on your About page. Why? Your About page is one of the most frequently visited pages on your site. If you get it right, you’re going to connect with your readers.</p>"
+          },
+          "TitlePart": {
+            "Title": "About"
+          },
+          "Article": {
+            "Subtitle": {
+              "Text": "Reasons for reading our blog"
+            }
+          }
+        },
+        {
+          "ContentItemId": "[js: uuid()]",
+          "ContentType": "Article",
+          "DisplayText": "Thanks",
+          "Latest": true,
+          "Published": true,
+          "Owner": "[js: parameters('AdminUsername')]",
+          "Author": "[js: parameters('AdminUsername')]",
+          "AutoroutePart": {
+            "Path": "thanks",
+            "SetHomepage": false
+          },
+          "HtmlBodyPart": {
+            "Html": "<p>Thank you for your message. Someone will get back with you as soon as possible.</p>"
+          },
+          "TitlePart": {
+            "Title": "Thanks"
+          },
+          "Article": {
+            "Subtitle": {
+              "Text": "Thank You for your Message"
+            }
+          }
+        },
+        {
+          "ContentItemId": "[js: uuid()]",
+          "ContentType": "Article",
+          "DisplayText": "Not Authorized",
+          "Latest": true,
+          "Published": true,
+          "Owner": "[js: parameters('AdminUsername')]",
+          "Author": "[js: parameters('AdminUsername')]",
+          "Article": {
+            "Subtitle": {
+              "Text": "User is not authorized to access this resource"
+            }
+          },
+          "AutoroutePart": {
+            "Path": "not-authorized",
+            "SetHomepage": false,
+            "Disabled": false,
+            "RouteContainedItems": false,
+            "Absolute": false
+          },
+          "HtmlBodyPart": {
+            "Html": "<p>We apologize for your inconvenience. Unfortunately, you are not authorized to access this resource. Please <a href=\"/Login\">log in</a> or <a href=\"/Register\">register</a> and create a user account.</p>"
+          },
+          "TitlePart": {
+            "Title": "Not Authorized"
+          }
+        },
+        {
+          "ContentItemId": "[js: uuid()]",
+          "ContentType": "Page",
+          "DisplayText": "Contact",
+          "Latest": true,
+          "Published": true,
+          "Owner": "[js: parameters('AdminUsername')]",
+          "Author": "[js: parameters('AdminUsername')]",
+          "Page": {},
+          "AutoroutePart": {
+            "Path": "contact",
+            "SetHomepage": false
+          },
+          "FlowPart": {
+            "Widgets": [
+              {
+                "ContentItemId": "4xrapxrd65572r3hrqsyzpqr41",
+                "ContentItemVersionId": null,
+                "ContentType": "Form",
+                "DisplayText": "Contact",
+                "Latest": false,
+                "Published": false,
+                "PublishedUtc": null,
+                "CreatedUtc": null,
+                "Owner": null,
+                "Author": "admin",
+                "TitlePart": {
+                  "Title": "Contact"
+                },
+                "FormPart": {
+                  "Action": "/workflows/Invoke?token=CfDJ8J9X5AJrfSFEg_y2herzL9treOg0l1xGW5AbPXEVnQILZxcfB7HLcWA8hPWv79cYxceFV3RXwPyo4XiarTdobhjPAXg65suEdfjD3bGXLQXph-ACWNVHDncMesMoJxr6MKttRFk8636cBBq7LRJQy3UYfmrlx0jV-EQnBrtcgAkQPZxK6ygsX6MbifonWoz054NbfeUMQ663f85zh2gpl5MhcbPjqkhPRmNpaEfIb52g",
+                  "Method": "POST",
+                  "WorkflowTypeId": null
+                },
+                "FlowPart": {
+                  "Widgets": [
+                    {
+                      "ContentItemId": "4v2zn39myvc9v7knjjygez48db",
+                      "ContentItemVersionId": null,
+                      "ContentType": "Input",
+                      "DisplayText": "Name",
+                      "Latest": false,
+                      "Published": false,
+                      "PublishedUtc": null,
+                      "CreatedUtc": null,
+                      "Owner": null,
+                      "Author": "admin",
+                      "FormInputElementPart": {
+                        "Name": "Name"
+                      },
+                      "FormElementPart": {
+                        "Id": null
+                      },
+                      "InputPart": {
+                        "Type": "text",
+                        "DefaultValue": null,
+                        "Placeholder": "Enter Name"
+                      },
+                      "FlowMetadata": {
+                        "Alignment": 3,
+                        "Size": 100
+                      }
+                    },
+                    {
+                      "ContentItemId": "47q0d4cgpw4p2xrrsh0cggepd2",
+                      "ContentItemVersionId": null,
+                      "ContentType": "Input",
+                      "DisplayText": "Email",
+                      "Latest": false,
+                      "Published": false,
+                      "PublishedUtc": null,
+                      "CreatedUtc": null,
+                      "Owner": null,
+                      "Author": "admin",
+                      "FormInputElementPart": {
+                        "Name": "Email"
+                      },
+                      "FormElementPart": {
+                        "Id": null
+                      },
+                      "InputPart": {
+                        "Type": "email",
+                        "DefaultValue": null,
+                        "Placeholder": "Enter Email"
+                      },
+                      "FlowMetadata": {
+                        "Alignment": 3,
+                        "Size": 100
+                      }
+                    },
+                    {
+                      "ContentItemId": "4kkzj3ts1zkmys2qasnb1def5s",
+                      "ContentItemVersionId": null,
+                      "ContentType": "TextArea",
+                      "DisplayText": "Message",
+                      "Latest": false,
+                      "Published": false,
+                      "PublishedUtc": null,
+                      "CreatedUtc": null,
+                      "Owner": null,
+                      "Author": "admin",
+                      "FormInputElementPart": {
+                        "Name": "Message"
+                      },
+                      "FormElementPart": {
+                        "Id": null
+                      },
+                      "TextAreaPart": {
+                        "DefaultValue": null,
+                        "Placeholder": "Enter Message Text"
+                      },
+                      "FlowMetadata": {
+                        "Alignment": 3,
+                        "Size": 100
+                      }
+                    },
+                    {
+                      "ContentItemId": "4d1g2zxrm80z25jjs0rzyvkyxv",
+                      "ContentItemVersionId": null,
+                      "ContentType": "ValidationSummary",
+                      "DisplayText": null,
+                      "Latest": false,
+                      "Published": false,
+                      "PublishedUtc": null,
+                      "CreatedUtc": null,
+                      "Owner": null,
+                      "Author": "admin",
+                      "ValidationSummaryPart": {},
+                      "FlowMetadata": {
+                        "Alignment": 3,
+                        "Size": 100
+                      }
+                    },
+                    {
+                      "ContentItemId": "4nh88g8ddndgz3779jsv6mgbnm",
+                      "ContentItemVersionId": null,
+                      "ContentType": "Button",
+                      "DisplayText": "Submit",
+                      "Latest": false,
+                      "Published": false,
+                      "PublishedUtc": null,
+                      "CreatedUtc": null,
+                      "Owner": null,
+                      "Author": "admin",
+                      "FormInputElementPart": {
+                        "Name": "Submit"
+                      },
+                      "FormElementPart": {
+                        "Id": null
+                      },
+                      "ButtonPart": {
+                        "Text": "Submit",
+                        "Type": "submit"
+                      },
+                      "FlowMetadata": {
+                        "Alignment": 3,
+                        "Size": 100
+                      }
+                    }
+                  ]
+                },
+                "FlowMetadata": {
+                  "Alignment": 3,
+                  "Size": 100
+                }
+              }
+            ]
+          },
+          "TitlePart": {
+            "Title": "Contact"
+          }
+        },
+        {
+          "ContentItemId": "[js: uuid()]",
+          "ContentType": "RawHtml",
+          "Displaytext": "Footer",
+          "Latest": true,
+          "Published": true,
+          "Owner": "[js: parameters('AdminUsername')]",
+          "Author": "[js: parameters('AdminUsername')]",
+          "LayerMetadata": {
+            "Layer": "Always",
+            "Zone": "Footer",
+            "RenderTitle": false,
+            "Position": 10
+          },
+          "RawHtml": {
+            "Content": {
+              "Html": "[file:text('Snippets/footer.html')]"
+            }
+          }
+        },
+        {
+          "ContentItemId": "[js: uuid()]",
+          "ContentType": "LandingPage",
+          "DisplayText": "[js: parameters('SiteName')]",
+          "Latest": true,
+          "Published": true,
+          "Owner": "[js: parameters('AdminUsername')]",
+          "Author": "[js: parameters('AdminUsername')]",
+          "LandingPage": {},
+          "AutoroutePart": {
+            "Path": "home",
+            "SetHomepage": true,
+            "Disabled": false,
+            "RouteContainedItems": false,
+            "Absolute": false
+          },
+          "TitlePart": {
+            "Title": "[js: parameters('SiteName')]"
+          }
+        }
+      ]
+    },
+    {
+      "name": "media",
+      "Files": [
+        {
+          "TargetPath": "getting-started.png",
+          "SourcePath": "../wwwroot/img/getting-started.png"
+        },
+        {
+          "TargetPath": "about-bg.jpg",
+          "SourcePath": "../wwwroot/img/about-bg.jpg"
+        },
+        {
+          "TargetPath": "contact-bg.jpg",
+          "SourcePath": "../wwwroot/img/contact-bg.jpg"
+        },
+        {
+          "TargetPath": "home-bg.jpg",
+          "SourcePath": "../wwwroot/img/home-bg.jpg"
+        },
+        {
+          "TargetPath": "linux-vscode.png",
+          "SourcePath": "../wwwroot/img/linux-vscode.png"
+        },
+
+        {
+          "TargetPath": "post-bg.jpg",
+          "SourcePath": "../wwwroot/img/post-bg.jpg"
+        },
+        {
+          "TargetPath": "search-bg.jpg",
+          "SourcePath": "../wwwroot/img/search-bg.jpg"
+        }
+
+      ]
+    },
+    {
+      "name": "layers",
+      "Layers": [
+        {
+          "Name": "Always",
+          "Rule": "true",
+          "Description": "The widgets in this layer are displayed on any page of this site."
+        },
+        {
+          "Name": "Homepage",
+          "Rule": "isHomepage()",
+          "Description": "The widgets in this layer are only displayed on the homepage."
+        }
+      ]
+    },
+    {
+      "name": "queries",
+      "Queries": [
+        {
+          "Source": "Lucene",
+          "Name": "RecentBlogPosts",
+          "Index": "Search",
+          "Template": "[file:text('Snippets/recentBlogPosts.json')]",
+          "Schema": "[js:base64('ew0KICAgICJ0eXBlIjogIkNvbnRlbnRJdGVtL0Jsb2dQb3N0Ig0KfQ==')]",
+          "ReturnContentItems": true
+        },
+        {
+          "Source": "Lucene",
+          "Name": "RecentBlogPosts",
+          "Index": "Search",
+          "Template": "[file:text('Snippets/recentBlogPosts.json')]",
+          "Schema": "[js:base64('ew0KICAgICJ0eXBlIjogIkNvbnRlbnRJdGVtL0Jsb2dQb3N0Ig0KfQ==')]",
+          "ReturnContentItems": true
+        }
+      ]
+    },
+    {
+      "name": "AdminMenu",
+      "data": [
+        {
+          "Id": "baef6f85ad13481681cde70ada401333",
+          "Name": "Admin menu from blog recipe",
+          "Enabled": true,
+          "MenuItems": [
+            {
+              "$type": "OrchardCore.AdminMenu.AdminNodes.LinkAdminNode, OrchardCore.AdminMenu",
+              "LinkText": "Blog",
+              "LinkUrl": "[js: 'Admin/Contents/ContentItems/' +  variables('blogContentItemId') + '/Display']",
+              "IconClass": "fas fa-rss",
+              "UniqueId": "7b293d57056a4eebb3713f07f12c65d8",
+              "Enabled": true,
+              "Text": null,
+              "Id": null,
+              "Href": null,
+              "Url": null,
+              "Position": null,
+              "LinkToFirstChild": true,
+              "LocalNav": false,
+              "Culture": null,
+              "Resource": null,
+              "Items": [],
+              "RouteValues": null,
+              "Permissions": [],
+              "Classes": []
+            },
+            {
+              "$type": "OrchardCore.AdminMenu.AdminNodes.LinkAdminNode, OrchardCore.AdminMenu",
+              "LinkText": "Main Menu",
+              "LinkUrl": "[js: 'Admin/Contents/ContentItems/' +  variables('menuContentItemId') + '/Edit']",
+              "IconClass": "fas fa-sitemap",
+              "UniqueId": "5118cecfde834dacb26ac08980f1b5a7",
+              "Enabled": true,
+              "Text": null,
+              "Id": null,
+              "Href": null,
+              "Url": null,
+              "Position": null,
+              "LinkToFirstChild": true,
+              "LocalNav": false,
+              "Culture": null,
+              "Resource": null,
+              "Items": [],
+              "RouteValues": null,
+              "Permissions": [],
+              "Classes": []
+            },
+            {
+              "$type": "OrchardCore.AdminMenu.AdminNodes.PlaceholderAdminNode, OrchardCore.AdminMenu",
+              "LinkText": "Content",
+              "IconClass": null,
+              "UniqueId": "3e590d44f8704e4588e272dd966ce291",
+              "Enabled": true,
+              "Text": null,
+              "Id": null,
+              "Href": null,
+              "Url": null,
+              "Position": null,
+              "LinkToFirstChild": true,
+              "LocalNav": false,
+              "Culture": null,
+              "Resource": null,
+              "Items": [
+                {
+                  "$type": "OrchardCore.AdminMenu.AdminNodes.LinkAdminNode, OrchardCore.AdminMenu",
+                  "LinkText": "Content Items",
+                  "LinkUrl": "Admin/Contents/ContentItems/",
+                  "IconClass": null,
+                  "UniqueId": "7b293d57056a4eebb3713f07f12c65d9",
+                  "Enabled": true,
+                  "Text": null,
+                  "Id": null,
+                  "Href": null,
+                  "Url": null,
+                  "Position": 0,
+                  "LinkToFirstChild": true,
+                  "LocalNav": false,
+                  "Culture": null,
+                  "Resource": null,
+                  "Items": [],
+                  "RouteValues": null,
+                  "Permissions": [],
+                  "Classes": []
+                },
+                {
+                  "$type": "OrchardCore.AdminMenu.AdminNodes.PlaceholderAdminNode, OrchardCore.AdminMenu",
+                  "LinkText": "Content Types",
+                  "IconClass": null,
+                  "UniqueId": "2f1fc33133334a1abf7d1a0516ee8b4e",
+                  "Enabled": true,
+                  "Text": null,
+                  "Id": null,
+                  "Href": null,
+                  "Url": null,
+                  "Position": 1,
+                  "Priority": 50,
+                  "LinkToFirstChild": true,
+                  "LocalNav": false,
+                  "Culture": null,
+                  "Resource": null,
+                  "Items": [
+                    {
+                      "$type": "OrchardCore.Contents.AdminNodes.ContentTypesAdminNode, OrchardCore.Contents",
+                      "ShowAll": true,
+                      "IconClass": null,
+                      "ContentTypes": [],
+                      "UniqueId": "ee18224e1b814c638b0732678b74cfd9",
+                      "Enabled": true,
+                      "Text": null,
+                      "Id": null,
+                      "Href": null,
+                      "Url": null,
+                      "Position": null,
+                      "LinkToFirstChild": true,
+                      "LocalNav": false,
+                      "Culture": null,
+                      "Resource": null,
+                      "Items": [],
+                      "RouteValues": null,
+                      "Permissions": [],
+                      "Classes": []
+                    }
+                  ],
+                  "RouteValues": null,
+                  "Permissions": [],
+                  "Classes": []
+                }
+              ],
+              "RouteValues": null,
+              "Permissions": [],
+              "Classes": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "WorkflowType",
+      "data": [
+        {
+          "WorkflowTypeId": "4jj8jr3wyat5h7f8s4dvn052db",
+          "Name": "Contact",
+          "IsEnabled": true,
+          "IsSingleton": false,
+          "DeleteFinishedWorkflows": false,
+          "Activities": [
+            {
+              "ActivityId": "490rajejvg37c4wd8m50q06mxv",
+              "Name": "HttpRequestEvent",
+              "X": 0,
+              "Y": 0,
+              "IsStart": true,
+              "Properties": {
+                "ActivityMetadata": {
+                  "Title": "Contact Form Submitted"
+                },
+                "HttpMethod": "POST",
+                "Url": "/workflows/Invoke?token=CfDJ8LNsm1L3BhpCvl1kHZG8BbD7lKzRL4aioHjYFUD-RSYTqQ-fNq1eigkX-b7fKYzHZ0y31U8oAo9pUI7xg0qz_L2ewWrx_hHn9F2jeJ-CYgdcsl0R2k7EzFmZ9VleR0SxC83VUWMoHIPE4aVH79bvuY0tIWWkkTJUE0sEHpg4LeMR_c2rdd2026JyRBxGrRwPfpUCHU2TlmQEvkxSqBUrw-yXabqBgQjpfMX1GKHrhVGe",
+                "ValidateAntiforgeryToken": true,
+                "TokenLifeSpan": 0
+              }
+            },
+            {
+              "ActivityId": "4jjt2hqjp6xk9164hkp0cxv3w7",
+              "Name": "BindModelStateTask",
+              "X": 0,
+              "Y": 190,
+              "IsStart": false,
+              "Properties": {
+                "ActivityMetadata": {
+                  "Title": null
+                }
+              }
+            },
+            {
+              "ActivityId": "4hr22mvxwk0rex8khhkr9cnncp",
+              "Name": "ForkTask",
+              "X": 340,
+              "Y": 20,
+              "IsStart": false,
+              "Properties": {
+                "ActivityMetadata": {
+                  "Title": "Validate Form Fields"
+                },
+                "Forks": [
+                  "Validate Name",
+                  "Validate Email",
+                  "Validate Message"
+                ]
+              }
+            },
+            {
+              "ActivityId": "4655jbn3247ksrt08a2b7r8yw9",
+              "Name": "ValidateFormFieldTask",
+              "X": 320,
+              "Y": 190,
+              "IsStart": false,
+              "Properties": {
+                "FieldName": "Name",
+                "ErrorMessage": "No Name entered",
+                "ActivityMetadata": {
+                  "Title": "Validate Name"
+                }
+              }
+            },
+            {
+              "ActivityId": "4xp021fs701ay5gmram0nyjcdh",
+              "Name": "ValidateFormFieldTask",
+              "X": 760,
+              "Y": 170,
+              "IsStart": false,
+              "Properties": {
+                "FieldName": "Email",
+                "ErrorMessage": "Email not valid",
+                "ActivityMetadata": {
+                  "Title": "Validate Email"
+                }
+              }
+            },
+            {
+              "ActivityId": "4dpzxry0zjy4t0xhj1xfj5mm4k",
+              "Name": "ValidateFormFieldTask",
+              "X": 1150,
+              "Y": 200,
+              "IsStart": false,
+              "Properties": {
+                "FieldName": "Message",
+                "ErrorMessage": "No Message entered",
+                "ActivityMetadata": {
+                  "Title": "Validate Message"
+                }
+              }
+            },
+            {
+              "ActivityId": "48cgyy0wzhjf50yrkz422rn2n1",
+              "Name": "JoinTask",
+              "X": 440,
+              "Y": 300,
+              "IsStart": false,
+              "Properties": {
+                "ActivityMetadata": {
+                  "Title": null
+                },
+                "Mode": 0
+              }
+            },
+            {
+              "ActivityId": "4crzwchrbc2fkym4jbg7aed44j",
+              "Name": "ValidateFormTask",
+              "X": 500,
+              "Y": 470,
+              "IsStart": false,
+              "Properties": {
+                "ActivityMetadata": {
+                  "Title": null
+                }
+              }
+            },
+            {
+              "ActivityId": "47j30tb53gecc2yqewbx3x8pn4",
+              "Name": "EmailTask",
+              "X": 810,
+              "Y": 470,
+              "IsStart": false,
+              "Properties": {
+                "Sender": {
+                  "Expression": "sales@orchardskills.com"
+                },
+                "Recipients": {
+                  "Expression": "sales@orchardskills.com"
+                },
+                "Subject": {
+                  "Expression": "New Message"
+                },
+                "Body": {
+                  "Expression": "<p>The following information was submitted:<p/>\r\n<p>Name: {{ Request.Form.Name }}</p>\r\n<p>Email: {{ Request.Form.Email }}</p>\r\n<p>Message: {{ Request.Form.Message }}</p>"
+                },
+                "IsBodyHtml": true,
+                "ActivityMetadata": {
+                  "Title": "Email to Site Admin"
+                }
+              }
+            },
+            {
+              "ActivityId": "4kyt6yjc0nhp7zn89gmbhrbsdv",
+              "Name": "HttpRedirectTask",
+              "X": 190,
+              "Y": 470,
+              "IsStart": false,
+              "Properties": {
+                "ActivityMetadata": {
+                  "Title": "Display Form Errors"
+                },
+                "Location": {
+                  "Expression": "/contact"
+                },
+                "Permanent": false
+              }
+            },
+            {
+              "ActivityId": "4kbg33s0s6v491sp4k2dpeymn2",
+              "Name": "HttpRedirectTask",
+              "X": 1090,
+              "Y": 470,
+              "IsStart": false,
+              "Properties": {
+                "ActivityMetadata": {
+                  "Title": "Display Thank You Page"
+                },
+                "Location": {
+                  "Expression": "/thanks"
+                },
+                "Permanent": false
+              }
+            }
+          ],
+          "Transitions": [
+            {
+              "Id": 0,
+              "SourceActivityId": "490rajejvg37c4wd8m50q06mxv",
+              "SourceOutcomeName": "Done",
+              "DestinationActivityId": "4jjt2hqjp6xk9164hkp0cxv3w7"
+            },
+            {
+              "Id": 0,
+              "SourceActivityId": "4jjt2hqjp6xk9164hkp0cxv3w7",
+              "SourceOutcomeName": "Done",
+              "DestinationActivityId": "4hr22mvxwk0rex8khhkr9cnncp"
+            },
+            {
+              "Id": 0,
+              "SourceActivityId": "4hr22mvxwk0rex8khhkr9cnncp",
+              "SourceOutcomeName": "Validate Name",
+              "DestinationActivityId": "4655jbn3247ksrt08a2b7r8yw9"
+            },
+            {
+              "Id": 0,
+              "SourceActivityId": "4655jbn3247ksrt08a2b7r8yw9",
+              "SourceOutcomeName": "Done",
+              "DestinationActivityId": "48cgyy0wzhjf50yrkz422rn2n1"
+            },
+            {
+              "Id": 0,
+              "SourceActivityId": "48cgyy0wzhjf50yrkz422rn2n1",
+              "SourceOutcomeName": "Joined",
+              "DestinationActivityId": "4crzwchrbc2fkym4jbg7aed44j"
+            },
+            {
+              "Id": 0,
+              "SourceActivityId": "4crzwchrbc2fkym4jbg7aed44j",
+              "SourceOutcomeName": "Valid",
+              "DestinationActivityId": "47j30tb53gecc2yqewbx3x8pn4"
+            },
+            {
+              "Id": 0,
+              "SourceActivityId": "4crzwchrbc2fkym4jbg7aed44j",
+              "SourceOutcomeName": "Invalid",
+              "DestinationActivityId": "4kyt6yjc0nhp7zn89gmbhrbsdv"
+            },
+            {
+              "Id": 0,
+              "SourceActivityId": "47j30tb53gecc2yqewbx3x8pn4",
+              "SourceOutcomeName": "Done",
+              "DestinationActivityId": "4kbg33s0s6v491sp4k2dpeymn2"
+            },
+            {
+              "Id": 0,
+              "SourceActivityId": "4hr22mvxwk0rex8khhkr9cnncp",
+              "SourceOutcomeName": "Validate Email",
+              "DestinationActivityId": "4xp021fs701ay5gmram0nyjcdh"
+            },
+            {
+              "Id": 0,
+              "SourceActivityId": "4hr22mvxwk0rex8khhkr9cnncp",
+              "SourceOutcomeName": "Validate Message",
+              "DestinationActivityId": "4dpzxry0zjy4t0xhj1xfj5mm4k"
+            },
+            {
+              "Id": 0,
+              "SourceActivityId": "4xp021fs701ay5gmram0nyjcdh",
+              "SourceOutcomeName": "Done",
+              "DestinationActivityId": "48cgyy0wzhjf50yrkz422rn2n1"
+            },
+            {
+              "Id": 0,
+              "SourceActivityId": "4dpzxry0zjy4t0xhj1xfj5mm4k",
+              "SourceOutcomeName": "Done",
+              "DestinationActivityId": "48cgyy0wzhjf50yrkz422rn2n1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Settings",
+      "LoginSettings": {
+        "UseSiteTheme": true,
+        "UseExternalProviderIfOnlyOneDefined": false,
+        "DisableLocalLogin": false,
+        "UseScriptToSyncRoles": false,
+        "SyncRolesScript": null
+      }
+    },
+    {
+      "name": "Templates",
+      "Templates": {
+        "Content__LandingPage": {
+          "Content": "{% zone \"Header\" %}\r\n    <!-- Header -->\r\n    <header class=\"rellax\" data-rellax-speed=\"-7\">\r\n        <style>\r\n            /* Height for devices larger than 576px */\r\n            @media (min-width: 992px) {\r\n                #intro {\r\n                    margin-top: -58.59px;\r\n                }\r\n            }\r\n        </style>\r\n\r\n        <!-- Background image -->\r\n        <div id=\"intro\" class=\"bg-image shadow-1-strong \" style=\"/*! height: 100vh; */max-height: 100vh;\">\r\n            <video class=\"w-100 rellax\" style=\"min-height: 100%;\" playsinline=\"\" autoplay=\"\" muted=\"\" loop=\"\">\r\n                <source src=\"/MaterialDesignTheme/videos/heaven.mp4\" type=\"video/mp4\">\r\n            </video>\r\n            <div class=\"mask\" style=\"\r\n        background: linear-gradient(\r\n          45deg,\r\n          rgba(29, 236, 197, 0.7),\r\n          rgba(91, 14, 214, 0.7) 100%\r\n        );\r\n      \">\r\n                <div class=\"container d-flex align-items-center justify-content-center text-center h-100\">\r\n                    <div class=\"text-white\">\r\n                        <h1 data-aos=\"fade-down\" data-aos-duration=\"1500\" style=\"color: white !important\" class=\"mb-3\">Learn </h1>\r\n                      <img style=\"width: 50%;\" src=\"/MaterialDesignTheme/img/OrchardCore.png\" >\r\n                        <h5 data-aos=\"zoom-in\" data-aos-duration=\"1500\" data-aos-delay=\"600\" style=\"color: white !important\" class=\"mb-4\">Best guide to the modular CMS framework</h5>\r\n                        <a data-aos=\"fade-up\" data-aos-duration=\"1500\"  data-aos-delay=\"300\" style=\"color: white !important\" class=\"btn btn-outline-light btn-lg m-2\" href=\"https://www.youtube.com/watch?v=3pPyNKJo1iU&feature=youtu.be\"\r\n                            target=\"_blank\" rel=\"noreferrer\" role=\"button\">Get Started</a>\r\n                        <a data-aos=\"fade-up\" data-aos-duration=\"1500\"  data-aos-delay=\"300\" style=\"color: white !important\" class=\"btn btn-outline-light btn-lg m-2\" href=\"https://orchardskills.com/blog/getting-started-with-orchard-core\"\r\n                            target=\"_blank\" rel=\"noreferrer\" role=\"button\">Documentation and source code</a>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n\r\n        </div>\r\n        <!-- Background image -->\r\n    </header>\r\n    {% endzone %}\r\n\r\n\r\n    <div class=\"blur\"></div>\r\n\r\n    <div class=\"rellax-container\">\r\n        <section class=\"\">\r\n            <div class=\"container\">\r\n                </br>\r\n                </br>\r\n                <h4 data-aos=\"zoom-in\" data-aos-duration=\"1500\" class=\"mb-5 text-center\"><strong>Subscribe to our news letter</strong></h4>\r\n\r\n                <div class=\"row d-flex justify-content-center\">\r\n                    <div class=\"col-md-6\">\r\n                        <form>\r\n                            <!-- 2 column grid layout with text inputs for the first and last names -->\r\n                            <div class=\"row mb-4\">\r\n                                <div data-aos=\"fade-right\" data-aos-delay=\"300\" class=\"col\">\r\n                                    <div class=\"form-outline\">\r\n                                        <input type=\"text\" id=\"form3Example1\" class=\"form-control\">\r\n                                        <label class=\"form-label\" for=\"form3Example1\" style=\"margin-left: 0px;\">First\r\n                                            name</label>\r\n                                        <div class=\"form-notch\">\r\n                                            <div class=\"form-notch-leading\" style=\"width: 9px;\"></div>\r\n                                            <div class=\"form-notch-middle\" style=\"width: 68.8px;\"></div>\r\n                                            <div class=\"form-notch-trailing\"></div>\r\n                                        </div>\r\n                                    </div>\r\n                                </div>\r\n                                <div data-aos=\"fade-left\" data-aos-delay=\"300\" class=\"col\">\r\n                                    <div class=\"form-outline\">\r\n                                        <input type=\"text\" id=\"form3Example2\" class=\"form-control\">\r\n                                        <label class=\"form-label\" for=\"form3Example2\" style=\"margin-left: 0px;\">Last\r\n                                            name</label>\r\n                                        <div class=\"form-notch\">\r\n                                            <div class=\"form-notch-leading\" style=\"width: 9px;\"></div>\r\n                                            <div class=\"form-notch-middle\" style=\"width: 68px;\"></div>\r\n                                            <div class=\"form-notch-trailing\"></div>\r\n                                        </div>\r\n                                    </div>\r\n                                </div>\r\n                            </div>\r\n\r\n                            <!-- Email input -->\r\n                            <div  data-aos=\"zoom-in\" data-aos-duration=\"1500\" data-aos-delay=\"400\" class=\"form-outline mb-4\">\r\n                                <input type=\"email\" id=\"form3Example3\" class=\"form-control\">\r\n                                <label class=\"form-label\" for=\"form3Example3\" style=\"margin-left: 0px;\">Email\r\n                                    address</label>\r\n                                <div class=\"form-notch\">\r\n                                    <div class=\"form-notch-leading\" style=\"width: 9px;\"></div>\r\n                                    <div class=\"form-notch-middle\" style=\"width: 88.8px;\"></div>\r\n                                    <div class=\"form-notch-trailing\"></div>\r\n                                </div>\r\n                            </div>\r\n\r\n                            <!-- Submit button -->\r\n                            <button  data-aos=\"zoom-in\" data-aos-duration=\"1500\" data-aos-delay=\"600\" type=\"submit\" class=\"btn btn-primary btn-block mb-4\">\r\n                                Subscribe\r\n                            </button>\r\n                        </form>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n   \t\t\t</br>\r\n\t\t\t</br>\r\n        </section>\r\n\r\n        <div class=\"streak streak-photo streak-long-2 \"\r\n            style=\"background-image: url('/MaterialDesignTheme/img/mountain-lake-bg.jpg');\">\r\n            <div class=\"flex-center mask rgba-black-light\">\r\n                <div class=\"container\">\r\n\r\n                    <!-- Section heading -->\r\n                    <h3 data-aos=\"zoom-in\" data-aos-duration=\"1500\" data-aos-delay=\"100\" style=\"color: white !important\" class=\"text-center mb-5 pb-4 white-text font-weight-bold wow fadeIn\"\r\n                        style=\"visibility: visible; animation-name: fadeIn; animation-delay: 0.2s;\">\r\n                        <strong>Some facts about us</strong>\r\n                    </h3>\r\n\r\n                    <!--First row-->\r\n                    <div class=\"row text-center\">\r\n\r\n                        <!--First column-->\r\n                        <div class=\"col-md-3 mb-2\" data-aos=\"zoom-in\" data-aos-duration=\"1500\" data-aos-delay=\"200\" >\r\n                            <h1 style=\"color: white !important\" class=\" mb-1 font-weight-bold\">+20K</h1>\r\n                            <p style=\"color: white !important\" class=\" text-uppercase mt-3\">Views</p>\r\n                        </div>\r\n                        <!--/First column-->\r\n\r\n                        <!--Second column-->\r\n                        <div class=\"col-md-3 mb-2\" data-aos=\"zoom-in\" data-aos-duration=\"1500\" data-aos-delay=\"300\" >\r\n                            <h1 style=\"color: white !important\" class=\"white-text mb-1 font-weight-bold\">2K</h1>\r\n                            <p style=\"color: white !important\" class=\"white-text text-uppercase mt-3\">Watch time (hours)</p>\r\n                        </div>\r\n                        <!--/Second column-->\r\n\r\n                        <!--Third column-->\r\n                        <div class=\"col-md-3 mb-2\" data-aos=\"zoom-in\" data-aos-duration=\"1500\" data-aos-delay=\"400\" >\r\n                            <h1 style=\"color: white !important\" class=\"white-text mb-1 font-weight-bold\">+150</h1>\r\n                            <p style=\"color: white !important\" class=\"white-text text-uppercase mt-3\">Projects completed</p>\r\n                        </div>\r\n                        <!--/Third column-->\r\n\r\n                        <!--Fourth column-->\r\n                        <div class=\"col-md-3\" data-aos=\"zoom-in\" data-aos-duration=\"1500\" data-aos-delay=\"500\" >\r\n                            <h1 style=\"color: white !important\" class=\"white-text mb-1 font-weight-bold\">+500</h1>\r\n                            <p style=\"color: white !important\" class=\"white-text text-uppercase mt-3\">Subscribers</p>\r\n                        </div>\r\n                        <!--/Fourth column-->\r\n\r\n                    </div>\r\n                    <!--First row-->\r\n                </div>\r\n\r\n            </div>\r\n        </div>\r\n    </div>\r\n    <!-- Contact -->",
+          "Description": "A template for the Landing Page content type"
+        }
+      }
+    }
+  ]
+}

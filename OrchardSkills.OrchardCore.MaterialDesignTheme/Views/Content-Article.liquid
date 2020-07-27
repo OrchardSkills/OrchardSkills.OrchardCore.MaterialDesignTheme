@@ -1,0 +1,139 @@
+{% zone "Header" %}
+<!-- Page Header -->
+<!-- Set your background image for this header on the line below. -->
+{% assign imagePath = Model.ContentItem.Content.Article.Image.Paths.first %}
+{% if imagePath == nil %}
+<header class="masthead" style="background-image: url('{{ "~/MaterialDesignTheme/img/about-bg.jpg" | href }}')">
+    {% else %}
+    <header class="masthead" style="background-image: url('{{ imagePath | asset_url }}')">
+        {% endif %}
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-10 mx-auto">
+                    <div class="page-heading">
+                        <h1 style="z-index: 9999; position: relative; color: white !important" >{{ Model.ContentItem.DisplayText }}</h1>
+                        <span style="z-index: 9999; position: relative; color: white !important" class="subheading">{{ Model.ContentItem.Content.Article.Subtitle.Text }}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="container">
+        <div class=" mb-3">
+            <div class="row g-0">
+                <div class="col-md-4 p-2 flex-center" data-aos="zoom-in-right" data-aos-delay="800"
+                    data-aos-duration="1500">
+                    <img src="/MaterialDesignTheme/img/webdesign.png" alt="..." class="img-fluid" />
+                </div>
+                <div class="col-md-8 flex-center p-2">
+                    <div class="content">
+                        <h2 class="title mb-4" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1000"> Orchard
+                            Core CMS Themes</h2>
+
+                        <h5 class="title mb-3" data-aos="fade-up" data-aos-delay="400" data-aos-duration="1000">BEAUTY
+                            AND BRAINS WITH SIMPLE ADMINISTATION
+                            AND 3RD PARTY INTEGRATION</h5>
+
+                        <p data-aos="fade-up" data-aos-delay="600" data-aos-duration="1000"> We have successfully More
+                            than just a splash of glitter and
+                            sparkle, our custom themes are responsive, feature-rich, lightweight, easy to manage, and
+                            built using the latest features and functionality in Orchard Core CMS. Designed and
+                            developed specifically to match your knowledge, skills, business processes, and preferences.
+                            We are intimately familar with the Orchard Core framework and the tight integration between
+                            themes, modules, and widgets, so rest assured that we deliver best-in-class, end-to-end
+                            solutions.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr data-aos="zoom-in" data-aos-delay="800" data-aos-duration="1000">
+
+
+        <div class=" mb-3">
+            <div class="row g-0">
+
+                <div class="col-md-8 flex-center p-2">
+                    <div class="content">
+                        <h2 class="title mb-4" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1000"> Orchard
+                            Core Websites and Web Apps</h2>
+
+                        <h5 class="title mb-3" data-aos="fade-up" data-aos-delay="400" data-aos-duration="1000">
+                            FULL-FEATURED AND SECURE WEBSITES USING ORCHARD CORE BEST PRACTICES</h5>
+
+                        <p data-aos="fade-up" data-aos-delay="600" data-aos-duration="1000"> With over a decade
+                            specializing in developing Orchard CMS and Orchard Core websites, we've learned a thing or
+                            two. We know how to develop websites that help you achieve results, integrate with your
+                            existing business processes and 3rd party services, simplify management, and automate manual
+                            processes. Rest easy knowing this is all done using Orchard Core CMS best practices and
+                            development standards. This isn't a hobby; It's our passion.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 p-2 flex-center" data-aos="zoom-in-right" data-aos-delay="800"
+                    data-aos-duration="1500">
+                    <img src="/MaterialDesignTheme/img/Responsive.png" alt="..." class="img-fluid" />
+                </div>
+            </div>
+        </div>
+        <hr data-aos="zoom-in" data-aos-delay="800" data-aos-duration="1000">
+
+
+
+        <div class=" mb-3">
+            <div class="row g-0">
+                <div class="col-md-4 p-2 flex-center" data-aos="zoom-in-right" data-aos-delay="800"
+                    data-aos-duration="1500">
+                    <img src="/MaterialDesignTheme/img/components.png" alt="..." class="img-fluid" />
+                </div>
+                <div class="col-md-8 flex-center p-2">
+                    <div class="content">
+                        <h2 class="title mb-4" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1000"> Custom
+                            Orchard Core Modules</h2>
+
+                        <h5 class="title mb-3" data-aos="fade-up" data-aos-delay="400" data-aos-duration="1000">NEW
+                            COMPETITIVE-EDGE MODULES OR ENHANCEMENTS TO EXISTING MODULES</h5>
+
+                        <p data-aos="fade-up" data-aos-delay="600" data-aos-duration="1000"> Modules are the foundation
+                            of Orchard Core, providing functionality and extensibility to your CMS, modular web
+                            application, or multi-tenant website. Need a new workflow component, automated process, API,
+                            3rd party service integration, or enhancement to an existing module? We got you covered!
+                            High performance, extensible, and feature-rich modules developed using the same built-in
+                            services and coding style found in the Orchard CORE framework and CMS.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr data-aos="zoom-in" data-aos-delay="800" data-aos-duration="1000">
+
+
+        <div class=" mb-3">
+            <div class="row g-0">
+
+                <div class="col-md-8 flex-center p-2">
+                    <div class="content">
+                        <h2 class="title mb-4" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1000">
+                            Reusable Orchard Core CMS Widgets</h2>
+
+                        <h5 class="title mb-3" data-aos="fade-up" data-aos-delay="400" data-aos-duration="1000">
+                            DELIVERING FUNCTIONALITY AND SIMPLIFYING ADMINISTRATION OF YOUR CMS</h5>
+
+                        <p data-aos="fade-up" data-aos-delay="600" data-aos-duration="1000"> We've built a custom widget
+                            for just about everything at one time or another: image gallery, slider, FAQ, forms,
+                            Twitter, Instagram, Facebook, live chat, analytics, and many other 3rd party solutions. Or,
+                            maybe you require a custom widget for your specific business needs and processes? Great!
+                            We've done that, too! Stunning features and easy administration. Built with extensibility,
+                            performance, and reusability in mind.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 p-2 flex-center" data-aos="zoom-in-right" data-aos-delay="800"
+                    data-aos-duration="1500">
+                    <img src="/MaterialDesignTheme/img/Widgets.png" alt="..." class="img-fluid" />
+                </div>
+            </div>
+        </div>
+        <hr data-aos="zoom-in" data-aos-delay="800" data-aos-duration="1000">
+
+
+    </div>
+
+    {% endzone %}

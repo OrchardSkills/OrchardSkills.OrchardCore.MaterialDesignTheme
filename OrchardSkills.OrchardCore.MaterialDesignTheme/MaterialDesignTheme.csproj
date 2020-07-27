@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+	<PropertyGroup>
+		<TargetFramework>netcoreapp3.1</TargetFramework>
+		<AddRazorSupportForMvc>true</AddRazorSupportForMvc>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<FrameworkReference Include="Microsoft.AspNetCore.App" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="OrchardCore.Module.Targets" Version="1.0.0-rc2-13884" />
+		<PackageReference Include="OrchardCore.Admin.Abstractions" Version="1.0.0-rc2-13968" />
+		<PackageReference Include="OrchardCore.ContentManagement" Version="1.0.0-rc2-13968" />
+		<PackageReference Include="OrchardCore.ResourceManagement" Version="1.0.0-rc2-13968" />
+		<PackageReference Include="OrchardCore.DisplayManagement" Version="1.0.0-rc2-13968" />
+		<PackageReference Include="OrchardCore.Users.Abstractions" Version="1.0.0-rc2-13968" />
+		<PackageReference Include="OrchardCore.Users" Version="1.0.0-rc2-13968" />
+		<PackageReference Include="OrchardCore.Menu" Version="1.0.0-rc2-13968" />
+		<PackageReference Include="OrchardCore.Email.Abstractions" Version="1.0.0-rc2-13968" />
+		<PackageReference Include="OrchardCore.Module.Targets" Version="1.0.0-rc2-13968" />
+		<PackageReference Include="OrchardCore.Setup.Abstractions" Version="1.0.0-rc2-13968" />
+		<PackageReference Include="OrchardCore.Setup" Version="1.0.0-rc2-13968" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="wwwroot\js\" />
+	</ItemGroup>
+
+</Project>
