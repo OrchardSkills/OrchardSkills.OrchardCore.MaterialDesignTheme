@@ -10,7 +10,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="OrchardCore.Module.Targets" Version="1.0.0-rc2-13884" />
+		<PackageReference Include="OrchardCore.Module.Targets" Version="1.0.0-rc2-13968" />
 		<PackageReference Include="OrchardCore.Admin.Abstractions" Version="1.0.0-rc2-13968" />
 		<PackageReference Include="OrchardCore.ContentManagement" Version="1.0.0-rc2-13968" />
 		<PackageReference Include="OrchardCore.ResourceManagement" Version="1.0.0-rc2-13968" />

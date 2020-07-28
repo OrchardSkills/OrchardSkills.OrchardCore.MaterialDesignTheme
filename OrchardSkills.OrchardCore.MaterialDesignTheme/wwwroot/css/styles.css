@@ -198,6 +198,13 @@ label,
   justify-content: center;
   align-items: center;
 }
+.logo-color {
+  background-color: #696e59 !important;
+  transition: background-color 0.5s;
+}
+.logo-color:hover {
+  background-color: #4c5041 !important;
+}
 header.masthead {
   margin-bottom: 50px;
   background: no-repeat center center;
