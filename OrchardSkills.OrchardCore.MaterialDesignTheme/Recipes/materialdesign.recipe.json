@@ -11,6 +11,8 @@
 
   // The variables are evaluated the first time they are accessed, and reused across steps
   "variables": {
+    "subscriptionContentItemId": "462m1ps5kkzkp2k5da5pfhh2ww",
+    "messagesContentItemId": "4jj8jr3wyat5h7f8s4dvn052db",
     "blogContentItemId": "[js:uuid()]",
     "menuContentItemId": "[js:uuid()]",
     "tagsContentItemId": "[js:uuid()]",
@@ -165,6 +167,63 @@
           ]
         },
         {
+          "Name": "AboutPage",
+          "DisplayName": "AboutPage",
+          "Hidden": false,
+          "Settings": {
+            "ContentTypeSettings": {
+              "Creatable": true,
+              "Draftable": true,
+              "Versionable": true,
+              "Listable": true
+            }
+          },
+          "ContentTypePartDefinitionRecords": [
+            {
+              "PartName": "AboutPage",
+              "Name": "AboutPage",
+              "Settings": {
+                "ContentTypePartSettings": {
+                  "Position": "3"
+                }
+              }
+            },
+            {
+              "PartName": "AutoroutePart",
+              "Name": "AutoroutePart",
+              "Settings": {
+                "AutoroutePartSettings": {
+                  "AllowCustomPath": true,
+                  "Pattern": "{{ Model.ContentItem | display_text | slugify }}",
+                  "ShowHomepageOption": true
+                },
+                "ContentTypePartSettings": {
+                  "Position": "1"
+                }
+              }
+            },
+            {
+              "PartName": "HtmlBodyPart",
+              "Name": "HtmlBodyPart",
+              "Settings": {
+                "ContentTypePartSettings": {
+                  "Editor": "Wysiwyg",
+                  "Position": "2"
+                }
+              }
+            },
+            {
+              "PartName": "TitlePart",
+              "Name": "TitlePart",
+              "Settings": {
+                "ContentTypePartSettings": {
+                  "Position": "0"
+                }
+              }
+            }
+          ]
+        },
+        {
           "Name": "LiquidPage",
           "DisplayName": "Liquid Page",
           "Hidden": false,
@@ -270,6 +329,228 @@
                 "ContentTypePartSettings": {
                   "Editor": "Wysiwyg",
                   "Position": "2"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "Name": "Subscriber",
+          "DisplayName": "Subscriber",
+          "Hidden": false,
+          "Settings": {
+            "ContentTypeSettings": {
+              "Draftable": true,
+              "Versionable": true
+            }
+          },
+          "ContentTypePartDefinitionRecords": [
+            {
+              "PartName": "TitlePart",
+              "Name": "TitlePart",
+              "Settings": {
+                "ContentTypePartSettings": {
+                  "Position": "0"
+                }
+              }
+            },
+            {
+              "PartName": "Subscriber",
+              "Name": "Subscriber",
+              "Settings": {
+                "ContentTypePartSettings": {
+                  "Position": "3"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "Name": "Subscription",
+          "DisplayName": "Subscription",
+          "Hidden": false,
+          "Settings": {
+            "ContentTypeSettings": {
+              "Creatable": true,
+              "Draftable": true,
+              "Versionable": true,
+              "Listable": true,
+              "Securable": true
+            }
+          },
+          "ContentTypePartDefinitionRecords": [
+            {
+              "PartName": "TitlePart",
+              "Name": "TitlePart",
+              "Settings": {
+                "ContentTypePartSettings": {
+                  "Position": "0"
+                }
+              }
+            },
+            {
+              "PartName": "AutoroutePart",
+              "Name": "AutoroutePart",
+              "Settings": {
+                "ContentTypePartSettings": {
+                  "Position": "1"
+                },
+                "ContentIndexSettings": {
+                  "Included": false,
+                  "Stored": false,
+                  "Analyzed": false,
+                  "Sanitized": false,
+                  "Tokenized": false,
+                  "Template": null
+                },
+                "AutoroutePartSettings": {
+                  "AllowCustomPath": true,
+                  "Pattern": "{{ Model.ContentItem | display_text | slugify }}",
+                  "ShowHomepageOption": true
+                }
+              }
+            },
+            {
+              "PartName": "Subscription",
+              "Name": "Subscription",
+              "Settings": {
+                "ContentTypePartSettings": {
+                  "Position": "3"
+                }
+              }
+            },
+            {
+              "PartName": "HtmlBodyPart",
+              "Name": "HtmlBodyPart",
+              "Settings": {
+                "ContentTypePartSettings": {
+                  "Position": "2"
+                }
+              }
+            },
+            {
+              "PartName": "ListPart",
+              "Name": "ListPart",
+              "Settings": {
+                "ContentTypePartSettings": {
+                  "Position": "4"
+                },
+                "ListPartSettings": {
+                  "PageSize": 10,
+                  "ContainedContentTypes": [
+                    "Subscriber"
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "Name": "Message",
+          "DisplayName": "Message",
+          "Hidden": false,
+          "Settings": {
+            "ContentTypeSettings": {
+              "Draftable": true,
+              "Versionable": true
+            }
+          },
+          "ContentTypePartDefinitionRecords": [
+            {
+              "PartName": "TitlePart",
+              "Name": "TitlePart",
+              "Settings": {
+                "ContentTypePartSettings": {
+                  "Position": "0"
+                }
+              }
+            },
+            {
+              "PartName": "Message",
+              "Name": "Message",
+              "Settings": {
+                "ContentTypePartSettings": {
+                  "Position": "3"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "Name": "Messages",
+          "DisplayName": "Messages",
+          "Hidden": false,
+          "Settings": {
+            "ContentTypeSettings": {
+              "Creatable": true,
+              "Draftable": true,
+              "Versionable": true,
+              "Listable": true,
+              "Securable": true
+            }
+          },
+          "ContentTypePartDefinitionRecords": [
+            {
+              "PartName": "TitlePart",
+              "Name": "TitlePart",
+              "Settings": {
+                "ContentTypePartSettings": {
+                  "Position": "0"
+                }
+              }
+            },
+            {
+              "PartName": "AutoroutePart",
+              "Name": "AutoroutePart",
+              "Settings": {
+                "ContentTypePartSettings": {
+                  "Position": "1"
+                },
+                "ContentIndexSettings": {
+                  "Included": false,
+                  "Stored": false,
+                  "Analyzed": false,
+                  "Sanitized": false,
+                  "Tokenized": false,
+                  "Template": null
+                },
+                "AutoroutePartSettings": {
+                  "AllowCustomPath": true,
+                  "Pattern": "{{ Model.ContentItem | display_text | slugify }}",
+                  "ShowHomepageOption": true
+                }
+              }
+            },
+            {
+              "PartName": "Messages",
+              "Name": "Messages",
+              "Settings": {
+                "ContentTypePartSettings": {
+                  "Position": "3"
+                }
+              }
+            },
+            {
+              "PartName": "HtmlBodyPart",
+              "Name": "HtmlBodyPart",
+              "Settings": {
+                "ContentTypePartSettings": {
+                  "Position": "2"
+                }
+              }
+            },
+            {
+              "PartName": "ListPart",
+              "Name": "ListPart",
+              "Settings": {
+                "ContentTypePartSettings": {
+                  "Position": "4"
+                },
+                "ListPartSettings": {
+                  "PageSize": 10,
+                  "ContainedContentTypes": [
+                    "Message"
+                  ]
                 }
               }
             }
@@ -819,7 +1100,134 @@
           ]
         },
         {
+          "Name": "Subscriber",
+          "Settings": {},
+          "ContentPartFieldDefinitionRecords": [
+            {
+              "FieldName": "TextField",
+              "Name": "FirstName",
+              "Settings": {
+                "ContentPartFieldSettings": {
+                  "DisplayName": "FirstName",
+                  "Position": "0"
+                },
+                "TextFieldSettings": {
+                  "Required": true
+                },
+                "ContentIndexSettings": {}
+              }
+            },
+            {
+              "FieldName": "TextField",
+              "Name": "LastName",
+              "Settings": {
+                "ContentPartFieldSettings": {
+                  "DisplayName": "LastName",
+                  "Position": "1"
+                },
+                "TextFieldSettings": {
+                  "Required": true
+                },
+                "ContentIndexSettings": {}
+              }
+            },
+            {
+              "FieldName": "TextField",
+              "Name": "Email",
+              "Settings": {
+                "ContentPartFieldSettings": {
+                  "DisplayName": "Email",
+                  "Editor": "Email",
+                  "Position": "2"
+                },
+                "TextFieldSettings": {
+                  "Required": true
+                },
+                "ContentIndexSettings": {}
+              }
+            }
+          ]
+        },
+        {
+          "Name": "Message",
+          "Settings": {},
+          "ContentPartFieldDefinitionRecords": [
+            {
+              "FieldName": "TextField",
+              "Name": "FullName",
+              "Settings": {
+                "ContentPartFieldSettings": {
+                  "DisplayName": "FullName",
+                  "Position": "0"
+                },
+                "TextFieldSettings": {
+                  "Required": true
+                },
+                "ContentIndexSettings": {}
+              }
+            },
+            {
+              "FieldName": "TextField",
+              "Name": "Email",
+              "Settings": {
+                "ContentPartFieldSettings": {
+                  "DisplayName": "Email",
+                  "Editor": "Email",
+                  "Position": "2"
+                },
+                "TextFieldSettings": {
+                  "Required": true
+                },
+                "ContentIndexSettings": {}
+              }
+            },
+            {
+              "FieldName": "TextField",
+              "Name": "Message",
+              "Settings": {
+                "ContentPartFieldSettings": {
+                  "DisplayName": "Message",
+                  "Position": "1"
+                },
+                "TextFieldSettings": {
+                  "Required": true
+                },
+                "ContentIndexSettings": {}
+              }
+            }
+          ]
+        },
+        {
           "Name": "Article",
+          "Settings": {},
+          "ContentPartFieldDefinitionRecords": [
+            {
+              "FieldName": "TextField",
+              "Name": "Subtitle",
+              "Settings": {
+                "ContentPartFieldSettings": {
+                  "DisplayName": "Subtitle",
+                  "Position": "0"
+                }
+              }
+            },
+            {
+              "FieldName": "MediaField",
+              "Name": "Image",
+              "Settings": {
+                "ContentPartFieldSettings": {
+                  "DisplayName": "Banner Image",
+                  "Position": "0"
+                },
+                "MediaFieldSettings": {
+                  "Multiple": false
+                }
+              }
+            }
+          ]
+        },
+        {
+          "Name": "AboutPage",
           "Settings": {},
           "ContentPartFieldDefinitionRecords": [
             {
@@ -1051,16 +1459,16 @@
                 "ContentType": "LinkMenuItem",
                 "ContentItemId": "[js: uuid()]",
                 "LinkMenuItemPart": {
-                  "Name": "About",
-                  "Url": "~/about"
+                  "Name": "Contact",
+                  "Url": "~/contact"
                 }
               },
               {
                 "ContentType": "LinkMenuItem",
                 "ContentItemId": "[js: uuid()]",
                 "LinkMenuItemPart": {
-                  "Name": "Contact",
-                  "Url": "~/contact"
+                  "Name": "About",
+                  "Url": "~/about"
                 }
               },
               {
@@ -1199,6 +1607,58 @@
           }
         },
         {
+          "ContentType": "Subscription",
+          "ContentItemId": "[js: variables('subscriptionContentItemId')]",
+          "DisplayText": "Subscription",
+          "Latest": true,
+          "Published": true,
+          "Owner": "[js: parameters('AdminUsername')]",
+          "Author": "[js: parameters('AdminUsername')]",
+          "TitlePart": {
+            "Title": "Subscription"
+          },
+          "HtmlBodyPart": {
+            "Html": "List of Subscribers"
+          },
+          "AutoroutePart": {
+            "Path": "subscription"
+          },
+          "ListPart": {},
+          "Subscription": {
+            "Image": {
+              "Paths": [
+                "home-bg.jpg"
+              ]
+            }
+          }
+        },
+        {
+          "ContentType": "Messages",
+          "ContentItemId": "[js: variables('messagesContentItemId')]",
+          "DisplayText": "Messages",
+          "Latest": true,
+          "Published": true,
+          "Owner": "[js: parameters('AdminUsername')]",
+          "Author": "[js: parameters('AdminUsername')]",
+          "TitlePart": {
+            "Title": "Messages"
+          },
+          "HtmlBodyPart": {
+            "Html": "These are your messages"
+          },
+          "AutoroutePart": {
+            "Path": "messages"
+          },
+          "ListPart": {},
+          "Messages": {
+            "Image": {
+              "Paths": [
+                "home-bg.jpg"
+              ]
+            }
+          }
+        },
+        {
           "ContentType": "Blog",
           "ContentItemId": "[js: variables('blogContentItemId')]",
           "DisplayText": "Blog",
@@ -1330,7 +1790,7 @@
         },
         {
           "ContentItemId": "[js: uuid()]",
-          "ContentType": "Article",
+          "ContentType": "AboutPage",
           "DisplayText": "About",
           "Latest": true,
           "Published": true,
@@ -1341,14 +1801,14 @@
             "SetHomepage": false
           },
           "HtmlBodyPart": {
-            "Html": "<h1>About Us</h1><p>Tell your story</p><h1>Know Your Audience</h1><p>Who are you writing for? Decide on who you want to write to. Decide what you want to write about.</p><h1>What Value Are You Bringing to Your Readers?</h1><p>Why should they care? People want value, and they want it now – give it to them already! If you waffle around here, you will lose readers. You need to tell them exactly what they are going to get from your site and how it will help them.</p><h1>Build Your Credibility</h1><p>Why should they listen to you? After all, you’re just another voice on the interwebs and the interwebs are full of shady characters trying to make moves on your wallet. You need to tell your readers about your expertise. Make them trust you, help them out, and then they will love you.</p><p>Consider adding:</p><ul><li>A snippet about your site’s history<br></li><li>If you’ve been featured on any authority sites as a guest blogger<br></li></ul><h1>Your Biography</h1><p>Now you get to talk about you. You get to tell your story. But only the hyper-relevant and interesting parts.  Write about yourself like the superhero you secretly are or want to be.  But don’t overshare on the details, make sure you leave a little mystique.</p><p>Think about your story:<br></p><ul><li>What made you decide to start a blog or business?<br></li><li>What’s your big why?<br></li><li>What keeps you going?</li></ul><h1>Call to Action</h1><p>You should have at least one list opt-in form on your About page. Why? Your About page is one of the most frequently visited pages on your site. If you get it right, you’re going to connect with your readers.</p>"
+            "Html": "<p></p>"
           },
           "TitlePart": {
             "Title": "About"
           },
-          "Article": {
+          "AboutPage": {
             "Subtitle": {
-              "Text": "Reasons for reading our blog"
+              "Text": "About Us"
             }
           }
         },
@@ -1365,7 +1825,7 @@
             "SetHomepage": false
           },
           "HtmlBodyPart": {
-            "Html": "<p>Thank you for your message. Someone will get back with you as soon as possible.</p>"
+            "Html": "<p class=\"text-center\">Thank you for your message. Someone will get back with you as soon as possible.</p>"
           },
           "TitlePart": {
             "Title": "Thanks"
@@ -1373,6 +1833,30 @@
           "Article": {
             "Subtitle": {
               "Text": "Thank You for your Message"
+            }
+          }
+        },
+        {
+          "ContentItemId": "[js: uuid()]",
+          "ContentType": "Article",
+          "DisplayText": "Subscribed",
+          "Latest": true,
+          "Published": true,
+          "Owner": "[js: parameters('AdminUsername')]",
+          "Author": "[js: parameters('AdminUsername')]",
+          "AutoroutePart": {
+            "Path": "subscribed",
+            "SetHomepage": false
+          },
+          "HtmlBodyPart": {
+            "Html": "<p class=\"text-center\">Thank you for subscribing. You will now be receiving our weekly newsletter.</p>"
+          },
+          "TitlePart": {
+            "Title": "Subscribed"
+          },
+          "Article": {
+            "Subtitle": {
+              "Text": "Thank You for Subscribing"
             }
           }
         },
@@ -1397,10 +1881,37 @@
             "Absolute": false
           },
           "HtmlBodyPart": {
-            "Html": "<p>We apologize for your inconvenience. Unfortunately, you are not authorized to access this resource. Please <a href=\"/Login\">log in</a> or <a href=\"/Register\">register</a> and create a user account.</p>"
+            "Html": "<p class=\"text-center\">We apologize for your inconvenience. Unfortunately, you are not authorized to access this resource. Please <a href=\"/Login\">log in</a> or <a href=\"/Register\">register</a> and create a user account.</p>"
           },
           "TitlePart": {
             "Title": "Not Authorized"
+          }
+        },
+        {
+          "ContentItemId": "[js: uuid()]",
+          "ContentType": "Article",
+          "DisplayText": "Workflow Issue",
+          "Latest": true,
+          "Published": true,
+          "Owner": "[js: parameters('AdminUsername')]",
+          "Author": "[js: parameters('AdminUsername')]",
+          "Article": {
+            "Subtitle": {
+              "Text": "A Workflow issue has occured"
+            }
+          },
+          "AutoroutePart": {
+            "Path": "workflow-issue",
+            "SetHomepage": false,
+            "Disabled": false,
+            "RouteContainedItems": false,
+            "Absolute": false
+          },
+          "HtmlBodyPart": {
+            "Html": "<p class=\"text-center\">We apologize for your inconvenience. Unfortunately, A workflow issue has occured.</p>"
+          },
+          "TitlePart": {
+            "Title": "Workflow Issue"
           }
         },
         {
@@ -1443,7 +1954,7 @@
                       "ContentItemId": "4v2zn39myvc9v7knjjygez48db",
                       "ContentItemVersionId": null,
                       "ContentType": "Input",
-                      "DisplayText": "Name",
+                      "DisplayText": "Full Name",
                       "Latest": false,
                       "Published": false,
                       "PublishedUtc": null,
@@ -1451,7 +1962,7 @@
                       "Owner": null,
                       "Author": "admin",
                       "FormInputElementPart": {
-                        "Name": "Name"
+                        "Name": "FullName"
                       },
                       "FormElementPart": {
                         "Id": null
@@ -1459,7 +1970,7 @@
                       "InputPart": {
                         "Type": "text",
                         "DefaultValue": null,
-                        "Placeholder": "Enter Name"
+                        "Placeholder": "Enter Full Name"
                       },
                       "FlowMetadata": {
                         "Alignment": 3,
@@ -1692,10 +2203,52 @@
       "name": "AdminMenu",
       "data": [
         {
-          "Id": "baef6f85ad13481681cde70ada401333",
-          "Name": "Admin menu from blog recipe",
+          "Id": "031effaceb7645a2b8a6b80603dbfc22",
+          "Name": "Admin menu from Materila Design recipe",
           "Enabled": true,
           "MenuItems": [
+            {
+              "$type": "OrchardCore.AdminMenu.AdminNodes.LinkAdminNode, OrchardCore.AdminMenu",
+              "LinkText": "Subscription",
+              "LinkUrl": "[js: 'Admin/Contents/ContentItems/' +  variables('subscriptionContentItemId') + '/Display']",
+              "IconClass": "fa fa-list",
+              "UniqueId": "86fb03852e8146dcae263b4766e22cb9",
+              "Enabled": true,
+              "Text": null,
+              "Id": null,
+              "Href": null,
+              "Url": null,
+              "Position": null,
+              "LinkToFirstChild": true,
+              "LocalNav": false,
+              "Culture": null,
+              "Resource": null,
+              "Items": [],
+              "RouteValues": null,
+              "Permissions": [],
+              "Classes": []
+            },
+            {
+              "$type": "OrchardCore.AdminMenu.AdminNodes.LinkAdminNode, OrchardCore.AdminMenu",
+              "LinkText": "Messages",
+              "LinkUrl": "[js: 'Admin/Contents/ContentItems/' +  variables('messagesContentItemId') + '/Display']",
+              "IconClass": "fa fa-sticky-note",
+              "UniqueId": "a6fb03852e8156dcae263b4766e22cb9",
+              "Enabled": true,
+              "Text": null,
+              "Id": null,
+              "Href": null,
+              "Url": null,
+              "Position": null,
+              "LinkToFirstChild": true,
+              "LocalNav": false,
+              "Culture": null,
+              "Resource": null,
+              "Items": [],
+              "RouteValues": null,
+              "Permissions": [],
+              "Classes": []
+            },
             {
               "$type": "OrchardCore.AdminMenu.AdminNodes.LinkAdminNode, OrchardCore.AdminMenu",
               "LinkText": "Blog",
@@ -1831,6 +2384,100 @@
       "name": "WorkflowType",
       "data": [
         {
+          "WorkflowTypeId": "4tkxphgfwx3dh1bgbnbqv26fd6",
+          "Name": "Subscribe",
+          "IsEnabled": true,
+          "IsSingleton": false,
+          "DeleteFinishedWorkflows": false,
+          "Activities": [
+            {
+              "ActivityId": "4pt6qkjr50th52ss34h8sq4dm6",
+              "Name": "HttpRequestEvent",
+              "X": 60,
+              "Y": 10,
+              "IsStart": true,
+              "Properties": {
+                "ActivityMetadata": {
+                  "Title": "Subscribe Request Event"
+                },
+                "HttpMethod": "POST",
+                "Url": "/workflows/Invoke?token=CfDJ8Mi9GjUGmXFKmr5mf2TKf7vWIHwA8rEg1DPWfZW3EK927z0mEC__nyDKbKIMvP3fAUAwoucwlZoH7R3QgXYq8iYi3YR-2kAzqz-aUrZQXZ3A3a-wJEtQLm_Pyxi1ChOpEmP4q2IrAucsfkzoG6sPdD-KHrPMEykXdoaFsDgEWeuA3gWIzOUjbcfux8HbI6uXvLiQXdvrMvbP-7kWistHlwGI0FHdEi0H_seUM3CFEp1y",
+                "ValidateAntiforgeryToken": true,
+                "TokenLifeSpan": 0
+              }
+            },
+            {
+              "ActivityId": "4e1ap5cd1abqz1429c56fc3sd2",
+              "Name": "CreateContentTask",
+              "X": 390,
+              "Y": 10,
+              "IsStart": false,
+              "Properties": {
+                "ContentType": "Subscriber",
+                "Publish": true,
+                "ContentProperties": {
+                  "Expression": "{\r\n  \"TitlePart\": {\r\n     \"Title\": \"{{ Request.Form.firstName }} {{ Request.Form.lastName }}\"\r\n  },\r\n  \"DisplayText\": \"{{ Request.Form.firstName }} {{ Request.Form.lastName }}\",\r\n  \"Subscriber\": {\r\n     \"FirstName\": {\r\n       \"Text\": \"{{ Request.Form.firstName }}\"\r\n     },\r\n     \"LastName\": {\r\n        \"Text\": \"{{ Request.Form.lastName }}\"\r\n     },\r\n     \"Email\": {\r\n       \"Text\": \"{{ Request.Form.email }}\"\r\n     }\r\n   },\r\n   \"ContainedPart\": {\r\n     \"ListContentItemId\": \"462m1ps5kkzkp2k5da5pfhh2ww\"\r\n   }\r\n}"
+                },
+                "ActivityMetadata": {
+                  "Title": "Create Content Task"
+                }
+              }
+            },
+            {
+              "ActivityId": "4p4yv9hyrmfvg4mbnyaz05whcx",
+              "Name": "HttpRedirectTask",
+              "X": 730,
+              "Y": 10,
+              "IsStart": false,
+              "Properties": {
+                "ActivityMetadata": {
+                  "Title": "Subscribed"
+                },
+                "Location": {
+                  "Expression": "/subscribed"
+                },
+                "Permanent": false
+              }
+            },
+            {
+              "ActivityId": "4ebab4y9jva4r1gecc32q0tvwd",
+              "Name": "HttpRedirectTask",
+              "X": 400,
+              "Y": 200,
+              "IsStart": false,
+              "Properties": {
+                "ActivityMetadata": {
+                  "Title": "Workflow Issue Redirect Task"
+                },
+                "Location": {
+                  "Expression": "/workflow-issue"
+                },
+                "Permanent": false
+              }
+            }
+          ],
+          "Transitions": [
+            {
+              "Id": 0,
+              "SourceActivityId": "4pt6qkjr50th52ss34h8sq4dm6",
+              "SourceOutcomeName": "Done",
+              "DestinationActivityId": "4e1ap5cd1abqz1429c56fc3sd2"
+            },
+            {
+              "Id": 0,
+              "SourceActivityId": "4e1ap5cd1abqz1429c56fc3sd2",
+              "SourceOutcomeName": "Done",
+              "DestinationActivityId": "4p4yv9hyrmfvg4mbnyaz05whcx"
+            },
+            {
+              "Id": 0,
+              "SourceActivityId": "4e1ap5cd1abqz1429c56fc3sd2",
+              "SourceOutcomeName": "Failed",
+              "DestinationActivityId": "4ebab4y9jva4r1gecc32q0tvwd"
+            }
+          ]
+        },
+        {
           "WorkflowTypeId": "4jj8jr3wyat5h7f8s4dvn052db",
           "Name": "Contact",
           "IsEnabled": true,
@@ -1848,7 +2495,7 @@
                   "Title": "Contact Form Submitted"
                 },
                 "HttpMethod": "POST",
-                "Url": "/workflows/Invoke?token=CfDJ8LNsm1L3BhpCvl1kHZG8BbD7lKzRL4aioHjYFUD-RSYTqQ-fNq1eigkX-b7fKYzHZ0y31U8oAo9pUI7xg0qz_L2ewWrx_hHn9F2jeJ-CYgdcsl0R2k7EzFmZ9VleR0SxC83VUWMoHIPE4aVH79bvuY0tIWWkkTJUE0sEHpg4LeMR_c2rdd2026JyRBxGrRwPfpUCHU2TlmQEvkxSqBUrw-yXabqBgQjpfMX1GKHrhVGe",
+                "Url": "/workflows/Invoke?token=CfDJ8PI9NRMvUrlLg8QfuW0W0JVl02WH-d3_txP7yclfMVL1fRDRka0GZYE2IkYC_FjCCSWxEs4-_55JZfxze9mOxpOGUPUwBeHA7QAvRqQYY1GOVweCvb62kGKVJYW0a-dQkzM6TOp-RHpdJy2JsUUngIPXjuKpQDrVDIopL_H7w4d2K1jcJptrjZhpLqiS6FaFDjNTT8o74SFSRJh8oYAsJ3hFF09O5_kSSMGwyxZdJJTQ",
                 "ValidateAntiforgeryToken": true,
                 "TokenLifeSpan": 0
               }
@@ -1868,15 +2515,15 @@
             {
               "ActivityId": "4hr22mvxwk0rex8khhkr9cnncp",
               "Name": "ForkTask",
-              "X": 340,
-              "Y": 20,
+              "X": 370,
+              "Y": 10,
               "IsStart": false,
               "Properties": {
                 "ActivityMetadata": {
                   "Title": "Validate Form Fields"
                 },
                 "Forks": [
-                  "Validate Name",
+                  "Validate FullName",
                   "Validate Email",
                   "Validate Message"
                 ]
@@ -1885,14 +2532,14 @@
             {
               "ActivityId": "4655jbn3247ksrt08a2b7r8yw9",
               "Name": "ValidateFormFieldTask",
-              "X": 320,
-              "Y": 190,
+              "X": 330,
+              "Y": 150,
               "IsStart": false,
               "Properties": {
-                "FieldName": "Name",
+                "FieldName": "FullName",
                 "ErrorMessage": "No Name entered",
                 "ActivityMetadata": {
-                  "Title": "Validate Name"
+                  "Title": "Validate FullName"
                 }
               }
             },
@@ -1952,8 +2599,8 @@
             {
               "ActivityId": "47j30tb53gecc2yqewbx3x8pn4",
               "Name": "EmailTask",
-              "X": 810,
-              "Y": 470,
+              "X": 950,
+              "Y": 680,
               "IsStart": false,
               "Properties": {
                 "Sender": {
@@ -1966,11 +2613,17 @@
                   "Expression": "New Message"
                 },
                 "Body": {
-                  "Expression": "<p>The following information was submitted:<p/>\r\n<p>Name: {{ Request.Form.Name }}</p>\r\n<p>Email: {{ Request.Form.Email }}</p>\r\n<p>Message: {{ Request.Form.Message }}</p>"
+                  "Expression": "<p>The following information was submitted:<p/>\r\n<p>Name: {{ Request.Form.FullName }}</p>\r\n<p>Email: {{ Request.Form.Email }}</p>\r\n<p>Message: {{ Request.Form.Message }}</p>"
                 },
                 "IsBodyHtml": true,
                 "ActivityMetadata": {
-                  "Title": "Email to Site Admin"
+                  "Title": "Email Message to Site Admin"
+                },
+                "Author": {
+                  "Expression": "sales@orchardskills.com"
+                },
+                "ReplyTo": {
+                  "Expression": null
                 }
               }
             },
@@ -1993,8 +2646,8 @@
             {
               "ActivityId": "4kbg33s0s6v491sp4k2dpeymn2",
               "Name": "HttpRedirectTask",
-              "X": 1090,
-              "Y": 470,
+              "X": 1310,
+              "Y": 690,
               "IsStart": false,
               "Properties": {
                 "ActivityMetadata": {
@@ -2002,6 +2655,39 @@
                 },
                 "Location": {
                   "Expression": "/thanks"
+                },
+                "Permanent": false
+              }
+            },
+            {
+              "ActivityId": "4tpwv7sfy0qwpy15bbh0kj3en5",
+              "Name": "CreateContentTask",
+              "X": 810,
+              "Y": 470,
+              "IsStart": false,
+              "Properties": {
+                "ContentType": "Message",
+                "Publish": true,
+                "ContentProperties": {
+                  "Expression": "{\r\n  \"TitlePart\": {\r\n     \"Title\": \"{{ Request.Form.fullName }}\"\r\n  },\r\n  \"DisplayText\": \"{{ Request.Form.fullName }}\",\r\n  \"Message\": {\r\n     \"FullName\": {\r\n       \"Text\": \"{{ Request.Form.fullName }}\"\r\n     },\r\n     \"Email\": {\r\n       \"Text\": \"{{ Request.Form.email }}\"\r\n     },\r\n     \"Message\": {\r\n        \"Text\": \"{{ Request.Form.message }}\"\r\n     }\r\n   },\r\n   \"ContainedPart\": {\r\n     \"ListContentItemId\": \"4jj8jr3wyat5h7f8s4dvn052db\"\r\n   }\r\n}"
+                },
+                "ActivityMetadata": {
+                  "Title": "Create Message Content Task"
+                }
+              }
+            },
+            {
+              "ActivityId": "4tq0488kq7z7qwbdzj4s04vkwx",
+              "Name": "HttpRedirectTask",
+              "X": 1260,
+              "Y": 340,
+              "IsStart": false,
+              "Properties": {
+                "ActivityMetadata": {
+                  "Title": "Workflow Issue Redirect Task"
+                },
+                "Location": {
+                  "Expression": "/workflow-issue"
                 },
                 "Permanent": false
               }
@@ -2022,12 +2708,6 @@
             },
             {
               "Id": 0,
-              "SourceActivityId": "4hr22mvxwk0rex8khhkr9cnncp",
-              "SourceOutcomeName": "Validate Name",
-              "DestinationActivityId": "4655jbn3247ksrt08a2b7r8yw9"
-            },
-            {
-              "Id": 0,
               "SourceActivityId": "4655jbn3247ksrt08a2b7r8yw9",
               "SourceOutcomeName": "Done",
               "DestinationActivityId": "48cgyy0wzhjf50yrkz422rn2n1"
@@ -2037,12 +2717,6 @@
               "SourceActivityId": "48cgyy0wzhjf50yrkz422rn2n1",
               "SourceOutcomeName": "Joined",
               "DestinationActivityId": "4crzwchrbc2fkym4jbg7aed44j"
-            },
-            {
-              "Id": 0,
-              "SourceActivityId": "4crzwchrbc2fkym4jbg7aed44j",
-              "SourceOutcomeName": "Valid",
-              "DestinationActivityId": "47j30tb53gecc2yqewbx3x8pn4"
             },
             {
               "Id": 0,
@@ -2079,6 +2753,36 @@
               "SourceActivityId": "4dpzxry0zjy4t0xhj1xfj5mm4k",
               "SourceOutcomeName": "Done",
               "DestinationActivityId": "48cgyy0wzhjf50yrkz422rn2n1"
+            },
+            {
+              "Id": 0,
+              "SourceActivityId": "4tpwv7sfy0qwpy15bbh0kj3en5",
+              "SourceOutcomeName": "Done",
+              "DestinationActivityId": "47j30tb53gecc2yqewbx3x8pn4"
+            },
+            {
+              "Id": 0,
+              "SourceActivityId": "47j30tb53gecc2yqewbx3x8pn4",
+              "SourceOutcomeName": "Failed",
+              "DestinationActivityId": "4tq0488kq7z7qwbdzj4s04vkwx"
+            },
+            {
+              "Id": 0,
+              "SourceActivityId": "4tpwv7sfy0qwpy15bbh0kj3en5",
+              "SourceOutcomeName": "Failed",
+              "DestinationActivityId": "4tq0488kq7z7qwbdzj4s04vkwx"
+            },
+            {
+              "Id": 0,
+              "SourceActivityId": "4crzwchrbc2fkym4jbg7aed44j",
+              "SourceOutcomeName": "Valid",
+              "DestinationActivityId": "4tpwv7sfy0qwpy15bbh0kj3en5"
+            },
+            {
+              "Id": 0,
+              "SourceActivityId": "4hr22mvxwk0rex8khhkr9cnncp",
+              "SourceOutcomeName": "Validate FullName",
+              "DestinationActivityId": "4655jbn3247ksrt08a2b7r8yw9"
             }
           ]
         }
@@ -2098,7 +2802,7 @@
       "name": "Templates",
       "Templates": {
         "Content__LandingPage": {
-          "Content": "{% zone \"Header\" %}\r\n    <!-- Header -->\r\n    <header class=\"rellax\" data-rellax-speed=\"-7\">\r\n        <style>\r\n            /* Height for devices larger than 576px */\r\n            @media (min-width: 992px) {\r\n                #intro {\r\n                    margin-top: -58.59px;\r\n                }\r\n            }\r\n        </style>\r\n\r\n        <!-- Background image -->\r\n        <div id=\"intro\" class=\"bg-image shadow-1-strong \" style=\"/*! height: 100vh; */max-height: 100vh;\">\r\n            <video class=\"w-100 rellax\" style=\"min-height: 100%;\" playsinline=\"\" autoplay=\"\" muted=\"\" loop=\"\">\r\n                <source src=\"/MaterialDesignTheme/videos/heaven.mp4\" type=\"video/mp4\">\r\n            </video>\r\n            <div class=\"mask\" style=\"\r\n        background: linear-gradient(\r\n          45deg,\r\n          rgba(29, 236, 197, 0.7),\r\n          rgba(91, 14, 214, 0.7) 100%\r\n        );\r\n      \">\r\n                <div class=\"container d-flex align-items-center justify-content-center text-center h-100\">\r\n                    <div class=\"text-white\">\r\n                        <h1 data-aos=\"fade-down\" data-aos-duration=\"1500\" style=\"color: white !important\" class=\"mb-3\">Learn </h1>\r\n                      <img style=\"width: 50%;\" src=\"/MaterialDesignTheme/img/OrchardCore.png\" >\r\n                        <h5 data-aos=\"zoom-in\" data-aos-duration=\"1500\" data-aos-delay=\"600\" style=\"color: white !important\" class=\"mb-4\">Best guide to the modular CMS framework</h5>\r\n                        <a data-aos=\"fade-up\" data-aos-duration=\"1500\"  data-aos-delay=\"300\" style=\"color: white !important\" class=\"btn btn-outline-light btn-lg m-2\" href=\"https://www.youtube.com/watch?v=3pPyNKJo1iU&feature=youtu.be\"\r\n                            target=\"_blank\" rel=\"noreferrer\" role=\"button\">Get Started</a>\r\n                        <a data-aos=\"fade-up\" data-aos-duration=\"1500\"  data-aos-delay=\"300\" style=\"color: white !important\" class=\"btn btn-outline-light btn-lg m-2\" href=\"https://orchardskills.com/blog/getting-started-with-orchard-core\"\r\n                            target=\"_blank\" rel=\"noreferrer\" role=\"button\">Documentation and source code</a>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n\r\n        </div>\r\n        <!-- Background image -->\r\n    </header>\r\n    {% endzone %}\r\n\r\n\r\n    <div class=\"blur\"></div>\r\n\r\n    <div class=\"rellax-container\">\r\n        <section class=\"\">\r\n            <div class=\"container\">\r\n                </br>\r\n                </br>\r\n                <h4 data-aos=\"zoom-in\" data-aos-duration=\"1500\" class=\"mb-5 text-center\"><strong>Subscribe to our news letter</strong></h4>\r\n\r\n                <div class=\"row d-flex justify-content-center\">\r\n                    <div class=\"col-md-6\">\r\n                        <form>\r\n                            <!-- 2 column grid layout with text inputs for the first and last names -->\r\n                            <div class=\"row mb-4\">\r\n                                <div data-aos=\"fade-right\" data-aos-delay=\"300\" class=\"col\">\r\n                                    <div class=\"form-outline\">\r\n                                        <input type=\"text\" id=\"form3Example1\" class=\"form-control\">\r\n                                        <label class=\"form-label\" for=\"form3Example1\" style=\"margin-left: 0px;\">First\r\n                                            name</label>\r\n                                        <div class=\"form-notch\">\r\n                                            <div class=\"form-notch-leading\" style=\"width: 9px;\"></div>\r\n                                            <div class=\"form-notch-middle\" style=\"width: 68.8px;\"></div>\r\n                                            <div class=\"form-notch-trailing\"></div>\r\n                                        </div>\r\n                                    </div>\r\n                                </div>\r\n                                <div data-aos=\"fade-left\" data-aos-delay=\"300\" class=\"col\">\r\n                                    <div class=\"form-outline\">\r\n                                        <input type=\"text\" id=\"form3Example2\" class=\"form-control\">\r\n                                        <label class=\"form-label\" for=\"form3Example2\" style=\"margin-left: 0px;\">Last\r\n                                            name</label>\r\n                                        <div class=\"form-notch\">\r\n                                            <div class=\"form-notch-leading\" style=\"width: 9px;\"></div>\r\n                                            <div class=\"form-notch-middle\" style=\"width: 68px;\"></div>\r\n                                            <div class=\"form-notch-trailing\"></div>\r\n                                        </div>\r\n                                    </div>\r\n                                </div>\r\n                            </div>\r\n\r\n                            <!-- Email input -->\r\n                            <div  data-aos=\"zoom-in\" data-aos-duration=\"1500\" data-aos-delay=\"400\" class=\"form-outline mb-4\">\r\n                                <input type=\"email\" id=\"form3Example3\" class=\"form-control\">\r\n                                <label class=\"form-label\" for=\"form3Example3\" style=\"margin-left: 0px;\">Email\r\n                                    address</label>\r\n                                <div class=\"form-notch\">\r\n                                    <div class=\"form-notch-leading\" style=\"width: 9px;\"></div>\r\n                                    <div class=\"form-notch-middle\" style=\"width: 88.8px;\"></div>\r\n                                    <div class=\"form-notch-trailing\"></div>\r\n                                </div>\r\n                            </div>\r\n\r\n                            <!-- Submit button -->\r\n                            <button  data-aos=\"zoom-in\" data-aos-duration=\"1500\" data-aos-delay=\"600\" type=\"submit\" class=\"btn btn-primary btn-block mb-4\">\r\n                                Subscribe\r\n                            </button>\r\n                        </form>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n   \t\t\t</br>\r\n\t\t\t</br>\r\n        </section>\r\n\r\n        <div class=\"streak streak-photo streak-long-2 \"\r\n            style=\"background-image: url('/MaterialDesignTheme/img/mountain-lake-bg.jpg');\">\r\n            <div class=\"flex-center mask rgba-black-light\">\r\n                <div class=\"container\">\r\n\r\n                    <!-- Section heading -->\r\n                    <h3 data-aos=\"zoom-in\" data-aos-duration=\"1500\" data-aos-delay=\"100\" style=\"color: white !important\" class=\"text-center mb-5 pb-4 white-text font-weight-bold wow fadeIn\"\r\n                        style=\"visibility: visible; animation-name: fadeIn; animation-delay: 0.2s;\">\r\n                        <strong>Some facts about us</strong>\r\n                    </h3>\r\n\r\n                    <!--First row-->\r\n                    <div class=\"row text-center\">\r\n\r\n                        <!--First column-->\r\n                        <div class=\"col-md-3 mb-2\" data-aos=\"zoom-in\" data-aos-duration=\"1500\" data-aos-delay=\"200\" >\r\n                            <h1 style=\"color: white !important\" class=\" mb-1 font-weight-bold\">+20K</h1>\r\n                            <p style=\"color: white !important\" class=\" text-uppercase mt-3\">Views</p>\r\n                        </div>\r\n                        <!--/First column-->\r\n\r\n                        <!--Second column-->\r\n                        <div class=\"col-md-3 mb-2\" data-aos=\"zoom-in\" data-aos-duration=\"1500\" data-aos-delay=\"300\" >\r\n                            <h1 style=\"color: white !important\" class=\"white-text mb-1 font-weight-bold\">2K</h1>\r\n                            <p style=\"color: white !important\" class=\"white-text text-uppercase mt-3\">Watch time (hours)</p>\r\n                        </div>\r\n                        <!--/Second column-->\r\n\r\n                        <!--Third column-->\r\n                        <div class=\"col-md-3 mb-2\" data-aos=\"zoom-in\" data-aos-duration=\"1500\" data-aos-delay=\"400\" >\r\n                            <h1 style=\"color: white !important\" class=\"white-text mb-1 font-weight-bold\">+150</h1>\r\n                            <p style=\"color: white !important\" class=\"white-text text-uppercase mt-3\">Projects completed</p>\r\n                        </div>\r\n                        <!--/Third column-->\r\n\r\n                        <!--Fourth column-->\r\n                        <div class=\"col-md-3\" data-aos=\"zoom-in\" data-aos-duration=\"1500\" data-aos-delay=\"500\" >\r\n                            <h1 style=\"color: white !important\" class=\"white-text mb-1 font-weight-bold\">+500</h1>\r\n                            <p style=\"color: white !important\" class=\"white-text text-uppercase mt-3\">Subscribers</p>\r\n                        </div>\r\n                        <!--/Fourth column-->\r\n\r\n                    </div>\r\n                    <!--First row-->\r\n                </div>\r\n\r\n            </div>\r\n        </div>\r\n    </div>\r\n    <!-- Contact -->",
+          "Content": "{% zone \"Header\" %}\r\n    <!-- Header -->\r\n    <header class=\"rellax\" data-rellax-speed=\"-7\">\r\n        <style>\r\n            /* Height for devices larger than 576px */\r\n            @media (min-width: 992px) {\r\n                #intro {\r\n                    margin-top: -58.59px;\r\n                }\r\n            }\r\n        </style>\r\n\r\n        <!-- Background image -->\r\n        <div id=\"intro\" class=\"bg-image shadow-1-strong \" style=\"/*! height: 100vh; */max-height: 100vh;\">\r\n            <video class=\"w-100 rellax\" style=\"min-height: 100%;\" playsinline=\"\" autoplay=\"\" muted=\"\" loop=\"\">\r\n                <source src=\"/MaterialDesignTheme/videos/heaven.mp4\" type=\"video/mp4\">\r\n            </video>\r\n            <div class=\"mask\" style=\"\r\n        background: linear-gradient(\r\n          45deg,\r\n          rgba(29, 236, 197, 0.7),\r\n          rgba(91, 14, 214, 0.7) 100%\r\n        );\r\n      \">\r\n                <div class=\"container d-flex align-items-center justify-content-center text-center h-100\">\r\n                    <div class=\"text-white\">\r\n                        <h1 data-aos=\"fade-down\" data-aos-duration=\"1500\" style=\"color: white !important\" class=\"mb-3\">Learn </h1>\r\n                      <img style=\"width: 50%;\" src=\"/MaterialDesignTheme/img/OrchardCore.png\" >\r\n                        <h5 data-aos=\"zoom-in\" data-aos-duration=\"1500\" data-aos-delay=\"600\" style=\"color: white !important\" class=\"mb-4\">Best guide to the modular CMS framework</h5>\r\n                        <a data-aos=\"fade-up\" data-aos-duration=\"1500\"  data-aos-delay=\"300\" style=\"color: white !important\" class=\"btn btn-outline-light btn-lg m-2\" href=\"https://www.youtube.com/watch?v=3pPyNKJo1iU&feature=youtu.be\"\r\n                            target=\"_blank\" rel=\"noreferrer\" role=\"button\">Get Started</a>\r\n                        <a data-aos=\"fade-up\" data-aos-duration=\"1500\"  data-aos-delay=\"300\" style=\"color: white !important\" class=\"btn btn-outline-light btn-lg m-2\" href=\"https://orchardskills.com/blog/getting-started-with-orchard-core\"\r\n                            target=\"_blank\" rel=\"noreferrer\" role=\"button\">Documentation and source code</a>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n\r\n        </div>\r\n        <!-- Background image -->\r\n    </header>\r\n    {% endzone %}\r\n\r\n\r\n    <div class=\"blur\"></div>\r\n\r\n    <div class=\"rellax-container\">\r\n        <section class=\"\">\r\n            <div class=\"container\">\r\n                </br>\r\n                </br>\r\n                <h4 data-aos=\"zoom-in\" data-aos-duration=\"1500\" class=\"mb-5 text-center\"><strong>Subscribe to our newsletter</strong></h4>\r\n\r\n                <div class=\"row d-flex justify-content-center\">\r\n                    <div class=\"col-md-6\">\r\n                        <form method=\"post\" action=\"/workflows/Invoke?token=CfDJ8Nq5Rd3xL-hBocwx2xQfhsSlI_P15VEXqdXmrP--KnS9lnALChMGoBtn7R59mK5nnfLCwNuIfw4l8C5g0W5m2VdQkZ5l2hQIkwkYWmCmZAemKNO-ugBJsy8TcoE2mKw2oVlsFvixhAdDtVhDbkaNXQYspnToNhZ5HcaIHVUdteg8DSev-9pBl62iBowsiEcOiN0pMD3OtW59I_dze1yTJ9vml7p72vsxsFfLlxyVGNlt\">\r\n                          {% antiforgerytoken %}\r\n                            <!-- 2 column grid layout with text inputs for the first and last names -->\r\n                            <div class=\"row mb-4\">\r\n                                <div data-aos=\"fade-right\" data-aos-delay=\"300\" class=\"col\">\r\n                                    <div class=\"form-outline\">\r\n                                        <input type=\"text\" name=\"firstName\" id=\"form3Example1\" class=\"form-control\">\r\n                                        <label class=\"form-label\" for=\"form3Example1\" style=\"margin-left: 0px;\">First\r\n                                            name</label>\r\n                                        <div class=\"form-notch\">\r\n                                            <div class=\"form-notch-leading\" style=\"width: 9px;\"></div>\r\n                                            <div class=\"form-notch-middle\" style=\"width: 68.8px;\"></div>\r\n                                            <div class=\"form-notch-trailing\"></div>\r\n                                        </div>\r\n                                    </div>\r\n                                </div>\r\n                                <div data-aos=\"fade-left\" data-aos-delay=\"300\" class=\"col\">\r\n                                    <div class=\"form-outline\">\r\n                                        <input type=\"text\" name=\"lastName\" id=\"form3Example2\" class=\"form-control\">\r\n                                        <label class=\"form-label\" for=\"form3Example2\" style=\"margin-left: 0px;\">Last\r\n                                            name</label>\r\n                                        <div class=\"form-notch\">\r\n                                            <div class=\"form-notch-leading\" style=\"width: 9px;\"></div>\r\n                                            <div class=\"form-notch-middle\" style=\"width: 68px;\"></div>\r\n                                            <div class=\"form-notch-trailing\"></div>\r\n                                        </div>\r\n                                    </div>\r\n                                </div>\r\n                            </div>\r\n\r\n                            <!-- Email input -->\r\n                            <div  data-aos=\"zoom-in\" data-aos-duration=\"1500\" data-aos-delay=\"400\" class=\"form-outline mb-4\">\r\n                                <input type=\"email\" name=\"email\" id=\"form3Example3\" class=\"form-control\">\r\n                                <label class=\"form-label\" for=\"form3Example3\" style=\"margin-left: 0px;\">Email\r\n                                    address</label>\r\n                                <div class=\"form-notch\">\r\n                                    <div class=\"form-notch-leading\" style=\"width: 9px;\"></div>\r\n                                    <div class=\"form-notch-middle\" style=\"width: 88.8px;\"></div>\r\n                                    <div class=\"form-notch-trailing\"></div>\r\n                                </div>\r\n                            </div>\r\n\r\n                            <!-- Submit button -->\r\n                            <button  data-aos=\"zoom-in\" data-aos-duration=\"1500\" data-aos-delay=\"600\" type=\"submit\" class=\"btn btn-primary btn-block mb-4\">\r\n                                Subscribe\r\n                            </button>\r\n                        </form>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n   \t\t\t</br>\r\n\t\t\t</br>\r\n        </section>\r\n\r\n        <div class=\"streak streak-photo streak-long-2 \"\r\n            style=\"background-image: url('/MaterialDesignTheme/img/mountain-lake-bg.jpg');\">\r\n            <div class=\"flex-center mask rgba-black-light\">\r\n                <div class=\"container\">\r\n\r\n                    <!-- Section heading -->\r\n                    <h3 data-aos=\"zoom-in\" data-aos-duration=\"1500\" data-aos-delay=\"100\" style=\"color: white !important\" class=\"text-center mb-5 pb-4 white-text font-weight-bold wow fadeIn\"\r\n                        style=\"visibility: visible; animation-name: fadeIn; animation-delay: 0.2s;\">\r\n                        <strong>Some facts about us</strong>\r\n                    </h3>\r\n\r\n                    <!--First row-->\r\n                    <div class=\"row text-center\">\r\n\r\n                        <!--First column-->\r\n                        <div class=\"col-md-3 mb-2\" data-aos=\"zoom-in\" data-aos-duration=\"1500\" data-aos-delay=\"200\" >\r\n                            <h1 style=\"color: white !important\" class=\" mb-1 font-weight-bold\">+20K</h1>\r\n                            <p style=\"color: white !important\" class=\" text-uppercase mt-3\">Views</p>\r\n                        </div>\r\n                        <!--/First column-->\r\n\r\n                        <!--Second column-->\r\n                        <div class=\"col-md-3 mb-2\" data-aos=\"zoom-in\" data-aos-duration=\"1500\" data-aos-delay=\"300\" >\r\n                            <h1 style=\"color: white !important\" class=\"white-text mb-1 font-weight-bold\">2K</h1>\r\n                            <p style=\"color: white !important\" class=\"white-text text-uppercase mt-3\">Watch time (hours)</p>\r\n                        </div>\r\n                        <!--/Second column-->\r\n\r\n                        <!--Third column-->\r\n                        <div class=\"col-md-3 mb-2\" data-aos=\"zoom-in\" data-aos-duration=\"1500\" data-aos-delay=\"400\" >\r\n                            <h1 style=\"color: white !important\" class=\"white-text mb-1 font-weight-bold\">+150</h1>\r\n                            <p style=\"color: white !important\" class=\"white-text text-uppercase mt-3\">Projects completed</p>\r\n                        </div>\r\n                        <!--/Third column-->\r\n\r\n                        <!--Fourth column-->\r\n                        <div class=\"col-md-3\" data-aos=\"zoom-in\" data-aos-duration=\"1500\" data-aos-delay=\"500\" >\r\n                            <h1 style=\"color: white !important\" class=\"white-text mb-1 font-weight-bold\">+500</h1>\r\n                            <p style=\"color: white !important\" class=\"white-text text-uppercase mt-3\">Subscribers</p>\r\n                        </div>\r\n                        <!--/Fourth column-->\r\n\r\n                    </div>\r\n                    <!--First row-->\r\n                </div>\r\n\r\n            </div>\r\n        </div>\r\n    </div>\r\n    <!-- Contact -->",
           "Description": "A template for the Landing Page content type"
         }
       }

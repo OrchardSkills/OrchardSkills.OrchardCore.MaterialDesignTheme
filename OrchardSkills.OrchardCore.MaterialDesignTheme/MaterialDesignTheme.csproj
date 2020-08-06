@@ -3,6 +3,13 @@
 	<PropertyGroup>
 		<TargetFramework>netcoreapp3.1</TargetFramework>
 		<AddRazorSupportForMvc>true</AddRazorSupportForMvc>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<Version>1.0.0-rc2-10001</Version>
+		<PackageId>OrchardSkills.OrchardCore.MaterialDesignTheme</PackageId>
+		<Title>Material Design Theme</Title>
+		<Authors>Orchard Skills</Authors>
+		<Description>Material Design Theme Module for Orchard Core.</Description>
+		<PackageTags>orchardcore;orchardskills;materialdesigntheme</PackageTags>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -10,22 +17,18 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="OrchardCore.Module.Targets" Version="1.0.0-rc2-13968" />
-		<PackageReference Include="OrchardCore.Admin.Abstractions" Version="1.0.0-rc2-13968" />
-		<PackageReference Include="OrchardCore.ContentManagement" Version="1.0.0-rc2-13968" />
-		<PackageReference Include="OrchardCore.ResourceManagement" Version="1.0.0-rc2-13968" />
-		<PackageReference Include="OrchardCore.DisplayManagement" Version="1.0.0-rc2-13968" />
-		<PackageReference Include="OrchardCore.Users.Abstractions" Version="1.0.0-rc2-13968" />
-		<PackageReference Include="OrchardCore.Users" Version="1.0.0-rc2-13968" />
-		<PackageReference Include="OrchardCore.Menu" Version="1.0.0-rc2-13968" />
-		<PackageReference Include="OrchardCore.Email.Abstractions" Version="1.0.0-rc2-13968" />
-		<PackageReference Include="OrchardCore.Module.Targets" Version="1.0.0-rc2-13968" />
-		<PackageReference Include="OrchardCore.Setup.Abstractions" Version="1.0.0-rc2-13968" />
-		<PackageReference Include="OrchardCore.Setup" Version="1.0.0-rc2-13968" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <Folder Include="wwwroot\js\" />
+		<PackageReference Include="OrchardCore.Module.Targets" Version="1.0.0-rc2-13450" />
+		<PackageReference Include="OrchardCore.Admin.Abstractions" Version="1.0.0-rc2-13450" />
+		<PackageReference Include="OrchardCore.ContentManagement" Version="1.0.0-rc2-13450" />
+		<PackageReference Include="OrchardCore.ResourceManagement" Version="1.0.0-rc2-13450" />
+		<PackageReference Include="OrchardCore.DisplayManagement" Version="1.0.0-rc2-13450" />
+		<PackageReference Include="OrchardCore.Users.Abstractions" Version="1.0.0-rc2-13450" />
+		<PackageReference Include="OrchardCore.Users" Version="1.0.0-rc2-13450" />
+		<PackageReference Include="OrchardCore.Menu" Version="1.0.0-rc2-13450" />
+		<PackageReference Include="OrchardCore.Email.Abstractions" Version="1.0.0-rc2-13450" />
+		<PackageReference Include="OrchardCore.Module.Targets" Version="1.0.0-rc2-13450" />
+		<PackageReference Include="OrchardCore.Setup.Abstractions" Version="1.0.0-rc2-13450" />
+		<PackageReference Include="OrchardCore.Setup" Version="1.0.0-rc2-13450" />
 	</ItemGroup>
 
 </Project>
