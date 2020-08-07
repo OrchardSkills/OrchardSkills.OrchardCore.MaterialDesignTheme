@@ -954,8 +954,8 @@
           ]
         },
         {
-          "Name": "LandingPage",
-          "DisplayName": "Landing Page",
+          "Name": "HomePage",
+          "DisplayName": "Home Page",
           "Settings": {
             "ContentTypeSettings": {
               "Creatable": true,
@@ -967,8 +967,8 @@
           },
           "ContentTypePartDefinitionRecords": [
             {
-              "PartName": "LandingPage",
-              "Name": "LandingPage",
+              "PartName": "HomePage",
+              "Name": "HomePage",
               "Settings": {
                 "ContentTypePartSettings": {
                   "Position": "8"
@@ -1939,7 +1939,7 @@
                 "PublishedUtc": null,
                 "CreatedUtc": null,
                 "Owner": null,
-                "Author": "admin",
+                "Author": "[js: parameters('AdminUsername')]",
                 "TitlePart": {
                   "Title": "Contact"
                 },
@@ -1960,12 +1960,12 @@
                       "PublishedUtc": null,
                       "CreatedUtc": null,
                       "Owner": null,
-                      "Author": "admin",
+                      "Author": "[js: parameters('AdminUsername')]",
                       "FormInputElementPart": {
                         "Name": "FullName"
                       },
                       "FormElementPart": {
-                        "Id": null
+                        "Id": "FullName"
                       },
                       "InputPart": {
                         "Type": "text",
@@ -1987,12 +1987,12 @@
                       "PublishedUtc": null,
                       "CreatedUtc": null,
                       "Owner": null,
-                      "Author": "admin",
+                      "Author": "[js: parameters('AdminUsername')]",
                       "FormInputElementPart": {
                         "Name": "Email"
                       },
                       "FormElementPart": {
-                        "Id": null
+                        "Id": "Email"
                       },
                       "InputPart": {
                         "Type": "email",
@@ -2014,12 +2014,12 @@
                       "PublishedUtc": null,
                       "CreatedUtc": null,
                       "Owner": null,
-                      "Author": "admin",
+                      "Author": "[js: parameters('AdminUsername')]",
                       "FormInputElementPart": {
                         "Name": "Message"
                       },
                       "FormElementPart": {
-                        "Id": null
+                        "Id": "Message"
                       },
                       "TextAreaPart": {
                         "DefaultValue": null,
@@ -2040,7 +2040,7 @@
                       "PublishedUtc": null,
                       "CreatedUtc": null,
                       "Owner": null,
-                      "Author": "admin",
+                      "Author": "[js: parameters('AdminUsername')]",
                       "ValidationSummaryPart": {},
                       "FlowMetadata": {
                         "Alignment": 3,
@@ -2057,12 +2057,12 @@
                       "PublishedUtc": null,
                       "CreatedUtc": null,
                       "Owner": null,
-                      "Author": "admin",
+                      "Author": "[js: parameters('AdminUsername')]",
                       "FormInputElementPart": {
                         "Name": "Submit"
                       },
                       "FormElementPart": {
-                        "Id": null
+                        "Id": "Submit"
                       },
                       "ButtonPart": {
                         "Text": "Submit",
@@ -2108,13 +2108,13 @@
         },
         {
           "ContentItemId": "[js: uuid()]",
-          "ContentType": "LandingPage",
+          "ContentType": "HomePage",
           "DisplayText": "[js: parameters('SiteName')]",
           "Latest": true,
           "Published": true,
           "Owner": "[js: parameters('AdminUsername')]",
           "Author": "[js: parameters('AdminUsername')]",
-          "LandingPage": {},
+          "HomePage": {},
           "AutoroutePart": {
             "Path": "home",
             "SetHomepage": true,
@@ -2801,9 +2801,9 @@
     {
       "name": "Templates",
       "Templates": {
-        "Content__LandingPage": {
+        "Content__HomePage": {
           "Content": "{% zone \"Header\" %}\r\n    <!-- Header -->\r\n    <header class=\"rellax\" data-rellax-speed=\"-7\">\r\n        <style>\r\n            /* Height for devices larger than 576px */\r\n            @media (min-width: 992px) {\r\n                #intro {\r\n                    margin-top: -58.59px;\r\n                }\r\n            }\r\n        </style>\r\n\r\n        <!-- Background image -->\r\n        <div id=\"intro\" class=\"bg-image shadow-1-strong \" style=\"/*! height: 100vh; */max-height: 100vh;\">\r\n            <video class=\"w-100 rellax\" style=\"min-height: 100%;\" playsinline=\"\" autoplay=\"\" muted=\"\" loop=\"\">\r\n                <source src=\"/MaterialDesignTheme/videos/heaven.mp4\" type=\"video/mp4\">\r\n            </video>\r\n            <div class=\"mask\" style=\"\r\n        background: linear-gradient(\r\n          45deg,\r\n          rgba(29, 236, 197, 0.7),\r\n          rgba(91, 14, 214, 0.7) 100%\r\n        );\r\n      \">\r\n                <div class=\"container d-flex align-items-center justify-content-center text-center h-100\">\r\n                    <div class=\"text-white\">\r\n                        <h1 data-aos=\"fade-down\" data-aos-duration=\"1500\" style=\"color: white !important\" class=\"mb-3\">Learn </h1>\r\n                      <img style=\"width: 50%;\" src=\"/MaterialDesignTheme/img/OrchardCore.png\" >\r\n                        <h5 data-aos=\"zoom-in\" data-aos-duration=\"1500\" data-aos-delay=\"600\" style=\"color: white !important\" class=\"mb-4\">Best guide to the modular CMS framework</h5>\r\n                        <a data-aos=\"fade-up\" data-aos-duration=\"1500\"  data-aos-delay=\"300\" style=\"color: white !important\" class=\"btn btn-outline-light btn-lg m-2\" href=\"https://www.youtube.com/watch?v=3pPyNKJo1iU&feature=youtu.be\"\r\n                            target=\"_blank\" rel=\"noreferrer\" role=\"button\">Get Started</a>\r\n                        <a data-aos=\"fade-up\" data-aos-duration=\"1500\"  data-aos-delay=\"300\" style=\"color: white !important\" class=\"btn btn-outline-light btn-lg m-2\" href=\"https://orchardskills.com/blog/getting-started-with-orchard-core\"\r\n                            target=\"_blank\" rel=\"noreferrer\" role=\"button\">Documentation and source code</a>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n\r\n        </div>\r\n        <!-- Background image -->\r\n    </header>\r\n    {% endzone %}\r\n\r\n\r\n    <div class=\"blur\"></div>\r\n\r\n    <div class=\"rellax-container\">\r\n        <section class=\"\">\r\n            <div class=\"container\">\r\n                </br>\r\n                </br>\r\n                <h4 data-aos=\"zoom-in\" data-aos-duration=\"1500\" class=\"mb-5 text-center\"><strong>Subscribe to our newsletter</strong></h4>\r\n\r\n                <div class=\"row d-flex justify-content-center\">\r\n                    <div class=\"col-md-6\">\r\n                        <form method=\"post\" action=\"/workflows/Invoke?token=CfDJ8Nq5Rd3xL-hBocwx2xQfhsSlI_P15VEXqdXmrP--KnS9lnALChMGoBtn7R59mK5nnfLCwNuIfw4l8C5g0W5m2VdQkZ5l2hQIkwkYWmCmZAemKNO-ugBJsy8TcoE2mKw2oVlsFvixhAdDtVhDbkaNXQYspnToNhZ5HcaIHVUdteg8DSev-9pBl62iBowsiEcOiN0pMD3OtW59I_dze1yTJ9vml7p72vsxsFfLlxyVGNlt\">\r\n                          {% antiforgerytoken %}\r\n                            <!-- 2 column grid layout with text inputs for the first and last names -->\r\n                            <div class=\"row mb-4\">\r\n                                <div data-aos=\"fade-right\" data-aos-delay=\"300\" class=\"col\">\r\n                                    <div class=\"form-outline\">\r\n                                        <input type=\"text\" name=\"firstName\" id=\"form3Example1\" class=\"form-control\">\r\n                                        <label class=\"form-label\" for=\"form3Example1\" style=\"margin-left: 0px;\">First\r\n                                            name</label>\r\n                                        <div class=\"form-notch\">\r\n                                            <div class=\"form-notch-leading\" style=\"width: 9px;\"></div>\r\n                                            <div class=\"form-notch-middle\" style=\"width: 68.8px;\"></div>\r\n                                            <div class=\"form-notch-trailing\"></div>\r\n                                        </div>\r\n                                    </div>\r\n                                </div>\r\n                                <div data-aos=\"fade-left\" data-aos-delay=\"300\" class=\"col\">\r\n                                    <div class=\"form-outline\">\r\n                                        <input type=\"text\" name=\"lastName\" id=\"form3Example2\" class=\"form-control\">\r\n                                        <label class=\"form-label\" for=\"form3Example2\" style=\"margin-left: 0px;\">Last\r\n                                            name</label>\r\n                                        <div class=\"form-notch\">\r\n                                            <div class=\"form-notch-leading\" style=\"width: 9px;\"></div>\r\n                                            <div class=\"form-notch-middle\" style=\"width: 68px;\"></div>\r\n                                            <div class=\"form-notch-trailing\"></div>\r\n                                        </div>\r\n                                    </div>\r\n                                </div>\r\n                            </div>\r\n\r\n                            <!-- Email input -->\r\n                            <div  data-aos=\"zoom-in\" data-aos-duration=\"1500\" data-aos-delay=\"400\" class=\"form-outline mb-4\">\r\n                                <input type=\"email\" name=\"email\" id=\"form3Example3\" class=\"form-control\">\r\n                                <label class=\"form-label\" for=\"form3Example3\" style=\"margin-left: 0px;\">Email\r\n                                    address</label>\r\n                                <div class=\"form-notch\">\r\n                                    <div class=\"form-notch-leading\" style=\"width: 9px;\"></div>\r\n                                    <div class=\"form-notch-middle\" style=\"width: 88.8px;\"></div>\r\n                                    <div class=\"form-notch-trailing\"></div>\r\n                                </div>\r\n                            </div>\r\n\r\n                            <!-- Submit button -->\r\n                            <button  data-aos=\"zoom-in\" data-aos-duration=\"1500\" data-aos-delay=\"600\" type=\"submit\" class=\"btn btn-primary btn-block mb-4\">\r\n                                Subscribe\r\n                            </button>\r\n                        </form>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n   \t\t\t</br>\r\n\t\t\t</br>\r\n        </section>\r\n\r\n        <div class=\"streak streak-photo streak-long-2 \"\r\n            style=\"background-image: url('/MaterialDesignTheme/img/mountain-lake-bg.jpg');\">\r\n            <div class=\"flex-center mask rgba-black-light\">\r\n                <div class=\"container\">\r\n\r\n                    <!-- Section heading -->\r\n                    <h3 data-aos=\"zoom-in\" data-aos-duration=\"1500\" data-aos-delay=\"100\" style=\"color: white !important\" class=\"text-center mb-5 pb-4 white-text font-weight-bold wow fadeIn\"\r\n                        style=\"visibility: visible; animation-name: fadeIn; animation-delay: 0.2s;\">\r\n                        <strong>Some facts about us</strong>\r\n                    </h3>\r\n\r\n                    <!--First row-->\r\n                    <div class=\"row text-center\">\r\n\r\n                        <!--First column-->\r\n                        <div class=\"col-md-3 mb-2\" data-aos=\"zoom-in\" data-aos-duration=\"1500\" data-aos-delay=\"200\" >\r\n                            <h1 style=\"color: white !important\" class=\" mb-1 font-weight-bold\">+20K</h1>\r\n                            <p style=\"color: white !important\" class=\" text-uppercase mt-3\">Views</p>\r\n                        </div>\r\n                        <!--/First column-->\r\n\r\n                        <!--Second column-->\r\n                        <div class=\"col-md-3 mb-2\" data-aos=\"zoom-in\" data-aos-duration=\"1500\" data-aos-delay=\"300\" >\r\n                            <h1 style=\"color: white !important\" class=\"white-text mb-1 font-weight-bold\">2K</h1>\r\n                            <p style=\"color: white !important\" class=\"white-text text-uppercase mt-3\">Watch time (hours)</p>\r\n                        </div>\r\n                        <!--/Second column-->\r\n\r\n                        <!--Third column-->\r\n                        <div class=\"col-md-3 mb-2\" data-aos=\"zoom-in\" data-aos-duration=\"1500\" data-aos-delay=\"400\" >\r\n                            <h1 style=\"color: white !important\" class=\"white-text mb-1 font-weight-bold\">+150</h1>\r\n                            <p style=\"color: white !important\" class=\"white-text text-uppercase mt-3\">Projects completed</p>\r\n                        </div>\r\n                        <!--/Third column-->\r\n\r\n                        <!--Fourth column-->\r\n                        <div class=\"col-md-3\" data-aos=\"zoom-in\" data-aos-duration=\"1500\" data-aos-delay=\"500\" >\r\n                            <h1 style=\"color: white !important\" class=\"white-text mb-1 font-weight-bold\">+500</h1>\r\n                            <p style=\"color: white !important\" class=\"white-text text-uppercase mt-3\">Subscribers</p>\r\n                        </div>\r\n                        <!--/Fourth column-->\r\n\r\n                    </div>\r\n                    <!--First row-->\r\n                </div>\r\n\r\n            </div>\r\n        </div>\r\n    </div>\r\n    <!-- Contact -->",
-          "Description": "A template for the Landing Page content type"
+          "Description": "A template for the Home Page content type"
         }
       }
     }
