@@ -363,7 +363,19 @@ a.badge-secondary.focus {
 .alert-warning {
   background-color: var(--html-background) !important;
 }
-
+.form-horizontal {
+  margin: auto;
+  max-width: 900px;
+}
+.form-horizontal .col-md-9 {
+  width: 100% !important;
+}
+.form-horizontal > h2 {
+  text-align: center;
+}
+.main h4, h2 {
+  text-align: center;
+}
 .rellax-container {
   position: relative;
   z-index: 999;
