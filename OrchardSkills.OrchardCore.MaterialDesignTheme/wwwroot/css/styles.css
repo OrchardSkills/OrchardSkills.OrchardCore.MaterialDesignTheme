@@ -40,7 +40,7 @@ section,
 footer {
   background-color: var(--html-background);
   z-index: 5;
-position: relative;
+  position: relative;
 }
 
 h1,
@@ -62,7 +62,7 @@ label,
   color: var(--lighter-text-color) !important;
 }
 input:-webkit-autofill,
-input:-webkit-autofill:hover, 
+input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
 input:-webkit-autofill:active,
 textarea:-webkit-autofill,
@@ -73,9 +73,8 @@ select:-webkit-autofill,
 select:-webkit-autofill:hover,
 select:-webkit-autofill:focus,
 select:-webkit-autofill:active {
-
   -webkit-text-fill-color: var(--font-color);
-  
+
   transition: background-color 5000s ease-in-out 0s !important;
 }
 .form-label {
@@ -87,8 +86,8 @@ select:-webkit-autofill:active {
   background-color: var(--html-background);
 }
 .list-group-item {
-    color: var(--font-color) !important;
-    background-color: var(--html-background) !important;
+  color: var(--font-color) !important;
+  background-color: var(--html-background) !important;
 }
 .copyright-background {
   background-color: var(--hover-color) !important;
@@ -360,6 +359,11 @@ a.badge-secondary.focus {
 #mainNav {
   transition: top 0.3s, background-color 0.4s ease-out;
 }
+
+.alert-warning {
+  background-color: var(--html-background) !important;
+}
+
 .rellax-container {
   position: relative;
   z-index: 999;
@@ -491,7 +495,6 @@ pre code {
   background-color: transparent !important;
 }
 
-
 @media (max-width: 1024px) {
 }
 
@@ -553,6 +556,6 @@ pre code {
 }
 @media (max-width: 361px) {
   .btn-lg {
-  padding: 0px 10px 0px !important;
-}
+    padding: 0px 10px 0px !important;
+  }
 }
