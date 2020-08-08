@@ -3,9 +3,9 @@
 <!-- Set your background image for this header on the line below. -->
 {% assign imagePath = Model.ContentItem.Content.AboutPage.Image.Paths.first %}
 {% if imagePath == nil %}
-<header class="masthead" style="background-image: url('{{ "~/MaterialDesignTheme/img/about-bg.jpg" | href }}')">
+<header class="rellax masthead" data-rellax-speed="-7" style="background-image: url('{{ "~/MaterialDesignTheme/img/about-bg.jpg" | href }}')">
     {% else %}
-    <header class="masthead" style="background-image: url('{{ imagePath | asset_url }}')">
+    <header class="rellax masthead" data-rellax-speed="-7" style="background-image: url('{{ imagePath | asset_url }}')">
         {% endif %}
         <div class="overlay"></div>
         <div class="container">

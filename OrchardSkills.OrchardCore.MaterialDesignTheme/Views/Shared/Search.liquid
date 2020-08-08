@@ -1,7 +1,8 @@
 {% zone "Header" %}
 <!-- Page Header -->
 <!-- Set your background image for this header on the line below. -->
-<header class="masthead" style="background-image: url('{{ "~/MaterialDesignTheme/img/search-bg.jpg" | href }}')">
+<header class="rellax masthead" data-rellax-speed="-7"
+    style="background-image: url('{{ "~/MaterialDesignTheme/img/search-bg.jpg" | href }}')">
     <div class="overlay"></div>
     <div class="container">
         <div class="row">
@@ -14,10 +15,16 @@
     </div>
 </header>
 {% endzone %}
-<div class="container">
-    {{ Model.SearchForm | shape_render }}
 
-    {{ Model.SearchResults | shape_render }}
+<section>
+    <div class="container">
+        <div class="py-3">
+        {{ Model.SearchForm | shape_render }}
 
-    {{ Model.Pager | shape_render }}
-</div>
+        {{ Model.SearchResults | shape_render }}
+
+        {{ Model.Pager | shape_render }}
+        </div>
+
+    </div>
+</section>

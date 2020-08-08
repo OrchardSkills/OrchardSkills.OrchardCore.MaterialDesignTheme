@@ -1,22 +1,25 @@
-<div class="container">
-	<div style="display:flex">
-		<h4 style="margin-right:5px">
-			<a href="/categories">
-				<span class="badge bg-primary">
-					List All Categories
-				</span>
-			</a>
-		</h4>
-		<h4>
-			<a href="/tags">
-				<span class="badge bg-secondary">
-					List All Tags
-				</span>
-			</a>
-		</h4>
+<section>
+	<div class="container">
+		<div class="py-3" style="display:flex">
+			<h4 style="margin-right:5px">
+				<a href="/categories">
+					<span class="badge bg-primary">
+						List All Categories
+					</span>
+				</a>
+			</h4>
+			<h4>
+				<a href="/tags">
+					<span class="badge bg-secondary">
+						List All Tags
+					</span>
+				</a>
+			</h4>
+		</div>
+		<br>
 	</div>
-	<br>
-</div>
+</section>
+
 
 {% for item in Model.ContentItems %}
 {{ item | shape_build_display: "Summary" | shape_render }}

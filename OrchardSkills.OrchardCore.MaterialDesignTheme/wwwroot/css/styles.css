@@ -39,6 +39,8 @@ body,
 section,
 footer {
   background-color: var(--html-background);
+  z-index: 5;
+position: relative;
 }
 
 h1,
