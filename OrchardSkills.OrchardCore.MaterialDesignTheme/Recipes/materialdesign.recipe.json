@@ -2841,8 +2841,8 @@
         "UseSiteTheme": true
       },
       "ReCaptchaSettings": {
-        "SiteKey": "6Lctbr0ZAAAAAA0FdkVjSaz-bzdW0SOb5UyvNkQN",
-        "SecretKey": "6Lctbr0ZAAAAAHAy1syR0MRkKBmYpnJr9BpkkuIV",
+        "SiteKey": "6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI",
+        "SecretKey": "6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe",
         "ReCaptchaScriptUri": "https://www.google.com/recaptcha/api.js",
         "ReCaptchaApiUri": "https://www.google.com/recaptcha/api/",
         "DetectionThreshold": 5
