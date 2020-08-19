@@ -578,3 +578,7 @@ pre code {
 .bg-VSCode {
   background-color: cornflowerblue !important;
 }
+
+.markdown-body p a {
+  text-decoration: underline;
+}

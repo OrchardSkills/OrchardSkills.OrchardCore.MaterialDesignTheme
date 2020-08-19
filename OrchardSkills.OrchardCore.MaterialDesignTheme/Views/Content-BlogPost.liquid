@@ -39,9 +39,12 @@
     
     <section>
         <div class="container">
+            <div class="markdown-body">
             {{ Model.Content.ContentsMetadata | shape_render }}
             {{ Model.Content.MarkdownBodyPart | shape_render }}
             {{ Model.Content.BlogPost-Category | shape_render }}
             {{ Model.Content.BlogPost-Tags | shape_render }}
+            </div>
+
         </div>
     </section>
