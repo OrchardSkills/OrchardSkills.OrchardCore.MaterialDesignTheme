@@ -583,3 +583,7 @@ pre code {
 .markdown-body p a {
   text-decoration: underline;
 }
+
+.widget-body label {
+  padding: 5px 0;
+}
