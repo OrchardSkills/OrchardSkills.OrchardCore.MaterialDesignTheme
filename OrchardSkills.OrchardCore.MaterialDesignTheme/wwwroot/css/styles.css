@@ -571,3 +571,10 @@ pre code {
     padding: 0px 10px 0px !important;
   }
 }
+
+.bg-Linux {
+  background-color: #fd6f53 !important;
+}
+.bg-VSCode {
+  background-color: cornflowerblue !important;
+}
