@@ -38,6 +38,8 @@
         "OrchardCore.DynamicCache",
         "OrchardCore.Features",
         "OrchardCore.Navigation",
+        "OrchardCore.ReCaptcha",
+        "OrchardCore.ReCaptcha.Users",
         "OrchardCore.Recipes",
         "OrchardCore.Resources",
         "OrchardCore.Roles",
@@ -989,6 +991,22 @@
               }
             }
           ]
+        },
+        {
+          "Name": "ReCaptcha",
+          "DisplayName": "Re Captcha",
+          "Settings": {
+            "ContentTypeSettings": {
+              "Stereotype": "Widget"
+            }
+          },
+          "ContentTypePartDefinitionRecords": [
+            {
+              "PartName": "ReCaptchaPart",
+              "Name": "ReCaptchaPart",
+              "Settings": {}
+            }
+          ]
         }
       ],
       "ContentParts": [
@@ -1088,6 +1106,15 @@
               }
             }
           ]
+        },
+        {
+          "Name": "ReCaptchaPart",
+          "Settings": {
+            "ContentPartSettings": {
+              "Description": "Provides captcha properties."
+            }
+          },
+          "ContentPartFieldDefinitionRecords": []
         },
         {
           "Name": "Subscriber",
@@ -1968,6 +1995,24 @@
                       }
                     },
                     {
+                      "ContentItemId": "424c2gayygcs9y0p1zcnfdgxdf",
+                      "ContentItemVersionId": null,
+                      "ContentType": "ReCaptcha",
+                      "DisplayText": null,
+                      "Latest": false,
+                      "Published": false,
+                      "ModifiedUtc": "2020-08-10T20:39:16.102217Z",
+                      "PublishedUtc": null,
+                      "CreatedUtc": null,
+                      "Owner": null,
+                      "Author": "[js: parameters('AdminUsername')]",
+                      "ReCaptchaPart": {},
+                      "FlowMetadata": {
+                        "Alignment": 3,
+                        "Size": 100
+                      }
+                    },
+                    {
                       "ContentItemId": "4d1g2zxrm80z25jjs0rzyvkyxv",
                       "ContentItemVersionId": null,
                       "ContentType": "ValidationSummary",
@@ -2588,8 +2633,8 @@
             {
               "ActivityId": "4kyt6yjc0nhp7zn89gmbhrbsdv",
               "Name": "HttpRedirectTask",
-              "X": 190,
-              "Y": 470,
+              "X": 40,
+              "Y": 650,
               "IsStart": false,
               "Properties": {
                 "ActivityMetadata": {
@@ -2648,6 +2693,18 @@
                   "Expression": "/workflow-issue"
                 },
                 "Permanent": false
+              }
+            },
+            {
+              "ActivityId": "4zrh7w4dktca5rjxg2x01y7nmd",
+              "Name": "ValidateReCaptchaTask",
+              "X": 550,
+              "Y": 670,
+              "IsStart": false,
+              "Properties": {
+                "ActivityMetadata": {
+                  "Title": null
+                }
               }
             }
           ],
@@ -2732,28 +2789,63 @@
             },
             {
               "Id": 0,
+              "SourceActivityId": "4hr22mvxwk0rex8khhkr9cnncp",
+              "SourceOutcomeName": "Validate FullName",
+              "DestinationActivityId": "4655jbn3247ksrt08a2b7r8yw9"
+            },
+            {
+              "Id": 0,
               "SourceActivityId": "4crzwchrbc2fkym4jbg7aed44j",
+              "SourceOutcomeName": "Valid",
+              "DestinationActivityId": "4zrh7w4dktca5rjxg2x01y7nmd"
+            },
+            {
+              "Id": 0,
+              "SourceActivityId": "4zrh7w4dktca5rjxg2x01y7nmd",
               "SourceOutcomeName": "Valid",
               "DestinationActivityId": "4tpwv7sfy0qwpy15bbh0kj3en5"
             },
             {
               "Id": 0,
-              "SourceActivityId": "4hr22mvxwk0rex8khhkr9cnncp",
-              "SourceOutcomeName": "Validate FullName",
-              "DestinationActivityId": "4655jbn3247ksrt08a2b7r8yw9"
+              "SourceActivityId": "4zrh7w4dktca5rjxg2x01y7nmd",
+              "SourceOutcomeName": "Invalid",
+              "DestinationActivityId": "4kyt6yjc0nhp7zn89gmbhrbsdv"
             }
           ]
-        }
-      ]
+        }      ]
     },
     {
       "name": "Settings",
+      "ChangeEmailSettings": {
+        "AllowChangeEmail": true
+      },
       "LoginSettings": {
         "UseSiteTheme": true,
         "UseExternalProviderIfOnlyOneDefined": false,
         "DisableLocalLogin": false,
         "UseScriptToSyncRoles": false,
         "SyncRolesScript": null
+      },
+      "RegistrationSettings": {
+        "UsersCanRegister": 1,
+        "UsersMustValidateEmail": true,
+        "UseSiteTheme": true,
+        "NoPasswordForExternalUsers": false,
+        "NoUsernameForExternalUsers": false,
+        "NoEmailForExternalUsers": false,
+        "UseScriptToGenerateUsername": false,
+        "GenerateUsernameScript": null
+      },
+      "ResetPasswordSettings": {
+        "AllowResetPassword": true,
+        "UseSiteTheme": true
+      },
+      "ReCaptchaSettings": {
+        "SiteKey": "6Lctbr0ZAAAAAA0FdkVjSaz-bzdW0SOb5UyvNkQN",
+        "SecretKey": "6Lctbr0ZAAAAAHAy1syR0MRkKBmYpnJr9BpkkuIV",
+        "ReCaptchaScriptUri": "https://www.google.com/recaptcha/api.js",
+        "ReCaptchaApiUri": "https://www.google.com/recaptcha/api/",
+        "DetectionThreshold": 5
       }
     },
     {
