@@ -403,6 +403,7 @@ a.badge-secondary.focus {
 .switch:hover {
   background-color: unset !important;
 }
+
 /* Hide default HTML checkbox */
 .switch input {
   opacity: 0;
@@ -418,7 +419,7 @@ a.badge-secondary.focus {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #464646;
+  background-color: #2196f3;
   -webkit-transition: 0.4s;
   transition: 0.4s;
 }
@@ -436,24 +437,24 @@ a.badge-secondary.focus {
   -webkit-transition: 0.4s;
   transition: 0.4s;
   box-shadow: 0 0px 15px #2020203d;
-  background: grey url("../img/night.png");
+  background: white url("../img/sunny.png");
   background-repeat: no-repeat;
   background-position: center;
 }
 
 input:checked + .slider {
-  background-color: #2196f3;
+  background-color: #696f57;
 }
 
 input:focus + .slider {
-  box-shadow: 0 0 1px #2196f3;
+  box-shadow: 0 0 1px #696f57;
 }
 
 input:checked + .slider:before {
   -webkit-transform: translateX(24px);
   -ms-transform: translateX(24px);
   transform: translateX(24px);
-  background: white url("../img/sunny.png");
+  background: grey url("../img/night.png");
   background-repeat: no-repeat;
   background-position: center;
 }
@@ -466,7 +467,6 @@ input:checked + .slider:before {
 .slider.round:before {
   border-radius: 50%;
 }
-
 .mobile-switch {
   display: none;
 }
