@@ -3,7 +3,7 @@
   --color-secondary: #ecebeb;
   --color-accent: #fd6f53;
   --hover-color: rgb(217, 216, 216);
-  --font-color: #353b43;
+  --font-color: #000000;
   --font-p-color: #353b43;
   --gradient-start: rgba(0, 0, 0, 0);
   --gradient-end: rgba(0, 0, 0, 0);
@@ -19,9 +19,9 @@
   --color-primary: #00afef;
   --color-secondary: #353b43;
   --color-accent: #12cdea;
-  --font-color: #fefefe;
+  --font-color: #fff;
   --hover-color: #353b43;
-  --font-p-color: #fefefe;
+  --font-p-color: #fff;
   --gradient-start: rgba(0, 0, 0, 0.83);
   --gradient-end: rgba(0, 0, 0, 0.8);
   --footer-navbar-color: #00afef;
@@ -61,6 +61,7 @@ label,
 .form-control {
   color: var(--lighter-text-color) !important;
 }
+input,
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
@@ -73,7 +74,7 @@ select:-webkit-autofill,
 select:-webkit-autofill:hover,
 select:-webkit-autofill:focus,
 select:-webkit-autofill:active {
-  -webkit-text-fill-color: var(--font-color);
+  -webkit-text-fill-color: var(--font-color) !important;
 
   transition: background-color 5000s ease-in-out 0s !important;
 }
@@ -402,6 +403,7 @@ a.badge-secondary.focus {
 .switch:hover {
   background-color: unset !important;
 }
+
 /* Hide default HTML checkbox */
 .switch input {
   opacity: 0;
@@ -417,7 +419,7 @@ a.badge-secondary.focus {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #464646;
+  background-color: #2196f3;
   -webkit-transition: 0.4s;
   transition: 0.4s;
 }
@@ -435,24 +437,24 @@ a.badge-secondary.focus {
   -webkit-transition: 0.4s;
   transition: 0.4s;
   box-shadow: 0 0px 15px #2020203d;
-  background: grey url("../img/night.png");
+  background: white url("../img/sunny.png");
   background-repeat: no-repeat;
   background-position: center;
 }
 
 input:checked + .slider {
-  background-color: #2196f3;
+  background-color: #696f57;
 }
 
 input:focus + .slider {
-  box-shadow: 0 0 1px #2196f3;
+  box-shadow: 0 0 1px #696f57;
 }
 
 input:checked + .slider:before {
   -webkit-transform: translateX(24px);
   -ms-transform: translateX(24px);
   transform: translateX(24px);
-  background: white url("../img/sunny.png");
+  background: grey url("../img/night.png");
   background-repeat: no-repeat;
   background-position: center;
 }
@@ -465,7 +467,6 @@ input:checked + .slider:before {
 .slider.round:before {
   border-radius: 50%;
 }
-
 .mobile-switch {
   display: none;
 }
@@ -570,4 +571,19 @@ pre code {
   .btn-lg {
     padding: 0px 10px 0px !important;
   }
+}
+
+.bg-Linux {
+  background-color: #fd6f53 !important;
+}
+.bg-VSCode {
+  background-color: cornflowerblue !important;
+}
+
+.markdown-body p a {
+  text-decoration: underline;
+}
+
+.widget-body label {
+  padding: 5px 0;
 }

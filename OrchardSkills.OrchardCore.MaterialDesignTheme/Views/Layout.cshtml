@@ -21,8 +21,8 @@
           type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
           rel='stylesheet' type='text/css'>
-
-    <link rel="canonical" href="https://orchardskills.com/" />
+    <!-- Set to actual domain name -->
+    <link rel="canonical" href="localhost" />
     <!-- Search Engine -->
     <meta name="description" content="Orchard Core, ASP.NET Core, Content Management System, Orchard Skills specializes in handcrafted Web Solutions utilizing the Orchard Core CMS modular framework.">
     <meta name="image" content="/MaterialDesignTheme/img/orchard-skills-1200x628.png">
@@ -96,10 +96,10 @@ z-index: 1030;">
         <div class="container">
             <div class="logo">
                 <a class="navbar-brand" href="~/#"><img width="40px" height="40px"
-                        src="/MaterialDesignTheme/icons/icon-57x57.png" alt="Logo">@Site.SiteName</a>
+                        src="/MaterialDesignTheme/icons/icon-90x90.png" alt="Logo">@Site.SiteName</a>
                 <!-- Toggle button -->
                 <label id="switch" class="switch navbar-item">
-                    <input type="checkbox" onchange="toggleTheme()" id="slider">
+                    <input type="checkbox" onchange="toggleTheme()" id="slider" aria-label="Theme Switch">
                     <span class="slider round"></span>
                 </label>
             </div>
@@ -117,6 +117,8 @@ z-index: 1030;">
                         href="https://www.facebook.com/Orchard-Skills-106748460853728/" 
                         target="_blank" 
                         rel="noreferrer" 
+                        aria-label="Facebook"
+                        rel="noopener"
                         class="btn logo-color btn-floating mx-1">
                         <i class="fab fa-facebook-f"></i>
                     </a>
@@ -124,6 +126,8 @@ z-index: 1030;">
                     <a style="color: #fff !important;" type="button" href="https://twitter.com/OrchardSkills/" 
                         target="_blank" 
                         rel="noreferrer" 
+                        aria-label="Twitter"
+                        rel="noopener"
                         class="btn logo-color btn-floating mx-1">
                         <i class="fab fa-twitter"></i>
                     </a>
@@ -131,6 +135,8 @@ z-index: 1030;">
                     <a style="color: #fff !important;" type="button" href="https://github.com/OrchardSkills/" 
                         target="_blank" 
                         rel="noreferrer" 
+                         aria-label="GitHub"
+                         rel="noopener"
                         class="btn logo-color btn-floating mx-1"> 
                         <i class="fab fa-github"></i>
                     </a>
@@ -139,6 +145,8 @@ z-index: 1030;">
                         href="https://www.youtube.com/channel/UCTwti4IV-uER89I39lTln0Q/" 
                         target="_blank" 
                         rel="noreferrer" 
+                         aria-label="YouTube"
+                         rel="noopener"
                         class="btn logo-color btn-floating mx-1">
                         <i class="fab fa-youtube"></i>
                     </a>
@@ -206,19 +214,19 @@ z-index: 1030;">
         }
         // function to toggle between light and dark theme
         function toggleTheme() {
-            if (localStorage.getItem('theme') === 'theme-dark') {
-                setTheme('theme-light');
-            } else {
+            if (localStorage.getItem('theme') === 'theme-light') {
                 setTheme('theme-dark');
+            } else {
+                setTheme('theme-light');
             }
         }
         // Immediately invoked function to set the theme on initial load
         (function () {
-            if (localStorage.getItem('theme') === 'theme-dark') {
-                setTheme('theme-dark');
+            if (localStorage.getItem('theme') === 'theme-light') {
+                setTheme('theme-light');
                 document.getElementById('slider').checked = false;
             } else {
-                setTheme('theme-light');
+                setTheme('theme-dark');
                 document.getElementById('slider').checked = true;
             }
         })();
