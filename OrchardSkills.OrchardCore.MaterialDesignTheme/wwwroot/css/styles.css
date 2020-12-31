@@ -10,7 +10,7 @@
   --footer-navbar-color: #00afef;
   --navbar-text: #fefefe;
   --navbar-hover-text-background: #32323b;
-  --html-background: white;
+  --htms-background: white;
   --lighter-text-color: #404750;
   --markdown-background: #404750;
 }
@@ -27,7 +27,7 @@
   --footer-navbar-color: #00afef;
   --navbar-text: #32323b;
   --navbar-hover-text-background: #fefefe;
-  --html-background: black;
+  --htms-background: black;
   --lighter-text-color: #dfdfdf;
   --markdown-background: #dfdfdf;
 }
@@ -38,7 +38,7 @@ html,
 body,
 section,
 footer {
-  background-color: var(--html-background);
+  background-color: var(--htms-background);
   z-index: 5;
   position: relative;
 }
@@ -79,16 +79,16 @@ select:-webkit-autofill:active {
   transition: background-color 5000s ease-in-out 0s !important;
 }
 .form-label {
-  background-color: var(--html-background) !important;
+  background-color: var(--htms-background) !important;
   padding: 0px 7px 0px 5px;
 }
 
 .navbar {
-  background-color: var(--html-background);
+  background-color: var(--htms-background);
 }
 .list-group-item {
   color: var(--font-color) !important;
-  background-color: var(--html-background) !important;
+  background-color: var(--htms-background) !important;
 }
 .copyright-background {
   background-color: var(--hover-color) !important;
@@ -101,7 +101,7 @@ select:-webkit-autofill:active {
 }
 
 .dropdown-menu {
-  background-color: var(--html-background) !important;
+  background-color: var(--htms-background) !important;
 }
 
 .dropdown-item.active,
@@ -362,7 +362,7 @@ a.badge-secondary.focus {
 }
 
 .alert-warning {
-  background-color: var(--html-background) !important;
+  background-color: var(--htms-background) !important;
 }
 .form-horizontal {
   margin: auto;

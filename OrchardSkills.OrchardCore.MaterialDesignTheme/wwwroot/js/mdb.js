@@ -4815,7 +4815,7 @@
         }
         function r(t) {
           var e,
-            n = t.getAttribute("data-target");
+            n = t.getAttribute("data-mdb-target");
           return (
             (n && "#" !== n) ||
               (n = (e = t.getAttribute("href")) && "#" !== e ? e.trim() : null),
@@ -5410,7 +5410,7 @@
         var rt = "button",
           ot = "bs.button",
           it = ".".concat(ot),
-          at = '[data-toggle="button"]',
+          at = '[data-mdb-toggle="button"]',
           ct = "click".concat(it).concat(".data-api"),
           st = (function () {
             function n(t) {
@@ -6280,7 +6280,7 @@
           de = "collapse",
           ge = "collapsing",
           ve = "collapsed",
-          me = '[data-toggle="collapse"]',
+          me = '[data-mdb-toggle="collapse"]',
           ye = (function () {
             function u(e, t) {
               !(function (t, e) {
@@ -6292,7 +6292,7 @@
                 (this._config = this._getConfig(t)),
                 (this._triggerArray = bt.find(
                   "".concat(me, '[href="#').concat(e.id, '"],') +
-                    "".concat(me, '[data-target="#').concat(e.id, '"]')
+                    "".concat(me, '[data-mdb-target="#').concat(e.id, '"]')
                 ));
               for (var n = bt.find(me), r = 0, o = n.length; r < o; r++) {
                 var i = n[r],
@@ -7104,7 +7104,7 @@
               o
             );
           })();
-        V.on(document, We, '[data-toggle="modal"]', function (t) {
+        V.on(document, We, '[data-mdb-toggle="modal"]', function (t) {
           var e = this,
             n = c(this);
           ("A" !== this.tagName && "AREA" !== this.tagName) ||
@@ -8667,7 +8667,7 @@
                     (this._activeTarget = e), this._clear();
                     var t = this._selector.split(",").map(function (t) {
                         return ""
-                          .concat(t, '[data-target="')
+                          .concat(t, '[data-mdb-target="')
                           .concat(e, '"],')
                           .concat(t, '[href="')
                           .concat(e, '"]');
@@ -8885,7 +8885,7 @@
         V.on(
           document,
           xr,
-          '[data-toggle="tab"], [data-toggle="pill"], [data-toggle="list"]',
+          '[data-mdb-toggle="tab"], [data-mdb-toggle="pill"], [data-mdb-toggle="list"]',
           function (t) {
             t.preventDefault(), (O.getData(this, wr) || new Cr(this)).show();
           }
@@ -9847,8 +9847,8 @@
           Jo = "keyup".concat(Fo).concat(Bo),
           Zo = "disabled",
           ti = "show",
-          ei = "dropdown-menu-right",
-          ni = '[data-toggle="dropdown"]',
+          ei = "dropdown-menu-end",
+          ni = '[data-mdb-toggle="dropdown"]',
           ri = ".dropdown-menu",
           oi = {
             offset: 0,
@@ -10157,9 +10157,9 @@
                       t.classList.contains("dropup")
                         ? ((e = "top-start"),
                           this._menu.classList.contains(ei) && (e = "top-end"))
-                        : t.classList.contains("dropright")
+                        : t.classList.contains("dropend")
                         ? (e = "right-start")
-                        : t.classList.contains("dropleft")
+                        : t.classList.contains("dropstart")
                         ? (e = "left-start")
                         : this._menu.classList.contains(ei) &&
                           (e = "bottom-end"),
@@ -10462,7 +10462,7 @@
               o
             );
           })();
-        Eo.find('[data-toggle="dropdown"]').forEach(function (t) {
+        Eo.find('[data-mdb-toggle="dropdown"]').forEach(function (t) {
           Ei.getInstance(t) || new Ei(t);
         });
         var ki,
@@ -10781,7 +10781,7 @@
         V.on(
           document,
           "click",
-          '[data-toggle="treeview"]',
+          '[data-mdb-toggle="treeview"]',
           Fi.toggleSubmenu(new Fi())
         );
         var Bi,
@@ -11208,10 +11208,10 @@
           }));
         var oa = ea,
           ia = [].slice.call(
-            document.querySelectorAll('[data-toggle="tooltip"]')
+            document.querySelectorAll('[data-mdb-toggle="tooltip"]')
           ),
           aa = [].slice.call(
-            document.querySelectorAll('[data-toggle="popover"]')
+            document.querySelectorAll('[data-mdb-toggle="popover"]')
           );
         0 < ia.length &&
           ia.map(function (t) {
