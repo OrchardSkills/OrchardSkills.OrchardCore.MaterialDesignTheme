@@ -3,13 +3,6 @@
 	<PropertyGroup>
 		<TargetFramework>netcoreapp3.1</TargetFramework>
 		<AddRazorSupportForMvc>true</AddRazorSupportForMvc>
-		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-		<Version>1.0.0-rc2-10001</Version>
-		<PackageId>OrchardSkills.OrchardCore.MaterialDesignTheme</PackageId>
-		<Title>Material Design Theme</Title>
-		<Authors>Orchard Skills</Authors>
-		<Description>Material Design Theme Module for Orchard Core.</Description>
-		<PackageTags>orchardcore;orchardskills;materialdesigntheme</PackageTags>
 	</PropertyGroup>
 
 	<ItemGroup>
