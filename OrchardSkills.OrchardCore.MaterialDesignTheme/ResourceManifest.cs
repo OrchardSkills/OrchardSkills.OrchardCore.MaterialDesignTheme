@@ -10,29 +10,31 @@ namespace OrchardCore.Themes.MaterialDesignTheme
         {
             _manifest = new ResourceManifest();
 
-
-
             _manifest
                 .DefineStyle("MaterialDesignTheme-css" )
+                .SetCdn("https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.2.0/mdb.min.css")
+                .SetCdnIntegrity("sha512-YE4ntZgHu6nnEp3CzcxwP07khLufHMwLthDhSd4SJQI2xhsdWjjjpCY7wF8e0eKhdGO6i0o1YVxZd6f1z4zN+Q==")
                 .SetUrl("~/MaterialDesignTheme/css/mdb.min.css")
-                .SetVersion("1.0.0");
+                .SetVersion("4.2.0");
 
             _manifest
                 .DefineScript("MaterialDesignTheme-js")
+                .SetCdn("https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.2.0/mdb.min.js")
+                .SetCdnIntegrity("sha512-Wq5ip5NUbm4Ka2BqR/KkJIJdRFQAdpVluNIENMHHPJysUkBtIR1MmqKu2tfPZvuJdm4q5/KQDgqLSR6BL23pFw==")
                 .SetUrl("~/MaterialDesignTheme/js/mdb.min.js")
-                .SetVersion("1.0.0");
+                .SetVersion("4.2.0");
 
             _manifest
                 .DefineStyle("MaterialDesignTheme-vendor-font-awesome")
-                .SetUrl("https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/css/all.min.css")
-                .SetCdnIntegrity("sha256-FMvZuGapsJLjouA6k7Eo2lusoAX9i0ShlWFG6qt7SLc=")
-                .SetVersion("5.14.0");
+                .SetUrl("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css")
+                .SetCdnIntegrity("sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==")
+                .SetVersion("6.1.1");
 
             _manifest
                 .DefineScript("MaterialDesignTheme-vendor-font-awesome")
-                .SetCdn("https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/js/fontawesome.min.js")
-                .SetCdnIntegrity("sha256-dNZKI9qQEpJG03MLdR2Rg9Dva1o+50fN3zmlDP+3I+Y=")
-                .SetVersion("5.14.0");
+                .SetCdn("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/js/all.min.js")
+                .SetCdnIntegrity("sha512-6PM0qYu5KExuNcKt5bURAoT6KCThUmHRewN3zUFNaoI6Di7XJPTMoT6K0nsagZKk2OB4L7E3q1uQKHNHd4stIQ==")
+                .SetVersion("6.1.1");
         }
         public void Configure(ResourceManagementOptions options)
         {
